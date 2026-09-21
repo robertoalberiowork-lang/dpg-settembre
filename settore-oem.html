@@ -1,0 +1,851 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Produzione additiva per costruttori di macchine e impianti: lotti da uno a cinquanta, varianti per cliente, ricambi del parco installato, senza stampi.">
+<title>Macchine industriali e OEM · Due Pi Greco</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/stile.css">
+</head><body>
+<!-- DPG-WEB · settore-oem · Rev. 03 · comparto 01, costruito sullo stampo dei comparti (P-03, 21/09/2026)
+     Ordine e fondi: H nero · S1 carta · S2 nero · S3 carta · S4 carta · S5 bianco · S6 carta con pannello bianco · S7 carta · C nero.
+     I blocchi neri sono due (H e S2), mai consecutivi, piu' la striscia finale. Tutti i testi stanno nel dizionario I18N in fondo.
+     Fonti dei testi: Lib 03 par. 2, 3, 5, 6 (copy approvata), scheda DPG-SET-OEM IT e DE, schede applicazione FMT, EOAT, RIC. -->
+<header class="topbar topbar--dentro"><div class="dentro">
+  <a class="marchio" href="index.html"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 855 1002" role="img" aria-label="Due Pi Greco"><title>Due Pi Greco</title><g transform="translate(0.000000,1002.000000) scale(0.100000,-0.100000)" fill-rule="evenodd"><path class="dpg-nero" fill="#0B0B0C" d="M2185 8777 c-3 -7 -4 -120 -3 -252 l3 -240 2850 -5 c1568 -3 2851 -6 2853 -8 1 -1 1 -1634 0 -3629 l-3 -3628 -3630 0 -3630 0 -3 2839 c-1 2078 -5 2843 -13 2852 -12 15 -448 21 -483 8 -15 -6 -16 -288 -16 -3105 l0 -3099 26 -10 c41 -16 8226 -13 8247 3 16 11 17 274 15 4147 l-3 4135 -3103 3 c-2502 2 -3104 0 -3107 -11z"/><path class="dpg-rosso" fill="#ED1B24" d="M555 9234 c-11 -2 -47 -9 -80 -16 -166 -31 -303 -146 -351 -294 -23 -73 -32 -335 -12 -352 12 -9 69 -12 224 -10 l209 3 11 90 c15 114 27 146 67 176 31 23 38 24 199 24 l168 0 37 -38 38 -37 0 -124 c0 -192 8 -187 -415 -291 -325 -80 -374 -100 -451 -182 -89 -95 -94 -120 -94 -483 l0 -315 715 0 715 0 0 190 0 190 -490 5 -490 5 -3 35 c-4 47 34 120 74 142 17 10 69 27 115 38 110 27 253 63 379 97 335 91 429 226 417 596 -8 225 -38 320 -133 414 -115 112 -211 136 -564 139 -146 1 -274 1 -285 -2z M2289 6883 c-23 -38 -72 -113 -108 -168 -35 -55 -82 -127 -103 -159 -21 -33 -38 -67 -38 -77 0 -11 27 -34 73 -63 257 -160 309 -192 325 -201 9 -6 36 -23 60 -38 23 -15 59 -37 80 -48 20 -11 51 -29 67 -39 17 -10 41 -25 55 -33 14 -7 84 -47 155 -89 127 -73 263 -148 316 -175 15 -7 32 -20 39 -28 13 -16 13 -19 -20 -140 -12 -44 -26 -96 -30 -115 -4 -19 -25 -98 -45 -175 -21 -77 -41 -156 -45 -176 -3 -19 -10 -41 -14 -47 -3 -6 -10 -30 -15 -54 -5 -24 -26 -106 -46 -183 -21 -77 -41 -156 -45 -175 -4 -19 -25 -98 -45 -175 -21 -77 -41 -156 -45 -175 -5 -19 -18 -71 -30 -115 -12 -44 -26 -96 -30 -115 -5 -19 -18 -71 -30 -115 -12 -44 -26 -96 -30 -115 -4 -19 -25 -98 -45 -175 -21 -77 -41 -156 -45 -175 -9 -38 -56 -215 -91 -345 -11 -44 -25 -96 -29 -115 -5 -19 -18 -71 -30 -115 -12 -44 -26 -96 -30 -115 -4 -19 -15 -62 -24 -95 -23 -86 -21 -103 12 -111 15 -4 70 -18 122 -32 52 -13 111 -28 130 -32 19 -4 71 -18 115 -31 44 -12 98 -23 119 -23 43 -1 43 -2 79 139 9 33 21 80 28 105 6 25 15 61 19 80 4 19 18 71 30 115 12 44 26 96 30 115 4 19 22 87 38 150 87 330 105 398 112 431 3 19 10 41 14 47 3 6 10 30 15 54 5 24 25 106 46 183 20 77 41 156 45 175 4 19 22 87 38 150 85 321 105 398 112 430 4 19 18 71 30 115 12 44 26 96 30 115 4 19 25 98 45 175 21 77 41 156 46 175 54 232 56 234 127 204 127 -55 332 -106 422 -107 78 0 206 30 369 89 114 41 119 41 127 7 3 -16 10 -41 15 -58 5 -16 23 -84 39 -150 38 -144 81 -309 122 -465 16 -63 34 -131 38 -150 4 -19 24 -98 45 -175 50 -193 89 -340 140 -540 24 -93 58 -224 75 -290 18 -66 36 -136 40 -155 4 -19 18 -71 30 -115 12 -44 26 -96 30 -115 4 -19 18 -71 30 -115 12 -44 25 -96 30 -115 4 -19 24 -96 43 -170 48 -181 73 -279 81 -314 7 -27 9 -28 54 -23 26 3 72 13 102 22 53 15 294 79 335 89 11 3 32 7 48 11 32 6 34 23 11 104 -22 81 -40 147 -59 221 -9 36 -22 88 -29 115 -8 28 -20 77 -29 110 -52 199 -65 251 -92 355 -10 36 -23 88 -30 115 -7 28 -19 70 -26 95 -6 25 -15 61 -19 80 -7 35 -52 204 -92 350 -11 41 -24 91 -28 110 -4 19 -24 98 -45 175 -20 77 -41 156 -45 175 -4 19 -18 71 -30 115 -12 44 -25 96 -30 115 -7 32 -31 124 -112 430 -16 63 -34 131 -38 150 -14 65 -32 135 -45 175 -25 74 -28 121 -10 139 9 9 20 16 25 16 5 0 44 20 86 45 41 25 78 45 81 45 3 0 39 20 80 45 40 25 76 45 79 45 7 0 583 348 717 433 53 34 97 68 97 76 0 8 -20 44 -43 80 -24 37 -64 98 -89 136 -129 201 -160 246 -172 251 -8 3 -60 -24 -117 -60 -148 -93 -623 -378 -694 -417 -33 -18 -73 -40 -90 -50 -16 -10 -50 -29 -75 -42 -25 -14 -74 -41 -110 -61 -184 -102 -527 -265 -660 -313 -158 -59 -207 -53 -459 54 -79 34 -460 223 -541 270 -19 11 -71 39 -115 63 -94 51 -313 176 -430 247 -114 67 -357 217 -422 260 -46 29 -89 53 -97 53 -7 0 -33 -30 -57 -67z"/></g></svg></span><b>DUE PI GRECO</b></a>
+  <span class="targhetta">Demo · Rev. 03</span>
+  <span class="spazio"></span>
+  <button type="button" class="lang attiva" data-lang="it" aria-pressed="true">IT</button>
+  <button type="button" class="lang" data-lang="de" aria-pressed="false">DE</button>
+  <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+</div></header>
+
+<main id="contenuto">
+
+<!-- H · hero · nero (1 di 2). La tavola e' in linea perche' i richiami si traducono con la pagina. -->
+<section class="sez sez--nero hero" id="hero"><div class="dentro">
+  <div>
+    <p class="briciole"><a href="index.html">← <span data-i="brife"></span></a></p>
+    <span class="occhiello" data-i="set"></span>
+    <h1 data-i="h1"></h1>
+    <p class="intro" data-i="intro"></p>
+    <p class="azioni"><a class="bottone" href="#quotazione" data-i="cta1"></a>
+      <a class="bottone contorno" href="#conto" data-i="cta2"></a></p>
+  </div>
+  <figure class="tavola">
+<div class="tav-cad"><img src="assets/oem_hero_cad.webp" width="1800" height="1260" alt="" data-i-alt="alt_hero" fetchpriority="high">
+<svg class="richiami richiami-cad" viewBox="0 0 1800 1260" aria-hidden="true">
+<path d="M1500 640 L1300 78"/>
+<path d="M358 495 L200 228"/>
+<path d="M1405 925 L1420 1160"/>
+<path d="M430 1010 L230 1160"/>
+<path d="M600 775 L330 752"/>
+<circle cx="1500" cy="640" r="8"/>
+<circle cx="358" cy="495" r="8"/>
+<circle cx="1405" cy="925" r="8"/>
+<circle cx="430" cy="1010" r="8"/>
+<circle cx="600" cy="775" r="8"/>
+<text x="1130" y="58" data-i="k1"></text>
+<text x="30" y="205" data-i="k2"></text>
+<text x="1330" y="1190" data-i="k3"></text>
+<text x="60" y="1190" data-i="k4"></text>
+<text x="60" y="760" data-i="k5"></text>
+</svg></div>
+    <figcaption><span class="tav-c" data-i="tav_c"></span><span class="tav-d" data-i="dida"></span></figcaption>
+  </figure>
+</div></section>
+
+<!-- S1 · il conto · carta -->
+<section class="sez sez--carta" id="conto"><div class="dentro reveal">
+  <div class="testa">
+    <span class="occhiello" data-i="s1o"></span>
+    <h2 data-i="s1t"></h2>
+    <p class="sotto-h" data-i="s1p"></p>
+  </div>
+  <div class="griglia4">
+    <div class="blocco"><h3 data-i="b1t"></h3><p data-i="b1p"></p><span class="tag" data-i="b1g"></span></div>
+    <div class="blocco"><h3 data-i="b2t"></h3><p data-i="b2p"></p><span class="tag" data-i="b2g"></span></div>
+    <div class="blocco"><h3 data-i="b3t"></h3><p data-i="b3p"></p><span class="tag" data-i="b3g"></span></div>
+    <div class="blocco"><h3 data-i="b4t"></h3><p data-i="b4p"></p><span class="tag" data-i="b4g"></span></div>
+  </div>
+  <p class="sotto-h coda" data-i="s1q"></p>
+</div></section>
+
+<!-- S2 · dentro l'applicazione · nero (2 di 2): tre famiglie, ciascuna con la sua tavola e la sua distinta.
+     I numeri sulle tavole sono marcatori HTML, non testo dentro l'immagine: cosi' la tavola non dipende dalla lingua.
+     Posizioni in percentuale: estremo libero delle linee di richiamo, calcolate da build/tavole_oem.py. -->
+<section class="sez sez--nero" id="dentro"><div class="dentro">
+  <div class="testa reveal">
+    <span class="occhiello" data-i="s2o"></span>
+    <h2 data-i="s2t"></h2>
+    <p class="sotto-h" data-i="s2p"></p>
+  </div>
+  <figure class="striscia reveal">
+    <div class="famiglie">
+      <div class="famiglia">
+        <h3 class="n" data-i="p1"></h3>
+        <div class="mappa-img">
+          <img src="assets/oem_a_cad.webp" width="1500" height="1050" loading="lazy" decoding="async"
+            alt="Tavola tecnica: set di cambio formato con coclea, stella, piastra con tazze e guide, parti additive in rosso" data-i-alt="alt_p1">
+          <ol class="marcatori" aria-hidden="true"><li style="--x:45.52%;--y:40.55%">01</li><li style="--x:80.50%;--y:47.99%">02</li><li style="--x:29.05%;--y:75.43%">03</li><li style="--x:92.18%;--y:60.13%">04</li></ol>
+        </div>
+        <table class="distinta">
+          <thead class="solo-lettore"><tr><th scope="col" data-i="d_cod"></th><th scope="col" data-i="d_comp"></th></tr></thead>
+          <tbody>
+            <tr><td class="cod">01</td><td><span data-i="d1"></span><span class="spec" data-i="e1"></span></td></tr>
+            <tr><td class="cod">02</td><td><span data-i="d2"></span><span class="spec" data-i="e2"></span></td></tr>
+            <tr><td class="cod">03</td><td><span data-i="d3"></span><span class="spec" data-i="e3"></span></td></tr>
+            <tr><td class="cod">04</td><td><span data-i="d4"></span><span class="spec" data-i="e4"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="famiglia">
+        <h3 class="n" data-i="p2"></h3>
+        <div class="mappa-img">
+          <img src="assets/oem_b_cad.webp" width="1500" height="1200" loading="lazy" decoding="async"
+            alt="Tavola tecnica: pinza con dita di presa sopra un pallet con nidi porta-pezzo, parti additive in rosso" data-i-alt="alt_p2">
+          <ol class="marcatori" aria-hidden="true"><li style="--x:47.11%;--y:47.55%">05</li><li style="--x:59.50%;--y:64.58%">06</li><li style="--x:53.97%;--y:79.31%">07</li><li style="--x:27.07%;--y:72.45%">08</li></ol>
+        </div>
+        <table class="distinta">
+          <thead class="solo-lettore"><tr><th scope="col" data-i="d_cod"></th><th scope="col" data-i="d_comp"></th></tr></thead>
+          <tbody>
+            <tr><td class="cod">05</td><td><span data-i="d5"></span><span class="spec" data-i="e5"></span></td></tr>
+            <tr><td class="cod">06</td><td><span data-i="d6"></span><span class="spec" data-i="e6"></span></td></tr>
+            <tr><td class="cod">07</td><td><span data-i="d7"></span><span class="spec" data-i="e7"></span></td></tr>
+            <tr><td class="cod">08</td><td><span data-i="d8"></span><span class="spec" data-i="e8"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="famiglia">
+        <h3 class="n" data-i="p3"></h3>
+        <div class="mappa-img">
+          <img src="assets/oem_c_cad.webp" width="1500" height="1200" loading="lazy" decoding="async"
+            alt="Tavola tecnica: strumento da banco con carter sollevato, guida scheda, staffa e rack porta-campione, parti additive in rosso" data-i-alt="alt_p3">
+          <ol class="marcatori" aria-hidden="true"><li style="--x:29.13%;--y:46.33%">09</li><li style="--x:54.97%;--y:41.67%">10</li><li style="--x:26.05%;--y:62.53%">11</li><li style="--x:60.64%;--y:87.26%">12</li></ol>
+        </div>
+        <table class="distinta">
+          <thead class="solo-lettore"><tr><th scope="col" data-i="d_cod"></th><th scope="col" data-i="d_comp"></th></tr></thead>
+          <tbody>
+            <tr><td class="cod">09</td><td><span data-i="d9"></span><span class="spec" data-i="e9"></span></td></tr>
+            <tr><td class="cod">10</td><td><span data-i="d10"></span><span class="spec" data-i="e10"></span></td></tr>
+            <tr><td class="cod">11</td><td><span data-i="d11"></span><span class="spec" data-i="e11"></span></td></tr>
+            <tr><td class="cod">12</td><td><span data-i="d12"></span><span class="spec" data-i="e12"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <figcaption><span class="tav-c" data-i="tav_c"></span><span class="tav-d" data-i="dida2"></span></figcaption>
+  </figure>
+  <p class="nota-mono reveal" data-i="d_nota"></p>
+</div></section>
+
+<!-- S3 · materiali · carta -->
+<section class="sez sez--carta" id="materiali"><div class="dentro reveal">
+  <div class="testa">
+    <span class="occhiello" data-i="s3o"></span>
+    <h2 data-i="s3t"></h2>
+  </div>
+  <div class="tab-scorri"><table class="dati">
+    <thead><tr><th scope="col" data-i="m_mat"></th><th scope="col" data-i="m_pro"></th><th scope="col" data-i="m_per"></th></tr></thead>
+    <tbody>
+      <tr><td class="mat">PA2200 (PA12)</td><td class="mat">SLS</td><td data-i="m1"></td></tr>
+      <tr><td class="mat" data-i="m2n"></td><td class="mat">SAF</td><td data-i="m2"></td></tr>
+      <tr><td class="mat">Nylon 12CF</td><td class="mat">FDM</td><td data-i="m3"></td></tr>
+      <tr><td class="mat">TPU 90A</td><td class="mat">SLS</td><td data-i="m4"></td></tr>
+      <tr><td class="mat">Ultem 9085</td><td class="mat">FDM</td><td data-i="m5"></td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<!-- S4 · casi · carta, separata da un filo -->
+<section class="sez sez--carta sez--filo" id="casi"><div class="dentro reveal">
+  <div class="testa">
+    <span class="occhiello" data-i="s4o"></span>
+    <h2 data-i="s4t"></h2>
+  </div>
+  <div class="casi">
+    <div class="caso"><h3 data-i="c1t"></h3><p data-i="c1p"></p></div>
+    <div class="caso"><h3 data-i="c2t"></h3><p data-i="c2p"></p></div>
+  </div>
+</div></section>
+
+<!-- S5 · la scala delle finiture · bianco (modulo dello stampo, invariato) -->
+<section class="sez sez--bianco" id="finiture"><div class="dentro">
+  <div class="testa reveal">
+    <span class="occhiello" data-i="s5o"></span>
+    <h2 data-i="s5t"></h2>
+    <p class="sotto-h" data-i="s5p"></p>
+  </div>
+  <div class="provini reveal">
+    <button type="button" class="provino attivo" data-f="F0" aria-pressed="true"><span class="slot-foto"><span class="tx" data-i="slot_foto" data-f="F0"></span></span><span class="chip c-F0"></span><span class="nome">F0</span></button>
+    <button type="button" class="provino" data-f="F1" aria-pressed="false"><span class="slot-foto"><span class="tx" data-i="slot_foto" data-f="F1"></span></span><span class="chip c-F1"></span><span class="nome">F1</span></button>
+    <button type="button" class="provino" data-f="F2" aria-pressed="false"><span class="slot-foto"><span class="tx" data-i="slot_foto" data-f="F2"></span></span><span class="chip c-F2"></span><span class="nome">F2 · 2K</span></button>
+    <button type="button" class="provino" data-f="F3" aria-pressed="false"><span class="slot-foto"><span class="tx" data-i="slot_foto" data-f="F3"></span></span><span class="chip c-F3"></span><span class="nome">F3</span></button>
+  </div>
+  <div class="fin-mod reveal">
+    <div class="viewer"><div id="scena3d" role="img" aria-label="" data-i-aria="aria_viewer"></div></div>
+    <div class="pannello">
+      <span class="tagf" id="fin_tag"></span>
+      <h3 id="fin_tit"></h3>
+      <p id="fin_txt"></p>
+      <div class="ral" id="fin_ral" hidden>
+        <span class="catena" data-i="colore"></span>
+        <button type="button" class="swatch attivo" data-ral="9005" style="background:#0A0A0C" title="RAL 9005" aria-label="RAL 9005" aria-pressed="true"></button>
+        <button type="button" class="swatch" data-ral="3020" style="background:#BB1E10" title="RAL 3020" aria-label="RAL 3020" aria-pressed="false"></button>
+        <button type="button" class="swatch" data-ral="7040" style="background:#9BA0A4" title="RAL 7040" aria-label="RAL 7040" aria-pressed="false"></button>
+        <button type="button" class="swatch" data-ral="9003" style="background:#F2F3F0" title="RAL 9003" aria-label="RAL 9003" aria-pressed="false"></button>
+        <button type="button" class="swatch" data-ral="5010" style="background:#004F7C" title="RAL 5010" aria-label="RAL 5010" aria-pressed="false"></button>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- S6 · preventivo indicativo · carta, campi nel pannello bianco. Preset del comparto: Lib 03 par. 8 -->
+<section class="sez sez--carta" id="quotazione"><div class="dentro">
+  <div class="testa reveal">
+    <span class="occhiello" data-i="s6o"></span>
+    <h2 data-i="s6t"></h2>
+    <p class="sotto-h" data-i="s6p"></p>
+  </div>
+  <div class="pannello-prev reveal">
+    <div class="avviso-demo"><span class="tg">Demo</span><p><span data-i="demo_d"></span> <span data-i="trasp"></span></p></div>
+    <div class="prev">
+      <div>
+        <div class="dropzone" id="q_drop" role="button" tabindex="0"><span data-i="drop"></span><br><span id="q_ok" class="esito" aria-live="polite"></span></div>
+        <p class="esempio"><button type="button" class="link-mono" id="q_es" data-i="es_btn"></button></p>
+        <div class="griglia-form griglia-form--misure">
+          <div class="campo campo--largo"><label for="q_vol" data-i="vol"></label><input id="q_vol" type="number" step="1" min="0" inputmode="decimal"></div>
+          <div class="campo"><label for="q_x">X mm</label><input id="q_x" type="number" step="1" min="0" inputmode="decimal"></div>
+          <div class="campo"><label for="q_y">Y mm</label><input id="q_y" type="number" step="1" min="0" inputmode="decimal"></div>
+          <div class="campo"><label for="q_z">Z mm</label><input id="q_z" type="number" step="1" min="0" inputmode="decimal"></div>
+          <div class="campo campo--largo"><label for="q_q" data-i="qta"></label><input id="q_q" type="number" step="1" min="1" value="10" inputmode="numeric"></div>
+        </div>
+        <div class="griglia-form">
+          <div class="campo" role="group" aria-labelledby="l_proc"><span class="etichetta" id="l_proc" data-i="proc"></span>
+            <div class="scelta-tec">
+              <button type="button" class="tec attiva" data-t="SLS" aria-pressed="true">SLS</button>
+              <button type="button" class="tec" data-t="FDM" aria-pressed="false">FDM</button>
+              <select id="q_mat" aria-labelledby="l_proc"></select>
+            </div></div>
+        </div>
+      </div>
+      <div>
+        <div class="fascia-hero">
+          <div class="k" data-i="fascia_k"></div>
+          <div class="v" id="q_v">·</div>
+          <div class="u" id="q_u"></div>
+        </div>
+        <table class="fasce" id="q_tab"></table>
+        <a class="bottone" id="q_cta" href="#quotazione" data-i="cta"></a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- S7 · il rovescio · carta, riquadro panna con filo nero -->
+<section class="sez sez--carta sez--filo" id="rovescio"><div class="dentro reveal">
+  <div class="rovescio"><b data-i="rov_t"></b><br><span data-i="rov_p"></span></div>
+</div></section>
+
+</main>
+
+<!-- C · striscia finale · nero -->
+<section class="cta-strip"><div class="dentro reveal">
+  <div class="cta-testo">
+    <h2 data-i="fine_t"></h2>
+    <p data-i="fine_p"></p>
+  </div>
+  <p class="azioni"><a class="bottone" href="mailto:info@duepigreco3d.it" data-i="scrivi"></a>
+    <a class="bottone contorno" href="#quotazione" data-i="cta1"></a></p>
+</div></section>
+
+<footer class="piede">
+<div class="cartiglio">
+  <span><b data-i="c_doc"></b> DPG-WEB · settore-oem</span>
+  <span><b data-i="c_rev"></b> Rev. 03 · demo</span>
+  <span><b data-i="c_base"></b> Lib 03</span>
+  <span><b data-i="c_anno"></b> 2026</span>
+  <span data-i="c_de"></span>
+  <span><b>Due Pi Greco S.r.l.</b> · Ponzano Veneto / Resana (TV)</span>
+  <span>duepigreco3d.it · info@duepigreco3d.it · +39 0423 715172</span>
+</div>
+</footer>
+
+<script src="js/bundle3d.js"></script>
+<script>
+/* Dizionario: una chiave per riga, stesse chiavi nelle tre lingue. Le chiavi comuni a tutti i comparti (finiture, preventivo,
+   cartiglio) sono copiate dallo stampo settore-vsp e non vanno riscritte qui; quelle del comparto stanno in build/build_oem.py.
+   Il DE e' una bozza: lo rilegge Roberto. */
+const I18N={
+"it":{
+"brife":"Tutti i settori",
+"cta1":"Preventivo indicativo",
+"cta2":"Vedi il conto",
+"s1o":"Il conto che conoscete",
+"s1t":"Quattro voci del vostro conto economico",
+"s3o":"Materiali",
+"s3t":"I materiali per il settore",
+"m_mat":"Materiale",
+"m_pro":"Processo",
+"m_per":"Perché qui",
+"s4o":"Casi",
+"s5o":"La scala delle finiture",
+"s5t":"Il pezzo è lo stesso. Cambia quanto lontano lo portiamo.",
+"s5p":"Trascinate per ruotare il pezzo, scegliete il livello. Resa da modello 3D, dichiarata: i provini reali si toccano in sede.",
+"f0t":"F0 · Grezzo tecnico",
+"f0p":"Bianco da macchina, trama di sinterizzazione a vista. Per parti funzionali interne, dime e attrezzaggi.",
+"f0g":"incluso",
+"f1t":"F1 · Sabbiato uniforme",
+"f1p":"Pallinatura che uniforma la grana: opaco omogeneo, tatto asciutto. La base giusta prima del colore.",
+"f1g":"incluso nella fascia",
+"f2t":"F2 · Verniciato a liquido 2K",
+"f2p":"Stuccatura, carteggiatura, fondo e smalto poliuretanico 2K: opaco, lucido o goffrato, colore esatto a specifica, livello estetico end-user. Con giochi sotto 0,3 mm l'accoppiamento tra particolari verniciati non si garantisce.",
+"f2g":"il cavallo di battaglia · quotata a parte",
+"f3t":"F3 · Grado cleanroom",
+"f3p":"Pulizia e controllo del processo per ambienti controllati, fino alla verniciatura in grado camera bianca. Solo SLS.",
+"f3g":"solo SLS · quotata a parte",
+"colore":"Colore a specifica",
+"s6o":"Preventivo indicativo",
+"s6t":"La fascia di prezzo, in un minuto",
+"s6p":"Caricate lo STEP o l'STL, o inserite i dati a mano. Il file non viene caricato su nessun server: l'analisi avviene nel vostro browser.",
+"drop":"Trascinate qui il file STL, o cliccate per sceglierlo",
+"vol":"Volume cm³",
+"qta":"Quantità",
+"proc":"Processo e materiale",
+"fascia_k":"Indicativamente, al pezzo",
+"f_q":"Quantità",
+"f_f":"Fascia al pezzo",
+"da":"da",
+"compila":"Inserite volume e dimensioni, o caricate lo STL.",
+"surich":"Per questo materiale la fascia si prepara su richiesta: chiedete la quotazione.",
+"trasp":"Sul prezzo reale incide anche la saturazione della camera di stampa. La fascia è indicativa e non vincolante: la conferma è di una persona, entro 24 ore lavorative.",
+"cta":"Chiedete la conferma in 24 ore",
+"cta_req":"Chiedete la quotazione",
+"rov_t":"Il rovescio",
+"fine_t":"Mandateci lo STEP di un componente.",
+"fine_p":"Vi diciamo anche quando non conviene.",
+"scrivi":"Scriveteci",
+"c_doc":"Documento",
+"c_rev":"Revisione",
+"file_ok":"letto nel browser",
+"err_stl":"File non riconosciuto o troppo grande: inseritelo a mano o mandatecelo per mail.",
+"tav_c":"Tavola tecnica, non fotografia · DPG-WEB",
+"d_cod":"Cod.",
+"slot_foto":"Foto del provino {f}, in arrivo dalla sessione fotografica",
+"aria_viewer":"Vista 3D del pezzo campione: trascinate per ruotare",
+"demo_d":"I parametri di questa demo sono di esempio: la fascia non è un'offerta.",
+"c_base":"Base",
+"c_anno":"Anno",
+"c_de":"DE: bozza da rileggere",
+"titolo":"Macchine industriali e OEM · Due Pi Greco",
+"meta_d":"Produzione additiva per costruttori di macchine e impianti: lotti da uno a cinquanta, varianti per cliente, ricambi del parco installato, senza stampi.",
+"set":"Settore 01 · Macchine industriali e OEM",
+"h1":"La vostra produzione è già una serie piccola.",
+"intro":"Ogni macchina è una commessa: lotti da uno a cinquanta, varianti per ogni cliente, ricambi da garantire per vent'anni. Nessuno stampo si ammortizza su numeri così. Guardate la vostra macchina: le parti in rosso, oggi, si producono meglio in additive.",
+"s1p":"Il componente in plastica della vostra macchina oggi passa da uno stampo che non si ripaga, da un minimo d'ordine che riempie uno scaffale, o da una lavorazione dal pieno che costa come il gruppo che serve. E ogni variante ricomincia il giro.",
+"s1q":"Siamo a Treviso, non dietro un configuratore: il primo articolo lo discutiamo al vostro banco, e per un lotto piccolo siamo dimensionati per lavorarci con margine, non per tollerarlo.",
+"b1t":"Serie piccole senza stampi",
+"b1p":"Sotto la soglia di ammortamento dell'attrezzatura, il pezzo stampato perde. Si produce alla firma dell'ordine: capitale libero, nessun minimo.",
+"b1g":"costo per pezzo stabile dal n° 1 al n° 50",
+"b2t":"Varianti per cliente, a costo di file",
+"b2p":"La versione per il cliente tedesco e quella per il francese sono due file, non due attrezzaggi. La modifica entra in produzione in giorni.",
+"b2g":"nessun riattrezzaggio · revisioni in tempo reale",
+"b3t":"Ricambi e magazzino digitale",
+"b3p":"L'obbligo ricambi non invecchia a scaffale: si riordina quando serve, identico al lotto precedente, perché il lotto è tracciato. A disegno perduto: rilievo 3D e reverse engineering.",
+"b3g":"tracciabilità di lotto · riordino identico",
+"b4t":"Consolidamento e peso",
+"b4p":"Gruppi multipezzo diventano monoblocco: meno assemblaggio, meno codici a distinta, meno punti di guasto. E la poliammide pesa un terzo dell'alluminio.",
+"b4g":"canali e funzioni integrati nel corpo",
+"k1":"CARTER E PROTEZIONI",
+"k2":"STAFFE E SUPPORTI",
+"k3":"GUIDE PRODOTTO",
+"k4":"DIME E ATTREZZAGGI",
+"k5":"GRIPPER / EOAT",
+"dida":"Cella di automazione con cambio formato e stazione di presa, tavola isometrica. In rosso: le parti che si producono in additive.",
+"alt_hero":"Tavola tecnica: cella di automazione con portale, coclea, stella di formato e pallet con nidi, in assonometria; in rosso il pannello carter, il gripper, la dima, la staffa e le guide prodotto",
+"s2o":"Dentro la macchina",
+"s2t":"Dove stanno le parti in additive",
+"s2p":"Tre famiglie di parti che cambiano con il formato, con la commessa e con il cliente: il cambio formato, la presa con i suoi attrezzaggi, i carter con i loro ricambi. I numeri sulle tavole rimandano alla distinta sotto ciascuna.",
+"p1":"A · Cambio formato",
+"p2":"B · Presa e attrezzaggi",
+"p3":"C · Carter e ricambi",
+"alt_p1":"Tavola tecnica: set di cambio formato con coclea, stella, piastra con tazze e guide, parti additive in rosso",
+"alt_p2":"Tavola tecnica: pinza con dita di presa sopra un pallet con nidi porta-pezzo, parti additive in rosso",
+"alt_p3":"Tavola tecnica: strumento da banco con carter sollevato, guida scheda, staffa e rack porta-campione, parti additive in rosso",
+"d_comp":"Componente, materiale e finitura",
+"d1":"Coclea a passo variabile",
+"e1":"PA2200 · SLS · F1",
+"d2":"Stella di formato",
+"e2":"PA2200 · SLS · F1 · inserti cedevoli in TPU 90A",
+"d3":"Piastra e tazze",
+"e3":"PA2200 · SLS, o Nylon 12CF · FDM · F0",
+"d4":"Guide di formato",
+"e4":"PA2200 · SLS, o Nylon 12CF · FDM · F1",
+"d5":"Corpo pinza con canale del vuoto",
+"e5":"PA2200 · SLS · F0",
+"d6":"Dita di presa",
+"e6":"PA2200 · SLS · F0 · interfacce in TPU 90A",
+"d7":"Nido porta-pezzo",
+"e7":"PA2200 · SLS · F0",
+"d8":"Pallet",
+"e8":"PA2200 · SLS · F0",
+"d9":"Guida scheda",
+"e9":"PA2200 · SLS · F0",
+"d10":"Carter con clip e torrette",
+"e10":"PA2200 · SLS · F2, colore a specifica",
+"d11":"Staffa",
+"e11":"Nylon 12CF · FDM · F0",
+"d12":"Rack porta-campione",
+"e12":"PA2200 · SLS · F1",
+"dida2":"Geometrie disegnate da noi, non macchine di un costruttore. In rosso: le parti che si producono in additive.",
+"d_nota":"Materiale e finitura sono indicativi: si confermano insieme, sul vostro disegno. La scala da F0 a F3 è spiegata più sotto.",
+"m1":"il tuttofare della serie: da −40 a +80 °C sotto carico, sterilizzabile; sulle linee alimentari, con dichiarazione di conformità al contatto (Reg. UE 10/2011). Non è ignifugo: UL94 HB",
+"m2n":"Polipropilene",
+"m2":"chimica di acidi, basi e detergenti; serie medie e alte. Capacità a programma: la disponibilità si verifica sulla commessa",
+"m3":"attrezzaggi e staffe: rigidità estrema a peso minimo",
+"m4":"interfacce di presa cedevoli, antiscivolo; contatto pelle, non prodotto; limite pratico intorno a 70 °C",
+"m5":"carter dove serve la classificazione al fuoco: UL94 V-0 a livello di materiale, non del pezzo; il percorso di qualifica sul componente si costruisce insieme",
+"s4t":"In produzione, oggi",
+"c1t":"Filtrazione industriale: pannelli in serie ricorrente",
+"c1p":"Per un costruttore di sistemi di filtrazione industriale produciamo in continuativo pannelli tecnici in polipropilene sinterizzato: serie ricorrente, riordino a magazzino digitale, lotto tracciato. Non un prototipo: una fornitura.",
+"c2t":"Forni professionali: cassetti e profili in lotti piccoli",
+"c2p":"Per un costruttore di forni professionali produciamo in serie ricorrente cassetti e profili raccogligocce in PA2200: componenti a contatto con il prodotto, pareti da 2,5 mm, riordinati in lotti piccoli, lotto tracciato.",
+"rov_p":"Sotto la scala delle macchine da tavolo, il pezzo ve lo fate in casa e fate bene. Sopra i volumi da stampo, torna lo stampo, e vi aiutiamo noi a fare il passaggio. E il ricambio strutturale in metallo resta in metallo: quando serve, lo instradiamo alla nostra rete di partner qualificati.",
+"es_btn":"Provate con un esempio: carter, 182 × 124 × 58 mm",
+"es_ok":"Esempio caricato: carter, circa 214 cm³",
+"mail_sub":"Richiesta di conferma quotazione (settore macchine industriali e OEM)"
+},
+"de":{
+"brife":"Alle Branchen",
+"cta1":"Preisspanne anfragen",
+"cta2":"Zur Kostenrechnung",
+"s1o":"Ihre Kostenrechnung",
+"s1t":"Vier Posten Ihrer Kalkulation",
+"s3o":"Materialien",
+"s3t":"Die Materialien für die Branche",
+"m_mat":"Material",
+"m_pro":"Verfahren",
+"m_per":"Warum hier",
+"s4o":"Referenzen",
+"s5o":"Die Oberflächenskala",
+"s5t":"Das Teil ist dasselbe. Es ändert sich, wie weit wir es bringen.",
+"s5p":"Ziehen Sie, um das Teil zu drehen, und wählen Sie die Stufe. Deklariertes 3D-Rendering: die realen Muster fassen Sie bei uns an.",
+"f0t":"F0 · Technisch roh",
+"f0p":"Weiß ab Maschine, Sinterstruktur sichtbar. Für innenliegende Funktionsteile, Lehren und Vorrichtungen.",
+"f0g":"inklusive",
+"f1t":"F1 · Gleichmäßig gestrahlt",
+"f1p":"Strahlen vereinheitlicht das Korn: homogen matt, trockener Griff. Die richtige Basis vor jeder Farbe.",
+"f1g":"in der Spanne enthalten",
+"f2t":"F2 · 2K-Nasslackierung",
+"f2p":"Spachteln, Schleifen, Grundierung und 2K-PU-Lack: matt, glänzend oder strukturiert, exakte Farbe nach Vorgabe, End-User-Niveau. Bei Spielen unter 0,3 mm wird die Passung lackierter Teile nicht garantiert.",
+"f2g":"unsere Stärke · separat angeboten",
+"f3t":"F3 · Reinraum-Grad",
+"f3p":"Prozessführung für kontrollierte Umgebungen, bis zur Lackierung in Reinraumqualität. Nur SLS.",
+"f3g":"nur SLS · separat angeboten",
+"colore":"Farbe nach Vorgabe",
+"s6o":"Richtpreis",
+"s6t":"Die Preisspanne, in einer Minute",
+"s6p":"Laden Sie STEP oder STL, oder geben Sie die Daten von Hand ein. Die Datei wird auf keinen Server hochgeladen: die Analyse läuft in Ihrem Browser.",
+"drop":"STL-Datei hierher ziehen oder klicken",
+"vol":"Volumen cm³",
+"qta":"Stückzahl",
+"proc":"Verfahren und Material",
+"fascia_k":"Richtwert, pro Stück",
+"f_q":"Stückzahl",
+"f_f":"Spanne pro Stück",
+"da":"ab",
+"compila":"Volumen und Abmessungen eingeben oder STL laden.",
+"surich":"Für dieses Material erstellen wir die Spanne auf Anfrage.",
+"trasp":"Der reale Preis hängt auch von der Auslastung der Baukammer ab. Die Spanne ist unverbindlich: die Bestätigung kommt von einer Person, innerhalb von 24 Arbeitsstunden.",
+"cta":"Bestätigung in 24 Stunden anfordern",
+"cta_req":"Angebot anfordern",
+"rov_t":"Die Kehrseite",
+"fine_t":"Senden Sie uns den STEP eines Bauteils.",
+"fine_p":"Wir sagen Ihnen auch, wann es sich nicht lohnt.",
+"scrivi":"Schreiben Sie uns",
+"c_doc":"Dokument",
+"c_rev":"Revision",
+"file_ok":"im Browser gelesen",
+"err_stl":"Datei nicht erkannt oder zu groß: von Hand eingeben oder per E-Mail senden.",
+"tav_c":"Technische Zeichnung, keine Fotografie · DPG-WEB",
+"d_cod":"Pos.",
+"slot_foto":"Foto des Musters {f}, folgt nach dem Fototermin",
+"aria_viewer":"3D-Ansicht des Musterteils: zum Drehen ziehen",
+"demo_d":"Die Parameter dieser Demo sind Beispielwerte: die Spanne ist kein Angebot.",
+"c_base":"Basis",
+"c_anno":"Jahr",
+"c_de":"DE: Entwurf, noch gegenzulesen",
+"titolo":"Maschinenbau und OEM · Due Pi Greco",
+"meta_d":"Additive Fertigung für Maschinen- und Anlagenbauer: Lose von eins bis fünfzig, Varianten je Kunde, Ersatzteile für den Maschinenpark, ohne Werkzeuge.",
+"set":"Branche 01 · Maschinenbau und OEM",
+"h1":"Ihre Produktion ist bereits eine Kleinserie.",
+"intro":"Jede Maschine ist ein Auftrag: Lose von eins bis fünfzig, Varianten je Kunde, Ersatzteilpflicht über zwanzig Jahre. Kein Werkzeug amortisiert sich bei solchen Stückzahlen. Sehen Sie Ihre Maschine an: die Teile in Rot werden heute besser additiv gefertigt.",
+"s1p":"Das Kunststoffteil Ihrer Maschine läuft heute über ein Werkzeug, das sich nicht rechnet, über eine Mindestmenge, die ein Regal füllt, oder über eine Fräsung aus dem Vollen, die so viel kostet wie die Baugruppe, der sie dient. Und jede Variante beginnt die Runde von vorn.",
+"s1q":"Wir stehen nicht hinter einem Konfigurator: das Erstmuster besprechen wir gemeinsam an der Zeichnung, auf Italienisch, Deutsch oder Englisch. Und für kleine Lose sind wir dimensioniert, um damit wirtschaftlich zu arbeiten, nicht um sie zu dulden.",
+"b1t":"Kleinserien ohne Werkzeuge",
+"b1p":"Unter der Amortisationsschwelle des Werkzeugs verliert das Spritzteil. Produziert wird bei Auftragseingang: Kapital bleibt frei, keine Mindestmenge.",
+"b1g":"Stückkosten stabil von Nr. 1 bis Nr. 50",
+"b2t":"Varianten je Kunde, zum Preis einer Datei",
+"b2p":"Die Version für den deutschen und die für den französischen Kunden sind zwei Dateien, nicht zwei Werkzeuge. Die Änderung geht in Tagen in Produktion.",
+"b2g":"kein Umrüsten · Revisionen in Echtzeit",
+"b3t":"Ersatzteile und digitales Lager",
+"b3p":"Die Ersatzteilpflicht altert nicht im Regal: nachbestellt wird bei Bedarf, identisch zum letzten Los, weil das Los rückverfolgbar ist. Ohne Zeichnung: 3D-Aufnahme und Reverse Engineering.",
+"b3g":"Chargenrückverfolgung · identische Nachbestellung",
+"b4t":"Konsolidierung und Gewicht",
+"b4p":"Mehrteilige Baugruppen werden monolithisch: weniger Montage, weniger Positionen, weniger Fehlerquellen. Und Polyamid wiegt ein Drittel des Aluminiums.",
+"b4g":"Kanäle und Funktionen im Körper integriert",
+"k1":"GEHÄUSE UND ABDECKUNGEN",
+"k2":"HALTER UND STÜTZEN",
+"k3":"PRODUKTFÜHRUNGEN",
+"k4":"VORRICHTUNGEN UND LEHREN",
+"k5":"GRIPPER / EOAT",
+"dida":"Automationszelle mit Formatsatz und Greifstation, isometrische Zeichnung. In Rot: die Teile, die additiv gefertigt werden.",
+"alt_hero":"Technische Zeichnung: Automationszelle mit Portal, Förderschnecke, Formatstern und Palette mit Aufnahmen in Isometrie; in Rot Gehäusepaneel, Greifer, Lehre, Halter und Produktführungen",
+"s2o":"In der Maschine",
+"s2t":"Wo die additiven Teile sitzen",
+"s2p":"Drei Teilefamilien, die sich mit dem Format, dem Auftrag und dem Kunden ändern: der Formatwechsel, das Greifen mit seinen Vorrichtungen, die Gehäuse mit ihren Ersatzteilen. Die Nummern auf den Zeichnungen verweisen auf die jeweilige Stückliste darunter.",
+"p1":"A · Formatwechsel",
+"p2":"B · Greifen und Vorrichtungen",
+"p3":"C · Gehäuse und Ersatzteile",
+"alt_p1":"Technische Zeichnung: Formatsatz mit Förderschnecke, Formatstern, Platte mit Bechern und Führungen, additive Teile in Rot",
+"alt_p2":"Technische Zeichnung: Greifer mit Greiffingern über einer Palette mit Werkstückaufnahmen, additive Teile in Rot",
+"alt_p3":"Technische Zeichnung: Tischgerät mit abgehobenem Gehäuse, Leiterplattenführung, Halter und Probenrack, additive Teile in Rot",
+"d_comp":"Bauteil, Material und Oberfläche",
+"d1":"Förderschnecke mit variabler Steigung",
+"e1":"PA2200 · SLS · F1",
+"d2":"Formatstern",
+"e2":"PA2200 · SLS · F1 · nachgiebige Einsätze aus TPU 90A",
+"d3":"Platte und Becher",
+"e3":"PA2200 · SLS oder Nylon 12CF · FDM · F0",
+"d4":"Formatführungen",
+"e4":"PA2200 · SLS oder Nylon 12CF · FDM · F1",
+"d5":"Greiferkörper mit Vakuumkanal",
+"e5":"PA2200 · SLS · F0",
+"d6":"Greiffinger",
+"e6":"PA2200 · SLS · F0 · Greifflächen aus TPU 90A",
+"d7":"Werkstückaufnahme",
+"e7":"PA2200 · SLS · F0",
+"d8":"Palette",
+"e8":"PA2200 · SLS · F0",
+"d9":"Leiterplattenführung",
+"e9":"PA2200 · SLS · F0",
+"d10":"Gehäuse mit Clips und Schraubdomen",
+"e10":"PA2200 · SLS · F2, Farbe nach Spezifikation",
+"d11":"Halter",
+"e11":"Nylon 12CF · FDM · F0",
+"d12":"Probenrack",
+"e12":"PA2200 · SLS · F1",
+"dida2":"Von uns gezeichnete Geometrien, keine Maschinen eines Herstellers. In Rot: die Teile, die additiv gefertigt werden.",
+"d_nota":"Material und Oberfläche sind Richtwerte: bestätigt werden sie gemeinsam, an Ihrer Zeichnung. Die Skala von F0 bis F3 ist weiter unten erklärt.",
+"m1":"der Allrounder der Serie: −40 bis +80 °C unter Last, sterilisierbar; an Lebensmittellinien mit Konformitätserklärung für den Lebensmittelkontakt (VO (EU) Nr. 10/2011). Nicht flammhemmend: UL94 HB",
+"m2n":"Polypropylen",
+"m2":"Chemie von Säuren, Laugen und Reinigern; mittlere und große Serien. Kapazität nach Programm: die Verfügbarkeit klären wir am Auftrag",
+"m3":"Vorrichtungen und Halter: extreme Steifigkeit bei minimalem Gewicht",
+"m4":"nachgiebige Greifflächen, rutschhemmend; Hautkontakt, kein Produktkontakt; praktische Grenze um 70 °C",
+"m5":"Gehäuse, wo eine Brandklassifizierung verlangt ist: UL94 V-0 auf Materialebene, nicht am Bauteil; den Qualifizierungsweg am Bauteil erarbeiten wir gemeinsam",
+"s4t":"In Produktion, heute",
+"c1t":"Industrielle Filtration: Paneele in wiederkehrender Serie",
+"c1p":"Für einen Hersteller industrieller Filtrationssysteme fertigen wir laufend technische Paneele aus gesintertem Polypropylen: wiederkehrende Serie, Nachbestellung aus dem digitalen Lager, rückverfolgtes Los. Kein Prototyp: eine Lieferung.",
+"c2t":"Professionelle Öfen: Schubladen und Profile in kleinen Losen",
+"c2p":"Für einen Hersteller professioneller Öfen fertigen wir in wiederkehrender Serie Auffangschubladen und Abtropfprofile aus PA2200: Bauteile mit Produktkontakt, Wandstärke 2,5 mm, in kleinen Losen nachbestellt, rückverfolgtes Los.",
+"rov_p":"Unterhalb der Desktop-Klasse drucken Sie das Teil selbst, und das ist richtig so. Oberhalb der Werkzeug-Stückzahlen gehört es zurück ins Werkzeug, und beim Übergang helfen wir. Und das strukturelle Metallteil bleibt Metall: wenn es soweit ist, leiten wir es an unser Netz qualifizierter Partner weiter.",
+"es_btn":"Mit einem Beispiel testen: Gehäuse, 182 × 124 × 58 mm",
+"es_ok":"Beispiel geladen: Gehäuse, ca. 214 cm³",
+"mail_sub":"Anfrage Angebotsbestätigung (Maschinenbau und OEM)"
+},
+"en":{
+"brife":"All sectors",
+"cta1":"Indicative quote",
+"cta2":"See the economics",
+"s1o":"The economics you know",
+"s1t":"Four lines of your cost account",
+"s3o":"Materials",
+"s3t":"Materials for the sector",
+"m_mat":"Material",
+"m_pro":"Process",
+"m_per":"Why here",
+"s4o":"Cases",
+"s5o":"The finish scale",
+"s5t":"The part is the same. What changes is how far we take it.",
+"s5p":"Drag to rotate the part, pick the level. Declared 3D rendering: real samples are in our plant, in your hands.",
+"f0t":"F0 · As printed",
+"f0p":"White from the machine, sintering texture visible. For hidden functional parts, jigs and fixtures.",
+"f0g":"included",
+"f1t":"F1 · Uniform bead blast",
+"f1p":"Blasting evens the grain: homogeneous matte, dry touch. The right base before any color.",
+"f1g":"included in the range",
+"f2t":"F2 · 2K liquid painted",
+"f2p":"Filling, sanding, primer and 2K PU enamel: matte, gloss or textured, exact color to spec, end-user grade. With clearances under 0.3 mm, fit between painted parts is not guaranteed.",
+"f2g":"our strong suit · quoted separately",
+"f3t":"F3 · Cleanroom grade",
+"f3p":"Process control for controlled environments, up to cleanroom-grade painting. SLS only.",
+"f3g":"SLS only · quoted separately",
+"colore":"Color to spec",
+"s6o":"Indicative quote",
+"s6t":"A price range, in one minute",
+"s6p":"Load a STEP or STL, or enter the data manually. Your file is never uploaded to any server: the analysis runs in your browser.",
+"drop":"Drop your STL file here, or click to choose it",
+"vol":"Volume cm³",
+"qta":"Quantity",
+"proc":"Process and material",
+"fascia_k":"Indicatively, per part",
+"f_q":"Quantity",
+"f_f":"Range per part",
+"da":"from",
+"compila":"Enter volume and dimensions, or load the STL.",
+"surich":"For this material the range is prepared on request.",
+"trasp":"The real price also depends on build-chamber saturation. The range is indicative and not binding: confirmation comes from a person, within 24 working hours.",
+"cta":"Request confirmation within 24 hours",
+"cta_req":"Request a quote",
+"rov_t":"The other side",
+"fine_t":"Send us the STEP of one component.",
+"fine_p":"We also tell you when it is not worth it.",
+"scrivi":"Write to us",
+"c_doc":"Document",
+"c_rev":"Revision",
+"file_ok":"read in your browser",
+"err_stl":"File not recognized or too large: enter data manually, or email it to us.",
+"tav_c":"Technical drawing, not a photograph · DPG-WEB",
+"d_cod":"Item",
+"slot_foto":"Photo of sample {f}, coming from the photo session",
+"aria_viewer":"3D view of the sample part: drag to rotate",
+"demo_d":"The parameters of this demo are sample values: the range is not an offer.",
+"c_base":"Basis",
+"c_anno":"Year",
+"c_de":"DE: draft, to be proofread",
+"titolo":"Industrial machinery and OEM · Due Pi Greco",
+"meta_d":"Additive manufacturing for machine and plant builders: lots of one to fifty, per-customer variants, spares for the installed base, no tooling.",
+"set":"Sector 01 · Industrial machinery and OEM",
+"h1":"Your production is already a small series.",
+"intro":"Every machine is an order: lots of one to fifty, variants for each customer, spare parts to guarantee for twenty years. No tooling pays back on numbers like these. Look at your machine: the parts in red are better made in additive today.",
+"s1p":"The plastic component of your machine today goes through tooling that never pays back, a minimum order that fills a shelf, or machining from solid that costs as much as the assembly it serves. And every variant starts the round again.",
+"s1q":"We are not behind a configurator: we discuss the first article together on the drawing, in Italian, German or English. And for a small lot we are sized to work on it with margin, not to put up with it.",
+"b1t":"Small series without tooling",
+"b1p":"Below the break-even point of the tooling, the molded part loses. Production starts when the order is signed: free capital, no minimum.",
+"b1g":"cost per part stable from no. 1 to no. 50",
+"b2t":"Variants per customer, at the cost of a file",
+"b2p":"The version for the German customer and the one for the French customer are two files, not two toolings. The change goes into production in days.",
+"b2g":"no retooling · revisions in real time",
+"b3t":"Spare parts and digital inventory",
+"b3p":"The spare parts obligation does not age on a shelf: you reorder when needed, identical to the previous lot, because the lot is traced. With the drawing lost: 3D capture and reverse engineering.",
+"b3g":"lot traceability · identical reorder",
+"b4t":"Consolidation and weight",
+"b4p":"Multi-part assemblies become one piece: less assembly, fewer part numbers, fewer points of failure. And polyamide weighs a third of aluminum.",
+"b4g":"channels and functions built into the body",
+"k1":"GUARDS AND COVERS",
+"k2":"BRACKETS AND MOUNTS",
+"k3":"PRODUCT GUIDES",
+"k4":"JIGS AND FIXTURES",
+"k5":"GRIPPER / EOAT",
+"dida":"Automation cell with format set and gripping station, isometric drawing. In red: the parts produced in additive.",
+"alt_hero":"Technical drawing: automation cell with gantry, feed screw, starwheel and pallet with nests in isometric view; in red the guard panel, the gripper, the jig, the bracket and the product guides",
+"s2o":"Inside the machine",
+"s2t":"Where the additive parts sit",
+"s2p":"Three families of parts that change with the format, the order and the customer: format changeover, gripping with its fixtures, housings with their spares. The numbers on the drawings refer to the list below each one.",
+"p1":"A · Format changeover",
+"p2":"B · Gripping and fixtures",
+"p3":"C · Housings and spares",
+"alt_p1":"Technical drawing: format changeover set with feed screw, starwheel, plate with cups and guides, additive parts in red",
+"alt_p2":"Technical drawing: gripper with fingers above a pallet with part nests, additive parts in red",
+"alt_p3":"Technical drawing: benchtop instrument with the housing lifted, board guide, bracket and sample rack, additive parts in red",
+"d_comp":"Component, material and finish",
+"d1":"Variable-pitch feed screw",
+"e1":"PA2200 · SLS · F1",
+"d2":"Format starwheel",
+"e2":"PA2200 · SLS · F1 · compliant inserts in TPU 90A",
+"d3":"Plate and cups",
+"e3":"PA2200 · SLS, or Nylon 12CF · FDM · F0",
+"d4":"Format guides",
+"e4":"PA2200 · SLS, or Nylon 12CF · FDM · F1",
+"d5":"Gripper body with vacuum channel",
+"e5":"PA2200 · SLS · F0",
+"d6":"Gripper fingers",
+"e6":"PA2200 · SLS · F0 · contact pads in TPU 90A",
+"d7":"Part nest",
+"e7":"PA2200 · SLS · F0",
+"d8":"Pallet",
+"e8":"PA2200 · SLS · F0",
+"d9":"Board guide",
+"e9":"PA2200 · SLS · F0",
+"d10":"Housing with clips and screw bosses",
+"e10":"PA2200 · SLS · F2, color to specification",
+"d11":"Bracket",
+"e11":"Nylon 12CF · FDM · F0",
+"d12":"Sample rack",
+"e12":"PA2200 · SLS · F1",
+"dida2":"Geometries drawn by us, not the machines of any manufacturer. In red: the parts produced in additive.",
+"d_nota":"Material and finish are indicative: they are confirmed together, on your drawing. The F0 to F3 scale is explained further down.",
+"m1":"the all-rounder of the series: from −40 to +80 °C under load, sterilizable; on food lines, with a declaration of conformity for food contact (Reg. EU 10/2011). Not flame retardant: UL94 HB",
+"m2n":"Polypropylene",
+"m2":"chemistry of acids, alkalis and detergents; medium and large series. Capacity is scheduled: availability is checked on the order",
+"m3":"fixtures and brackets: extreme stiffness at minimum weight",
+"m4":"compliant, non-slip gripping interfaces; skin contact, not product contact; practical limit around 70 °C",
+"m5":"housings where a fire classification is required: UL94 V-0 at material level, not at part level; the qualification path on the component is built together",
+"s4t":"In production, today",
+"c1t":"Industrial filtration: panels in a recurring series",
+"c1p":"For a manufacturer of industrial filtration systems we continuously produce technical panels in sintered polypropylene: recurring series, reorders from digital inventory, traced lot. Not a prototype: a supply.",
+"c2t":"Professional ovens: drawers and profiles in small lots",
+"c2p":"For a manufacturer of professional ovens we produce, as a recurring series, drip drawers and drip profiles in PA2200: components in contact with the product, 2.5 mm walls, reordered in small lots, traced lot.",
+"rov_p":"Below the scale of desktop machines, you make the part in-house, and rightly so. Above tooling volumes, tooling comes back, and we help you make the move. And the structural metal spare stays in metal: when needed, we route it to our network of qualified partners.",
+"es_btn":"Try an example: housing, 182 × 124 × 58 mm",
+"es_ok":"Example loaded: housing, about 214 cm³",
+"mail_sub":"Quote confirmation request (industrial machinery and OEM)"
+}
+};
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+let LANG='it';
+const t=k=>I18N[LANG][k]??I18N.it[k]??k;
+function applica(){
+  document.documentElement.lang=LANG;
+  document.title=t('titolo');
+  $('meta[name="description"]').setAttribute('content',t('meta_d'));
+  $$('[data-i]').forEach(e=>e.textContent=t(e.dataset.i).replace('{f}',e.dataset.f||''));
+  $$('[data-i-alt]').forEach(e=>e.alt=t(e.dataset.iAlt));
+  $$('[data-i-aria]').forEach(e=>e.setAttribute('aria-label',t(e.dataset.iAria)));
+  $$('.lang').forEach(b=>{const on=b.dataset.lang===LANG;b.classList.toggle('attiva',on);b.setAttribute('aria-pressed',on);});
+  if(window.aggiorna) aggiorna();
+}
+function setLang(l){if(I18N[l]){LANG=l;applica();}}
+$$('.lang').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+const oss=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vista');oss.unobserve(e.target);}}),{threshold:.12});
+$$('.reveal').forEach(el=>oss.observe(el));
+
+/* ---- modello fascia (coefficienti calibrati, ago 2026): identico allo stampo, la calibrazione e' il pezzo F-12.
+        Cambia solo l'ordine dei materiali: prima quelli del comparto (Lib 03 par. 8). ---- */
+const M={sls:{a:0.50006,b:19.023,fissi:[48,65,83,100,118,135,153,170],quota:0.125,
+  camera:{x:700,y:380,z:580},min:90,
+  mat:{'PA2200':{ok:true},'TPU 90A':{ok:false},'PA11':{ok:false}}},
+ fdm:{fisso:96,camera:{x:914,y:610,z:914},min:120,
+  mat:{'Nylon 12CF':{ok:true,cm3:0.601},'Ultem 1010 CG':{ok:true,cm3:0.686},'Ultem 9085':{ok:true,cm3:0.621}}},
+ fasce:[[1,1.0],[50,0.88],[100,0.80]],banda:[0.88,1.12]};
+const ceil10=x=>Math.ceil((x-1e-9)/10)*10;
+const kQ=q=>{let k=1;for(const[s,v]of M.fasce)if(q>=s)k=v;return k;};
+function centrale(vol,x,y,z,tec,mat){
+  if(tec==='SLS'){
+    const d=[x,y,z].sort((p,q)=>q-p);
+    const vb=Math.max(60,d[0])*Math.max(60,d[1])*Math.max(30,d[2]);
+    const occ=vb/(M.sls.camera.x*M.sls.camera.y*M.sls.camera.z);
+    const i=Math.min(M.sls.fissi.length-1,Math.max(0,Math.ceil(occ/M.sls.quota-1e-9)-1));
+    return Math.max(M.sls.min,M.sls.fissi[i]+M.sls.a*vol+M.sls.b*vb/1e6);
+  }
+  return Math.max(M.fdm.min,M.fdm.fisso+M.fdm.mat[mat].cm3*vol);
+}
+function fascia(vol,x,y,z,tec,mat,q){
+  const c=centrale(vol,x,y,z,tec,mat)*kQ(q);
+  return{lo:ceil10(c*M.banda[0]),hi:ceil10(c*M.banda[1])};
+}
+const eurF=x=>x.toLocaleString({it:'it-IT',de:'de-DE',en:'en-IE'}[LANG],{maximumFractionDigits:0});
+
+/* ---- parser STL: identico allo stampo ---- */
+function parseSTL(buf){
+  if(buf.byteLength>100*1024*1024)throw 0;
+  const dv=new DataView(buf);let tris;
+  const head=new TextDecoder().decode(buf.slice(0,Math.min(400,buf.byteLength)));
+  const n=buf.byteLength>=84?dv.getUint32(80,true):0;
+  if(buf.byteLength>=84&&84+n*50===buf.byteLength){
+    if(n>3e6)throw 0;tris=new Float32Array(n*9);
+    for(let i=0;i<n;i++){let o=84+i*50+12;for(let k=0;k<9;k++)tris[i*9+k]=dv.getFloat32(o+k*4,true);}
+  }else if(/facet/i.test(head)){
+    const m=new TextDecoder().decode(buf).match(/vertex\s+([-\d.eE+]+)\s+([-\d.eE+]+)\s+([-\d.eE+]+)/g)||[];
+    if(m.length/3>3e6)throw 0;tris=new Float32Array(m.length*3);
+    m.forEach((v,i)=>{const p=v.split(/\s+/);tris[i*3]=+p[1];tris[i*3+1]=+p[2];tris[i*3+2]=+p[3];});
+  }else throw 0;
+  let vol=0,mn=[1e30,1e30,1e30],mx=[-1e30,-1e30,-1e30];
+  for(let i=0;i<tris.length/9;i++){
+    const a=tris.subarray(i*9,i*9+3),b=tris.subarray(i*9+3,i*9+6),c=tris.subarray(i*9+6,i*9+9);
+    vol+=(a[0]*(b[1]*c[2]-b[2]*c[1])-a[1]*(b[0]*c[2]-b[2]*c[0])+a[2]*(b[0]*c[1]-b[1]*c[0]))/6;
+    for(const p of[a,b,c])for(let k=0;k<3;k++){if(p[k]<mn[k])mn[k]=p[k];if(p[k]>mx[k])mx[k]=p[k];}
+  }
+  vol=Math.abs(vol)/1000;if(vol<0.001)throw 0;
+  return{vol:+vol.toFixed(1),x:Math.round(mx[0]-mn[0]),y:Math.round(mx[1]-mn[1]),z:Math.round(mx[2]-mn[2])};
+}
+
+/* ---- finiture: viewer 3D + pannello ---- */
+let SC=null,STATO='F0';
+function statoFin(f){
+  STATO=f;if(SC)SC.stato(f);
+  $$('.provino').forEach(b=>{const on=b.dataset.f===f;b.classList.toggle('attivo',on);b.setAttribute('aria-pressed',on);});
+  $('#fin_tag').textContent=t(f.toLowerCase()+'g');
+  $('#fin_tit').textContent=t(f.toLowerCase()+'t');
+  $('#fin_txt').textContent=t(f.toLowerCase()+'p');
+  $('#fin_ral').hidden=f!=='F2';
+}
+$$('.provino').forEach(b=>b.onclick=()=>statoFin(b.dataset.f));
+$$('.swatch').forEach(s=>s.onclick=()=>{
+  if(SC)SC.ral(s.dataset.ral);
+  $$('.swatch').forEach(x=>{x.classList.toggle('attivo',x===s);x.setAttribute('aria-pressed',x===s);});});
+
+/* ---- preventivatore ---- */
+/* esempio del comparto: Lib 03 par. 8, carter 182 x 124 x 58 mm, 214 cm3 */
+const ESEMPIO={vol:214,x:182,y:124,z:58};
+let TEC='SLS',NOMEFILE='',ESITO=null;
+const num=(s,d=0)=>{const v=parseFloat($(s).value);return isFinite(v)?v:d;};
+function materiali(){
+  const tab=TEC==='SLS'?M.sls.mat:M.fdm.mat;
+  $('#q_mat').innerHTML=Object.keys(tab).map(m=>`<option>${m}</option>`).join('');
+}
+/* la mail resta in italiano: la legge l'ufficio DPG */
+function mailto(vol,x,y,z,q,mat,f){
+  const corpo=[NOMEFILE?`File: ${NOMEFILE}`:null,
+    ESITO&&ESITO.tipo==='es'?'Pezzo: esempio della pagina (carter)':null,
+    `Settore: macchine industriali e OEM`,
+    `Volume: ${vol} cm3 · Ingombro: ${x}x${y}x${z} mm`,
+    `Tecnologia: ${TEC} · Materiale: ${mat} · Quantità: ${q}`,
+    f?`Fascia indicata: ${f.lo}..${f.hi} EUR/pezzo`:`Fascia: su richiesta`,
+    '','Generato da DPG-WEB Rev. 03 (demo)'].filter(Boolean).join('\n');
+  return `mailto:info@duepigreco3d.it?subject=${encodeURIComponent(t('mail_sub'))}&body=${encodeURIComponent(corpo)}`;
+}
+function esito(){
+  const e=$('#q_ok');
+  if(!ESITO){e.textContent='';return;}
+  e.textContent=ESITO.tipo==='file'?`${ESITO.nome} · ${ESITO.vol} cm³ · ${t('file_ok')}`:ESITO.tipo==='es'?t('es_ok'):t('err_stl');
+}
+function aggiorna(){
+  statoFin(STATO);esito();
+  const vol=num('#q_vol'),x=num('#q_x'),y=num('#q_y'),z=num('#q_z'),q=Math.max(1,num('#q_q',1));
+  const mat=$('#q_mat').value;const cta=$('#q_cta');
+  if(!(vol>0&&x>0&&y>0&&z>0)){
+    $('#q_v').textContent='·';$('#q_u').textContent=t('compila');
+    $('#q_tab').innerHTML='';cta.style.opacity=.4;cta.setAttribute('aria-disabled','true');
+    cta.textContent=t('cta');cta.href='#quotazione';return;
+  }
+  const attivo=(TEC==='SLS'?M.sls.mat:M.fdm.mat)[mat]?.ok;
+  cta.style.opacity=1;cta.removeAttribute('aria-disabled');
+  if(!attivo){
+    $('#q_v').textContent='·';$('#q_u').textContent=t('surich');
+    $('#q_tab').innerHTML='';cta.textContent=t('cta_req');cta.href=mailto(vol,x,y,z,q,mat,null);return;
+  }
+  const f=fascia(vol,x,y,z,TEC,mat,q);
+  $('#q_v').textContent=`${eurF(f.lo)} .. ${eurF(f.hi)} €`;
+  $('#q_u').textContent=`× ${q}`;
+  $('#q_tab').innerHTML=`<tr><th>${t('f_q')}</th><th class="num">${t('f_f')}</th></tr>`+
+    M.fasce.map(([s])=>{const ff=fascia(vol,x,y,z,TEC,mat,s);
+      return `<tr><td>${s===1?'1':t('da')+' '+s}</td><td class="num">${eurF(ff.lo)} .. ${eurF(ff.hi)} €</td></tr>`;}).join('');
+  cta.textContent=t('cta');cta.href=mailto(vol,x,y,z,q,mat,f);
+}
+$$('.tec').forEach(b=>b.onclick=()=>{
+  TEC=b.dataset.t;$$('.tec').forEach(x=>{x.classList.toggle('attiva',x===b);x.setAttribute('aria-pressed',x===b);});
+  materiali();aggiorna();});
+document.body.addEventListener('input',e=>{if(e.target.closest('#quotazione'))aggiorna();});
+const dz=$('#q_drop');
+['dragover','dragenter'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.add('sopra');}));
+['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.remove('sopra');}));
+async function leggi(file){
+  try{const r=parseSTL(await file.arrayBuffer());NOMEFILE=file.name;
+    $('#q_vol').value=r.vol;$('#q_x').value=r.x;$('#q_y').value=r.y;$('#q_z').value=r.z;
+    ESITO={tipo:'file',nome:file.name,vol:r.vol};aggiorna();
+  }catch(_){ESITO={tipo:'err'};esito();}}
+function scegli(){const i=document.createElement('input');i.type='file';i.accept='.stl';
+  i.onchange=()=>i.files[0]&&leggi(i.files[0]);i.click();}
+dz.addEventListener('drop',e=>{if(e.dataTransfer.files[0])leggi(e.dataTransfer.files[0]);});
+dz.addEventListener('click',scegli);
+dz.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();scegli();}});
+$('#q_es').onclick=()=>{NOMEFILE='';
+  $('#q_vol').value=ESEMPIO.vol;$('#q_x').value=ESEMPIO.x;$('#q_y').value=ESEMPIO.y;$('#q_z').value=ESEMPIO.z;
+  ESITO={tipo:'es'};aggiorna();};
+
+/* ---- avvio ---- */
+materiali();
+SC=DPG3D.avviaScena(document.getElementById('scena3d'));
+applica();
+</script>
+</body></html>

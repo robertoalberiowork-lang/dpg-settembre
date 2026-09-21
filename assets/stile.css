@@ -1,0 +1,554 @@
+/* DPG-WEB · stile di collana · Rev. 03 demo
+   Struttura del file: le regole Rev. 02 restano qui sopra invariate (servono al cancello
+   index.html Rev. 02); lo stampo Rev. 03 dei comparti sta nel blocco in fondo al file. */
+:root{
+  --nero:#0B0B0C; --rosso:#E63329; --carta:#FAF9F7; --grafite:#4A4A4D;
+  --riga:#D9D6D1; --riga2:#EAE7E3; --righe-scure:#1B1B1E; --grigio:#8C8C90;
+  --giallo:#C9A227; --panna:#F1EFEB; --inchiostro:#1B1B1E; --verde:#2E7D4F;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --serif:'Source Serif 4',Georgia,serif;
+  --disp:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{background:var(--nero);color:var(--carta);font-family:var(--serif);font-size:17px;line-height:1.6}
+
+/* ---------- topbar ---------- */
+.topbar{position:sticky;top:0;z-index:90;background:#0B0B0C;
+  color:var(--carta);border-bottom:2px solid var(--rosso);
+  display:flex;align-items:center;gap:14px;padding:10px 26px;flex-wrap:wrap}
+.topbar a.marchio{display:flex;align-items:center;gap:11px;color:inherit;text-decoration:none}
+.topbar .logo{display:block;line-height:0;flex:none}
+.topbar .logo svg{height:30px;width:auto;display:block}
+.topbar .logo .dpg-nero{fill:var(--carta)}
+.topbar .logo .dpg-rosso{fill:var(--rosso)}
+.topbar b{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:-0.01em}
+.targhetta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  border:1px solid var(--rosso);color:#FFB4AE;padding:3px 8px}
+.spazio{flex:1}
+.lang{font-family:var(--mono);font-size:11px;letter-spacing:.1em;background:transparent;
+  color:#9A9A9E;border:1px solid #3A3A3E;padding:5px 10px;cursor:pointer}
+.lang.attiva{color:var(--carta);border-color:var(--carta)}
+
+/* ---------- tipografia ---------- */
+.occhiello{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--rosso);font-weight:600}
+h1{font-family:var(--disp);font-weight:800;letter-spacing:-0.028em;margin:12px 0 14px;
+  font-size:clamp(34px,5.6vw,68px);line-height:1.02}
+h2{font-family:var(--disp);font-weight:800;letter-spacing:-0.024em;margin:8px 0 10px;
+  font-size:clamp(24px,3.2vw,38px);line-height:1.08}
+h3{font-family:var(--disp);font-weight:800;letter-spacing:-0.02em;font-size:19px;margin:0 0 6px}
+.mono{font-family:var(--mono)}
+
+/* ---------- cancello ---------- */
+.hero-cancello{min-height:66vh;display:flex;align-items:center;position:relative;overflow:hidden;
+  padding:70px 26px 60px}
+.hero-cancello .sfondo{position:absolute;inset:0;background:none; /* Rev. 02c: lo sfondo velato non si usa più */
+  opacity:.34;pointer-events:none;
+  mask-image:linear-gradient(90deg,transparent 0%,#000 40%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 40%)}
+.hero-cancello .dentro{max-width:1240px;margin:0 auto;width:100%;position:relative}
+.hero-cancello p.sub{font-size:19px;max-width:56ch;color:#DDDBD7;margin:0 0 10px}
+.hero-cancello .privacy{font-family:var(--mono);font-size:12px;color:#9A9A9E}
+.freccia-giu{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--grigio);
+  text-transform:uppercase;margin-top:34px;display:inline-block;text-decoration:none}
+.freccia-giu:hover{color:var(--carta)}
+
+.banda{display:block;position:relative;color:inherit;text-decoration:none;overflow:hidden;
+  border-top:1px solid var(--righe-scure);background:var(--nero);
+  transition:background .35s ease}
+.banda .dentro{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);
+  gap:30px;align-items:center;padding:54px 26px;min-height:380px}
+.banda.inversa .dentro{grid-template-columns:minmax(0,54fr) minmax(0,46fr)}
+.banda.inversa .testo{order:2}.banda.inversa .figura{order:1}
+@media(max-width:900px){.banda .dentro,.banda.inversa .dentro{grid-template-columns:1fr}
+ .banda.inversa .testo{order:1}.banda.inversa .figura{order:2}}
+.banda:hover{background:#111113}
+.banda .figura img,.banda .figura object{width:100%;height:auto;display:block;
+  transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.banda:hover .figura img{transform:scale(1.025)}
+.banda .settore-num{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--grigio)}
+.banda h2{margin-top:6px}
+.banda p{color:#C9C7C3;max-width:48ch;font-size:16.5px}
+.banda .entra{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--carta);border:1px solid var(--grafite);padding:11px 18px;display:inline-block;margin-top:14px;
+  transition:all .3s ease}
+.banda:hover .entra{border-color:var(--rosso);background:var(--rosso)}
+.banda .presto{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--giallo);border:1px solid var(--giallo);padding:4px 9px;display:inline-block;margin-left:10px;vertical-align:2px}
+.banda.disattiva{cursor:default}
+.banda.disattiva:hover{background:var(--nero)}
+.banda.disattiva:hover .figura img{transform:none}
+.banda.disattiva .entra{opacity:.35}
+
+/* ---------- sezioni verticale ---------- */
+.sez{padding:64px 26px}
+.sez .dentro{max-width:1240px;margin:0 auto}
+.sez--carta{background:var(--carta);color:var(--inchiostro)}
+.sez--carta .occhiello{color:var(--rosso)}
+.sez--nero{background:var(--nero);color:var(--carta)}
+.sotto-h{max-width:70ch;color:inherit;opacity:.85;margin-top:0}
+
+.hero-settore{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-settore .sfondo{position:absolute;inset:0;background:none} /* Rev. 02: non più usato */
+.hero-settore .velo{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(11,11,12,.55) 0%,rgba(11,11,12,.15) 40%,rgba(11,11,12,.88) 88%)}
+.hero-settore .dentro{position:relative;max-width:1240px;margin:0 auto;width:100%;padding:120px 26px 54px}
+.hero-settore p.intro{font-size:18.5px;max-width:62ch;color:#E6E4E0}
+.briciole{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.briciole a{color:#C9C7C3;text-decoration:none}
+.briciole a:hover{color:var(--carta)}
+.dida{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--grigio);margin-top:8px}
+
+.griglia4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:22px}
+.blocco{background:#fff;border:1px solid var(--riga);padding:20px 20px 16px}
+.blocco .tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--grafite)}
+.blocco p{font-size:15px;margin:8px 0 10px}
+
+.sequenza{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:22px}
+.passo{position:relative}
+.passo img{width:100%;height:auto;display:block;border:1px solid var(--righe-scure)}
+.passo .n{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.14em;color:var(--carta);background:rgba(11,11,12,.72);border:1px solid var(--grafite);padding:3px 8px}
+.figura-grande{margin-top:26px}
+.figura-grande img{width:100%;height:auto;display:block;border:1px solid var(--righe-scure)}
+
+table.dati{width:100%;border-collapse:collapse;font-size:15.5px;margin-top:18px}
+table.dati th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  text-align:left;padding:9px 10px;border-bottom:2px solid currentColor;font-weight:600}
+table.dati td{padding:10px;border-bottom:1px solid var(--riga2);vertical-align:top}
+.sez--nero table.dati td{border-bottom-color:var(--righe-scure)}
+td.mat{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+
+.casi{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:22px}
+.caso{border:1px solid var(--righe-scure);padding:22px;background:#101012}
+.caso p{color:#D5D3CF;font-size:15.5px;margin:8px 0 0}
+
+.rovescio{background:var(--panna);border-left:3px solid var(--nero);padding:16px 20px;
+  font-size:16px;margin-top:22px;color:var(--inchiostro)}
+.rovescio b{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+
+.cta-strip{background:var(--nero);color:var(--carta);padding:56px 26px;text-align:left}
+.cta-strip .dentro{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.cta-strip h2{margin:0}
+.bottone{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--rosso);color:#fff;border:none;padding:16px 24px;cursor:pointer;text-decoration:none;display:inline-block}
+.bottone:hover{background:#C82A21}
+.bottone.contorno{background:transparent;border:1px solid var(--grafite);color:var(--carta)}
+.bottone.contorno:hover{border-color:var(--carta);background:transparent}
+
+/* ---------- modulo finiture nel verticale ---------- */
+.fin-mod{display:grid;grid-template-columns:minmax(0,54fr) minmax(0,46fr);gap:26px;align-items:start;margin-top:22px}
+@media(max-width:940px){.fin-mod{grid-template-columns:1fr}}
+.viewer{background:#fff;border:1px solid var(--riga);padding:10px}
+.provini{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.provino{border:1px solid var(--riga);background:#fff;cursor:pointer;padding:0;text-align:left}
+.provino .chip{height:42px;display:block}
+.provino .chip.c-F0{background:repeating-linear-gradient(0deg,#E6E3DC 0 3px,#DAD7CF 3px 4px)}
+.provino .chip.c-F1{background:#DDD9D2;background-image:radial-gradient(#9a978f 0.8px,transparent 0.9px);background-size:6px 6px}
+.provino .chip.c-F2{background:linear-gradient(115deg,#131315 55%,#2E2E33 68%,#131315 78%)}
+.provino .chip.c-F3{background:linear-gradient(180deg,#FAF9F6,#EFEDE8)}
+.provino .nome{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;padding:6px 8px;color:var(--grafite)}
+.provino.attivo{border:2px solid var(--nero)}
+.pannello .tagf{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--rosso);font-weight:600}
+.pannello p{font-size:15.5px;margin:8px 0}
+.catena{font-family:var(--mono);font-size:11.5px;color:var(--grafite);margin:10px 0}
+.ral{display:flex;gap:8px;align-items:center;margin:10px 0;flex-wrap:wrap}
+.swatch{width:28px;height:28px;border:1px solid var(--riga);cursor:pointer;padding:0}
+.swatch.attivo{outline:2px solid var(--nero);outline-offset:1px}
+
+/* ---------- preventivatore nel verticale ---------- */
+.prev{display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);gap:26px;align-items:start;margin-top:22px}
+@media(max-width:940px){.prev{grid-template-columns:1fr}}
+.campo{display:flex;flex-direction:column;gap:4px;min-width:0}
+.campo label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9A9A9E}
+.sez--carta .campo label{color:var(--grafite)}
+.campo input,.campo select{font-family:var(--mono);font-size:14px;padding:10px;border:1px solid #3A3A3E;
+  background:#141416;color:var(--carta);width:100%}
+.campo input:focus,.campo select:focus{outline:2px solid var(--carta);outline-offset:-1px}
+.griglia-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.dropzone{border:1.5px dashed var(--grafite);background:#141416;padding:20px 14px;text-align:center;
+  font-family:var(--mono);font-size:12px;color:#9A9A9E;cursor:pointer;margin-bottom:12px}
+.dropzone.sopra{border-color:var(--rosso);color:var(--rosso)}
+.fascia-hero{background:#141416;border:1px solid var(--righe-scure);padding:18px}
+.fascia-hero .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9A9A9E}
+.fascia-hero .v{font-family:var(--disp);font-weight:800;font-size:clamp(26px,3.2vw,38px);letter-spacing:-0.02em;margin:4px 0}
+.fascia-hero .u{font-family:var(--mono);font-size:11px;color:var(--grigio)}
+table.fasce{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:12px}
+table.fasce th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;text-align:left;
+  padding:7px 8px;border-bottom:1.5px solid var(--carta);font-weight:600}
+table.fasce td{padding:7px 8px;border-bottom:1px solid var(--righe-scure)}
+table.fasce td.num{text-align:right;font-family:var(--mono);font-size:13px}
+.nota-scura{background:#141416;border-left:3px solid var(--giallo);padding:11px 14px;font-size:14px;margin-top:12px;color:#D5D3CF}
+
+/* ---------- cartiglio ---------- */
+.cartiglio{border-top:2px solid currentColor;max-width:1240px;margin:0 auto;
+  padding:16px 26px 42px;display:flex;gap:26px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--grigio)}
+.cartiglio b{color:inherit;filter:brightness(1.4)}
+footer{background:var(--nero);color:var(--carta)}
+
+/* ---------- reveal sobrio ---------- */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.vista{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* =====================================================================
+   Rev. 03 · stampo dei comparti (P-00, 20/09/2026) · base: settore-vsp
+   Applica DPG_Sito_Look_Rev01: due blocchi neri per pagina (hero e
+   "dentro l'applicazione") piu' la striscia finale, il resto carta o
+   bianco; un solo ritmo verticale; una sola misura di gap; ogni tavola
+   con il suo cartiglio. Questo blocco vale per tutte le pagine di
+   comparto: le classi specifiche di un comparto si aggiungono SOTTO,
+   con il commento "Rev. 03 · <comparto>".
+   Regole Rev. 02 superate nei comparti da questo blocco: .hero-settore,
+   .figura-grande, .nota-scura, .sequenza/.passo (ridefinite), .caso
+   (variante chiara), .campo/.dropzone/.fascia-hero/table.fasce
+   (varianti chiare dentro .pannello-prev).
+   ===================================================================== */
+
+/* ---------- misure: le uniche ammesse ---------- */
+:root{
+  --bianco:#FFFFFF;
+  --passo:24px;        /* unica misura di gap per le griglie */
+  --sez-y:64px;        /* padding verticale di sezione, desktop */
+  --lato:24px;         /* padding laterale */
+  --dentro:1120px;     /* container */
+  --aria:32px;         /* fra la testa di sezione e il contenuto */
+  --stacco:40px;       /* fra due gruppi dentro la stessa sezione */
+  --chiaro-2:#C9C7C3;  /* testo secondario su nero */
+  --filo-scuro:#232326;/* bordi di tavole e pannelli su nero */
+  --filo-campo:#8C8C90;/* bordo dei campi su fondo chiaro, 3:1 sul bianco */
+}
+@media(max-width:700px){:root{--sez-y:40px;--aria:24px;--stacco:32px}}
+
+/* ---------- base: movimento, ancore, fuoco ---------- */
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:no-preference){.reveal{transition:opacity .45s ease,transform .45s ease}}
+.sez[id]{scroll-margin-top:64px}
+:focus-visible{outline:2px solid var(--rosso);outline-offset:2px}
+.topbar :focus-visible,.sez--nero :focus-visible,.cta-strip :focus-visible,footer :focus-visible{outline-color:var(--carta)}
+
+/* ---------- topbar allineata al container ---------- */
+.topbar--dentro{padding:10px var(--lato)}
+.topbar--dentro>.dentro{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  max-width:var(--dentro);margin:0 auto;width:100%}
+@media(max-width:480px){.topbar--dentro b{display:none}}
+
+/* ---------- sezioni: un solo ritmo ---------- */
+.sez{padding:var(--sez-y) var(--lato)}
+.sez .dentro,.cta-strip .dentro{max-width:var(--dentro)}
+.sez--bianco{background:var(--bianco);color:var(--inchiostro)}
+/* due sezioni chiare di seguito: un filo al posto del cambio di fondo */
+.sez--filo{padding-top:0}
+.sez--filo>.dentro{border-top:1px solid var(--riga);padding-top:var(--sez-y)}
+.testa{margin:0 0 var(--aria)}
+.testa h2{margin:8px 0 0}
+.testa .sotto-h{margin:12px 0 0}
+.testa>:last-child{margin-bottom:0}
+h3.sottotitolo{font-size:clamp(19px,2vw,24px);margin:0 0 16px}
+
+/* ---------- H · hero del comparto: testo a sinistra, tavola a destra ---------- */
+.hero .dentro{display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);
+  gap:var(--passo);align-items:center}
+@media(max-width:900px){.hero .dentro{grid-template-columns:1fr}}
+.hero .briciole{margin:0 0 var(--passo)}
+.hero h1{font-size:clamp(34px,4.6vw,58px);margin:12px 0 16px}
+.hero p.intro{font-size:18px;max-width:56ch;color:#E6E4E0;margin:0}
+.azioni{display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--passo)}
+.bottone.contorno{border-color:var(--grigio)}
+.sez--carta .bottone.contorno,.sez--bianco .bottone.contorno{color:var(--inchiostro);border-color:var(--grafite)}
+.sez--carta .bottone.contorno:hover,.sez--bianco .bottone.contorno:hover{border-color:var(--nero)}
+
+/* ---------- la tavola: unico posto del Tron, sempre dichiarata ---------- */
+.tavola{margin:0;border:1px solid var(--filo-scuro);background:var(--nero);color:var(--carta)}
+.tavola img{display:block;width:100%;height:auto}
+.tavola figcaption,.striscia figcaption{display:flex;flex-wrap:wrap;gap:4px var(--passo);
+  font-family:var(--mono);font-size:10px;line-height:1.6;color:#9A9A9E}
+.tavola figcaption{padding:10px 12px;border-top:1px solid var(--filo-scuro)}
+.tav-c{letter-spacing:.14em;text-transform:uppercase;color:var(--chiaro-2)}
+.tav-d{letter-spacing:.04em}
+
+/* ---------- S2 · dentro l'applicazione: sequenza + mappa, un solo blocco nero ---------- */
+.striscia{margin:0}
+.striscia figcaption{margin-top:12px}
+.sequenza{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--passo);margin:0}
+.passo{position:relative;margin:0;aspect-ratio:4/3;overflow:hidden;display:flex;flex-direction:column;
+  background:var(--nero);border:1px solid var(--filo-scuro)}
+.passo .n{position:static;align-self:flex-start;margin:12px 12px 0}
+.passo img{flex:1;min-height:0;width:100%;height:auto;object-fit:contain;display:block;border:0;padding:8px 12px 12px}
+@media(max-width:700px){
+  .sequenza{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:80%;
+    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+  .passo{scroll-snap-align:start}
+}
+.mappa{display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr);gap:var(--passo);
+  align-items:start;margin-top:var(--stacco)}
+@media(max-width:900px){.mappa{grid-template-columns:1fr}}
+.mappa-img{position:relative}
+.marcatori{list-style:none;margin:0;padding:0}
+.marcatori li{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);
+  width:24px;height:24px;border-radius:50%;background:var(--rosso);color:#fff;
+  font-family:var(--mono);font-size:11px;font-weight:600;line-height:1;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(11,11,12,.85)}
+@media(max-width:560px){.marcatori li{width:20px;height:20px;font-size:10px;box-shadow:0 0 0 2px rgba(11,11,12,.85)}}
+.mappa .sotto-h{margin:16px 0 0}
+table.distinta{width:100%;border-collapse:collapse;font-size:15px;margin-top:16px}
+table.distinta th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  text-align:left;padding:8px 10px;border-bottom:1px solid var(--grafite);font-weight:600;color:var(--chiaro-2)}
+table.distinta td{padding:10px;border-bottom:1px solid var(--righe-scure);vertical-align:top}
+table.distinta td.cod{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--rosso);
+  white-space:nowrap;width:1%}
+.nota-mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;line-height:1.6;color:#9A9A9E;margin:12px 0 0}
+
+/* ---------- S1 · il conto: quattro voci, riga mono in fondo ---------- */
+.griglia4{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--passo);margin-top:0}
+@media(max-width:1000px){.griglia4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.griglia4{grid-template-columns:1fr}}
+.blocco{display:flex;flex-direction:column;padding:var(--passo)}
+.blocco p{flex:1;margin:8px 0 16px}
+.blocco .tag{border-top:1px solid var(--riga2);padding-top:12px;line-height:1.6}
+
+/* ---------- S3 · materiali ---------- */
+.tab-scorri{overflow-x:auto}
+table.dati{margin-top:0}
+@media(max-width:560px){td.mat{white-space:normal}}
+
+/* ---------- S4 · casi, su carta ---------- */
+.casi{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--passo);margin-top:0}
+@media(max-width:800px){.casi{grid-template-columns:1fr}}
+.sez--carta .caso,.sez--bianco .caso{background:var(--bianco);border:1px solid var(--riga);padding:var(--passo)}
+.sez--carta .caso p,.sez--bianco .caso p{color:var(--inchiostro)}
+
+/* ---------- S5 · la scala delle finiture, su bianco ---------- */
+.provini{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--passo)}
+@media(max-width:800px){.provini{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.provino{display:flex;flex-direction:column;font:inherit;color:inherit}
+.provino.attivo{border:1px solid var(--nero);box-shadow:inset 0 0 0 1px var(--nero)}
+.provino .chip{height:32px;border-top:1px solid var(--riga)}
+.provino .nome{padding:8px 10px}
+/* slot dichiarato: qui entra la fotografia vera del provino, 4:3, fondo carta */
+.slot-foto{aspect-ratio:4/3;background:var(--carta);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px;text-align:center;padding:16px;
+  outline:1px dashed var(--filo-campo);outline-offset:-8px}
+.slot-foto .lv{font-family:var(--disp);font-weight:800;font-size:22px;letter-spacing:-0.02em;color:var(--grafite)}
+.slot-foto .tx{font-family:var(--mono);font-size:10px;letter-spacing:.06em;line-height:1.5;color:var(--grafite);max-width:24ch}
+.slot-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.fin-mod{gap:var(--passo);margin-top:var(--passo);align-items:center}
+.pannello{margin-top:0}
+.pannello h3{margin-top:4px}
+
+/* ---------- S6 · preventivo: carta, con pannello bianco per i campi ---------- */
+.pannello-prev{background:var(--bianco);border:1px solid var(--riga);padding:var(--passo);color:var(--inchiostro)}
+.avviso-demo{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px 16px;
+  background:var(--carta);border:1px solid var(--riga);border-left:3px solid var(--rosso);
+  padding:12px 16px;margin:0 0 var(--passo);font-size:14.5px;line-height:1.55}
+.avviso-demo .tg{flex:none;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:600;color:var(--inchiostro);border:1px solid var(--rosso);padding:3px 8px;margin-top:2px}
+.avviso-demo p{flex:1;min-width:240px;margin:0}
+.prev{gap:var(--passo);margin-top:0}
+.griglia-form{gap:12px var(--passo)}
+.griglia-form--misure{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:560px){.griglia-form--misure{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .griglia-form--misure .campo--largo{grid-column:1/-1}}
+.griglia-form+.griglia-form{margin-top:16px}
+.etichetta{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.pannello-prev .campo label,.pannello-prev .etichetta{color:var(--grafite)}
+.pannello-prev .campo input,.pannello-prev .campo select{background:var(--bianco);color:var(--inchiostro);
+  border:1px solid var(--filo-campo);border-radius:0}
+.pannello-prev .campo input:focus-visible,.pannello-prev .campo select:focus-visible{outline:2px solid var(--nero);outline-offset:1px}
+.pannello-prev .dropzone{background:var(--carta);border:1.5px dashed var(--grafite);color:var(--grafite);
+  margin-bottom:16px;line-height:1.6}
+.pannello-prev .dropzone.sopra{border-color:var(--rosso);color:var(--inchiostro)}
+.esito{color:var(--inchiostro);font-weight:500}  /* niente verde: la palette resta nero, carta, rosso, grafite, panna */
+.scelta-tec{display:flex;gap:8px;flex-wrap:wrap}
+.tec{flex:1;min-width:72px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:10px;cursor:pointer;
+  background:var(--bianco);color:var(--grafite);border:1px solid var(--filo-campo)}
+.tec.attiva{background:var(--nero);color:var(--carta);border-color:var(--nero)}
+.scelta-tec select{flex:2;min-width:160px}
+.link-mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;line-height:1.6;background:none;border:0;padding:0;
+  color:var(--inchiostro);text-decoration:underline;text-underline-offset:3px;cursor:pointer;text-align:left}
+.link-mono:hover{color:var(--rosso)}
+.pannello-prev .fascia-hero{background:var(--carta);border:1px solid var(--riga);padding:20px}
+.pannello-prev .fascia-hero .k,.pannello-prev .fascia-hero .u{color:var(--grafite)}
+.pannello-prev table.fasce th{border-bottom:1.5px solid var(--inchiostro)}
+.pannello-prev table.fasce td{border-bottom:1px solid var(--riga2)}
+.pannello-prev .bottone{display:block;text-align:center;margin-top:16px}
+
+/* ---------- S7 · il rovescio: panna, filo nero ---------- */
+.rovescio{margin-top:0;max-width:820px;padding:20px var(--passo)}
+
+/* ---------- C · striscia finale e cartiglio ---------- */
+.cta-strip{padding:var(--sez-y) var(--lato)}
+.cta-strip .dentro{gap:var(--passo)}
+.cta-strip .azioni{margin-top:0}
+.cta-strip p{color:var(--chiaro-2);margin:8px 0 0}
+.piede{padding:0 var(--lato)}
+.piede .cartiglio{max-width:var(--dentro);padding:16px 0 40px;gap:8px var(--passo)}
+.cta-testo{flex:1;min-width:260px}
+.cta-testo h2{margin:0}
+/* dettagli dello stampo */
+.ral[hidden]{display:none}
+.esempio{margin:0 0 16px}
+.slot-foto:has(img){outline:0;padding:0}
+/* il viewer 3D non deve mai allargare la pagina: il canvas si adatta al contenitore anche al ridimensionamento */
+@media(max-width:940px){.fin-mod,.prev{grid-template-columns:minmax(0,1fr)}}
+.viewer,#scena3d{min-width:0}
+#scena3d{overflow:hidden}
+#scena3d canvas{display:block;max-width:100%;height:auto!important}
+/* tabella materiali su schermi stretti: ogni riga diventa una scheda, il "perche' qui" va a tutta larghezza */
+@media(max-width:560px){
+  table.dati thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  table.dati tr{display:grid;grid-template-columns:auto 1fr;column-gap:12px;padding:12px 0;border-bottom:1px solid var(--riga2)}
+  table.dati td{padding:0;border:0}
+  table.dati td:nth-child(2){color:var(--grafite)}
+  table.dati td:nth-child(3){grid-column:1/-1;margin-top:4px}
+}
+
+/* =====================================================================
+   Rev. 03 · OEM (comparto 01, settore-oem.html, 21/09/2026)
+   Due cose che lo stampo non aveva e che gli altri comparti possono riusare:
+   1. la tavola vettoriale in linea nell'hero, con i richiami tradotti dal dizionario;
+   2. "famiglie": al posto di sequenza + mappa unica, tre tavole affiancate, ciascuna con
+      i suoi marcatori numerati e la sua distinta (codice, componente, materiale, finitura).
+   ===================================================================== */
+.tavola svg{display:block;width:100%;height:auto}
+.tavola .richiami-t text{font-family:var(--mono);font-size:10.5px;letter-spacing:1.2px;fill:var(--chiaro-2)}
+/* sotto i 560 px i richiami non si leggono piu': restano la tavola, i punti rossi e la didascalia */
+@media(max-width:560px){.tavola .richiami{display:none}}
+.sotto-h.coda{margin:var(--aria) 0 0}
+.solo-lettore{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+.famiglie{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--passo);margin:0}
+.famiglia{position:relative;display:flex;flex-direction:column;background:var(--nero);border:1px solid var(--filo-scuro)}
+/* position:relative tiene dentro la scheda l'intestazione di tabella nascosta (.solo-lettore): senza, allargherebbe la pagina quando le schede scorrono */
+.famiglia .n{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--carta);margin:14px 14px 0}
+.famiglia .mappa-img{margin:6px 14px 0}
+.famiglia .mappa-img img{display:block;width:100%;height:auto}
+.famiglia table.distinta{margin-top:10px;font-size:14.5px;border-top:1px solid var(--filo-scuro)}
+.famiglia table.distinta td{padding:10px 14px 10px 0;line-height:1.35}
+.famiglia table.distinta td.cod{padding-left:14px;padding-right:12px}
+.famiglia table.distinta tr:last-child td{border-bottom:0}
+.spec{display:block;margin-top:3px;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;line-height:1.5;color:#9A9A9E}
+.striscia+.nota-mono{margin-top:16px}
+/* su schermi stretti le tre famiglie scorrono in orizzontale, come la sequenza dello stampo: il blocco nero resta corto */
+@media(max-width:900px){
+  .famiglie{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(84%,420px);
+    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+  .famiglia{scroll-snap-align:start}
+}
+
+/* =====================================================================
+   Cancello · hero Rev. 02c (21/09/2026)
+   La tavola non è più uno sfondo velato: è una figura a sé, nei colori di
+   collana (linee carta, parti additive in rosso), con quattro richiami e
+   la didascalia "tavola tecnica, non fotografia". Sotto, il binario dei
+   settori: la scelta si fa già nella prima schermata.
+   Tavola generata da 01_SITO_WEB/strumenti/tavola_collana.py.
+   ===================================================================== */
+.hero-cancello{min-height:calc(100vh - 54px);display:grid;grid-template-rows:1fr auto auto;align-items:center;
+  padding:0;overflow:hidden}
+.hero-cancello .dentro{max-width:1320px;padding:56px 26px 40px;z-index:2}
+.hero-cancello .dentro>*{max-width:520px}
+.hero-cancello h1{font-size:clamp(38px,4.9vw,72px)}
+.hero-cancello p.sub{font-size:18px;max-width:44ch}
+.tavola-hero{position:absolute;margin:0;top:calc(50% - 50px);right:-3vw;width:min(64vw,1240px,calc((100vh - 210px)*1.49));
+  transform:translateY(-50%);z-index:1;pointer-events:none}
+.tavola-hero img{display:block;width:100%;height:auto}
+.richiami-hero{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.richiami-hero .fili path{fill:none;stroke:#8C8C90;stroke-width:2.2}
+.richiami-hero .punti circle{fill:var(--rosso)}
+.richiami-hero text{font-family:var(--mono);font-size:24px;letter-spacing:2.4px;text-transform:uppercase;fill:var(--carta)}
+.richiami-hero text.proc{fill:#8C8C90;font-size:21.5px}
+.did-hero{position:relative;z-index:2;margin:0;padding:0 26px 12px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:#77777C;text-align:right}
+.binario{position:relative;z-index:2;display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));align-items:stretch;
+  border-top:1px solid var(--righe-scure);background:rgba(11,11,12,.86)}
+.binario>*{display:flex;align-items:baseline;gap:14px;padding:20px 26px;border-left:1px solid var(--righe-scure);
+  color:var(--carta);text-decoration:none;transition:background .35s,color .35s}
+.binario .binario-t{border-left:0;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--grigio);align-items:center}
+.binario i{font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.16em;color:var(--rosso)}
+.binario b{font-family:var(--disp);font-weight:800;font-size:16px;letter-spacing:-.015em;line-height:1.15;flex:1}
+.binario em{font-style:normal;font-family:var(--mono);font-size:14px;color:var(--grigio);transition:transform .35s,color .35s}
+.binario a:hover{background:var(--rosso)}
+.binario a:hover i,.binario a:hover em{color:var(--carta)}
+.binario a:hover em{transform:translateX(5px)}
+.binario a:focus-visible{outline:2px solid var(--carta);outline-offset:-4px}
+.binario .spento{color:#6E6E73;flex-wrap:wrap;row-gap:4px}
+.binario .spento i{color:#6E6E73}
+.binario .spento em{flex-basis:100%;padding-left:36px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--giallo)}
+@media(max-width:1100px){
+  .tavola-hero{width:min(74vw,900px);right:-8vw;opacity:.9}
+  .richiami-hero .voci,.richiami-hero .fili,.richiami-hero .punti{display:none}
+}
+@media(max-width:900px){
+  .hero-cancello{min-height:0;display:flex;flex-direction:column;align-items:stretch}
+  .hero-cancello .dentro{order:1}.tavola-hero{order:2}.did-hero{order:3}.binario{order:4}
+  .hero-cancello .dentro{padding:40px 22px 8px}
+  .hero-cancello .dentro>*{max-width:none}
+  .tavola-hero{position:relative;top:auto;right:auto;transform:none;width:112%;max-width:none;margin:-10px 0 -6px -6%;opacity:1}
+  .did-hero{text-align:left;padding:0 22px 20px;font-size:9.5px}
+  .binario{grid-template-columns:1fr}
+  .binario>*{border-left:0;border-top:1px solid var(--righe-scure);padding:17px 22px}
+  .binario .binario-t{border-top:0;padding-bottom:10px}
+}
+
+/* =====================================================================
+   Cancello · bande Rev. 02d (21/09/2026)
+   Tavole da CAD vero (strumenti/tavole_da_cad): più grandi, con didascalia.
+   Numero di settore in rosso, titolo più forte, la banda intera si accende
+   al passaggio. Il settore non ancora aperto è una riga compatta, senza figura.
+   ===================================================================== */
+.banda.b2{border-top:1px solid var(--righe-scure);padding:0 26px;transition:background .4s}
+.banda.b2 .dentro{min-height:0;max-width:1320px;grid-template-columns:minmax(0,40fr) minmax(0,60fr);gap:48px;align-items:center;padding:84px 0}
+.banda.b2.inversa .dentro{grid-template-columns:minmax(0,60fr) minmax(0,40fr)}
+.banda.b2 .settore-num{display:flex;align-items:baseline;gap:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--grigio)}
+.banda.b2 .settore-num i{font-style:normal;font-family:var(--disp);font-weight:800;font-size:54px;letter-spacing:-.03em;color:var(--rosso);line-height:1}
+.banda.b2 h2{font-size:clamp(30px,3.7vw,52px);line-height:1.02;margin:18px 0 16px}
+.banda.b2 p{font-size:18px;max-width:40ch;color:#C9C7C3}
+.banda.b2 .entra{display:inline-flex;align-items:center;gap:14px;margin-top:22px;padding:15px 22px;border:1px solid #4A4A4D;
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:background .35s,border-color .35s}
+.banda.b2 .entra em{font-style:normal;transition:transform .35s}
+.banda.b2:hover{background:#101012}
+.banda.b2:hover .entra{background:var(--rosso);border-color:var(--rosso)}
+.banda.b2:hover .entra em{transform:translateX(5px)}
+.banda.b2 .figura{margin:0}
+.banda.b2 .figura img{width:100%;height:auto;max-height:78vh;object-fit:contain;display:block;transition:transform .45s}
+.banda.b2:hover .figura img{transform:scale(1.015)}
+.banda.b2 figcaption{margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#77777C;text-align:center}
+.banda.b2.compatta{cursor:default}
+.banda.b2.compatta:hover{background:var(--nero)}
+.banda.b2.compatta .dentro{min-height:0;display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1.2fr) auto;gap:36px;align-items:center;padding:38px 0}
+.banda.b2.compatta .settore-num i{font-size:34px;color:#6E6E73}
+.banda.b2.compatta h2{font-size:24px;margin:0;color:#9A9A9E}
+.banda.b2.compatta p{font-size:15px;margin:0;color:#77777C;max-width:none}
+@media(max-width:900px){
+  .banda.b2{padding:0 22px}
+  .banda.b2 .dentro,.banda.b2.inversa .dentro{grid-template-columns:1fr;gap:26px;padding:54px 0}
+  .banda.b2 .settore-num i{font-size:40px}
+  .banda.b2 figcaption{text-align:left;font-size:9.5px}
+  .banda.b2.compatta .dentro{grid-template-columns:1fr;gap:10px;padding:34px 0}
+  .banda.b2.compatta .presto{justify-self:start}
+}
+
+/* =====================================================================
+   Comparti · tavole da CAD (21/09/2026): figura raster con richiami in sovrimpressione
+   ===================================================================== */
+.tav-cad{position:relative}
+.tav-cad img{display:block;width:100%;height:auto}
+.tavola .richiami-cad{position:absolute;inset:0;width:100%;height:100%}
+.richiami-cad path{fill:none;stroke:#8C8C90;stroke-width:2.4}
+.richiami-cad circle{fill:var(--rosso)}
+.richiami-cad text{font-family:var(--mono);font-size:30px;letter-spacing:3.4px;fill:#C9C7C3;text-transform:uppercase}
+.famiglia .mappa-img img{aspect-ratio:5/4;object-fit:contain;background:var(--nero)}
+
+/* Scala finiture: finché le foto dei provini non ci sono, il riquadro tratteggiato resta nel codice ma non si vede
+   (una pagina da presentare non mostra segnaposto). Quando arrivano le foto: aggiungere la classe "con-foto" a .provini. */
+.provini:not(.con-foto) .slot-foto{display:none}
+.provini:not(.con-foto) .provino .chip{height:76px;border-top:0}
+.provini:not(.con-foto) .provino .nome{font-size:11.5px;padding:10px 12px}
+
+.richiami-cad text.proc{fill:#8C8C90;font-size:26px}
