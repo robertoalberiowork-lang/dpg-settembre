@@ -170,36 +170,45 @@
   </div>
 </div></section>
 
-<!-- S5 · la scala delle finiture · bianco (modulo dello stampo, invariato) -->
-<section class="sez sez--bianco" id="finiture"><div class="dentro">
-  <div class="testa reveal">
-    <span class="occhiello" data-i="s5o"></span>
-    <h2 data-i="s5t"></h2>
-    <p class="sotto-h" data-i="s5p"></p>
-  </div>
-  <div class="provini reveal">
-    <button type="button" class="provino attivo" data-f="F0" aria-pressed="true"><span class="slot-foto"><span class="tx" data-i="slot_foto" data-f="F0"></span></span><span class="chip c-F0"></span><span class="nome">F0</span></button>
-    <button type="button" class="provino" data-f="F1" aria-pressed="false"><span class="slot-foto"><span class="tx" data-i="slot_foto" data-f="F1"></span></span><span class="chip c-F1"></span><span class="nome">F1</span></button>
-    <button type="button" class="provino" data-f="F2" aria-pressed="false"><span class="slot-foto"><span class="tx" data-i="slot_foto" data-f="F2"></span></span><span class="chip c-F2"></span><span class="nome">F2 · 2K</span></button>
-    <button type="button" class="provino" data-f="F3" aria-pressed="false"><span class="slot-foto"><span class="tx" data-i="slot_foto" data-f="F3"></span></span><span class="chip c-F3"></span><span class="nome">F3</span></button>
-  </div>
-  <div class="fin-mod reveal">
-    <div class="viewer"><div id="scena3d" role="img" aria-label="" data-i-aria="aria_viewer"></div></div>
-    <div class="pannello">
-      <span class="tagf" id="fin_tag"></span>
-      <h3 id="fin_tit"></h3>
-      <p id="fin_txt"></p>
-      <div class="ral" id="fin_ral" hidden>
-        <span class="catena" data-i="colore"></span>
-        <button type="button" class="swatch attivo" data-ral="9005" style="background:#0A0A0C" title="RAL 9005" aria-label="RAL 9005" aria-pressed="true"></button>
-        <button type="button" class="swatch" data-ral="3020" style="background:#BB1E10" title="RAL 3020" aria-label="RAL 3020" aria-pressed="false"></button>
-        <button type="button" class="swatch" data-ral="7040" style="background:#9BA0A4" title="RAL 7040" aria-label="RAL 7040" aria-pressed="false"></button>
-        <button type="button" class="swatch" data-ral="9003" style="background:#F2F3F0" title="RAL 9003" aria-label="RAL 9003" aria-pressed="false"></button>
-        <button type="button" class="swatch" data-ral="5010" style="background:#004F7C" title="RAL 5010" aria-label="RAL 5010" aria-pressed="false"></button>
-      </div>
+<!-- S5 · la scala delle finiture · nero (Rev. 04: la stessa stella di formato, quattro finiture, il laser la porta da F0 a F3 mentre si scorre).
+     Le quattro rese vengono dallo stesso modello 3D con camera e luci fisse: per questo la tendina combacia. -->
+<section class="sez sez--nero fin-laser" id="finiture">
+  <div class="dentro">
+    <div class="testa reveal">
+      <span class="occhiello" data-i="s5o"></span>
+      <h2 data-i="s5t"></h2>
+      <p class="sotto-h" data-i="s5p"></p>
     </div>
   </div>
-</div></section>
+  <div class="fl-traccia">
+    <div class="fl-palco"><div class="fl-dentro">
+      <figure class="tavola fl-fig">
+        <div class="fl-lastra">
+          <img src="assets/fin_stella_F0.webp" width="2400" height="1600" alt="" data-i-alt="fl_alt" decoding="async">
+          <img src="assets/fin_stella_F1.webp" width="2400" height="1600" alt="" aria-hidden="true" decoding="async">
+          <img src="assets/fin_stella_F2.webp" width="2400" height="1600" alt="" aria-hidden="true" decoding="async">
+          <img src="assets/fin_stella_F3.webp" width="2400" height="1600" alt="" aria-hidden="true" decoding="async">
+          <span class="fl-laser" aria-hidden="true"></span>
+        </div>
+        <figcaption><span class="tav-c" data-i="fl_c"></span><span class="tav-d" data-i="fl_d"></span></figcaption>
+      </figure>
+      <div class="fl-pannello">
+        <ol class="fl-scala">
+          <li><button type="button" class="provino attivo" data-f="F0" aria-pressed="true"><span data-i="f0t"></span></button></li>
+          <li><button type="button" class="provino" data-f="F1" aria-pressed="false"><span data-i="f1t"></span></button></li>
+          <li><button type="button" class="provino" data-f="F2" aria-pressed="false"><span data-i="f2t"></span></button></li>
+          <li><button type="button" class="provino" data-f="F3" aria-pressed="false"><span data-i="f3t"></span></button></li>
+        </ol>
+        <div class="pannello" aria-live="polite">
+          <span class="tagf" id="fin_tag"></span>
+          <h3 id="fin_tit"></h3>
+          <p id="fin_txt"></p>
+        </div>
+        <div class="fl-avanz" aria-hidden="true"><span></span></div>
+      </div>
+    </div></div>
+  </div>
+</section>
 
 <!-- S6 · preventivo indicativo · carta, campi nel pannello bianco. Preset del comparto: Lib 05 par. 8 -->
 <section class="sez sez--carta" id="quotazione"><div class="dentro">
@@ -277,7 +286,6 @@
   </dl>
 </div></footer>
 
-<script src="js/bundle3d.js"></script>
 <script>
 /* Dizionario: una chiave per riga, stesse chiavi nelle tre lingue. Le chiavi comuni a tutti i comparti (finiture, preventivo,
    cartiglio) sono copiate dallo stampo settore-vsp e non vanno riscritte qui; quelle del comparto stanno in build/build_phm.py.
@@ -307,7 +315,10 @@ const I18N={
 "m_per":"Perché qui",
 "s5o":"La scala delle finiture",
 "s5t":"Il pezzo è lo stesso. Cambia quanto lontano lo portiamo.",
-"s5p":"Trascinate per ruotare il pezzo, scegliete il livello. Resa da modello 3D, dichiarata: i provini reali si toccano in sede.",
+"s5p":"Scorrete: il laser porta lo stesso pezzo da F0 a F3. Resa da modello 3D, dichiarata: i provini reali si toccano in sede.",
+"fl_c":"Tav. F · F0–F3",
+"fl_d":"Stella di formato, stessa camera e stessa luce per le quattro finiture · resa da modello 3D, non fotografia",
+"fl_alt":"Stella di formato per trasporto fiale, resa 3D: la finitura cambia da F0 a F3 mentre si scorre la pagina",
 "f0t":"F0 · Grezzo tecnico",
 "f0p":"Bianco da macchina, trama di sinterizzazione a vista. Per parti funzionali interne, dime e attrezzaggi.",
 "f0g":"incluso",
@@ -456,7 +467,10 @@ const I18N={
 "m_per":"Warum hier",
 "s5o":"Die Oberflächenskala",
 "s5t":"Das Teil ist dasselbe. Es ändert sich, wie weit wir es bringen.",
-"s5p":"Ziehen Sie, um das Teil zu drehen, und wählen Sie die Stufe. Deklariertes 3D-Rendering: die realen Muster fassen Sie bei uns an.",
+"s5p":"Scrollen Sie: der Laser führt dasselbe Teil von F0 bis F3. Deklariertes 3D-Rendering: die realen Muster fassen Sie bei uns an.",
+"fl_c":"Taf. F · F0–F3",
+"fl_d":"Formatstern, gleiche Kamera und gleiches Licht für alle vier Oberflächen · 3D-Rendering, kein Foto",
+"fl_alt":"Formatstern für den Vialtransport, 3D-Rendering: die Oberfläche wechselt beim Scrollen von F0 bis F3",
 "f0t":"F0 · Technisch roh",
 "f0p":"Weiß ab Maschine, Sinterstruktur sichtbar. Für innenliegende Funktionsteile, Lehren und Vorrichtungen.",
 "f0g":"inklusive",
@@ -605,7 +619,10 @@ const I18N={
 "m_per":"Why here",
 "s5o":"The finish scale",
 "s5t":"The part is the same. What changes is how far we take it.",
-"s5p":"Drag to rotate the part, pick the level. Declared 3D rendering: real samples are in our plant, in your hands.",
+"s5p":"Scroll: the laser takes the same part from F0 to F3. Declared 3D rendering: real samples are in our plant, in your hands.",
+"fl_c":"Plate F · F0–F3",
+"fl_d":"Format star wheel, same camera and same light for all four finishes · 3D rendering, not a photograph",
+"fl_alt":"Format star wheel for vial transport, 3D rendering: the finish changes from F0 to F3 as you scroll",
 "f0t":"F0 · As printed",
 "f0p":"White from the machine, sintering texture visible. For hidden functional parts, jigs and fixtures.",
 "f0g":"included",
@@ -800,20 +817,39 @@ function parseSTL(buf){
   return{vol:+vol.toFixed(1),x:Math.round(mx[0]-mn[0]),y:Math.round(mx[1]-mn[1]),z:Math.round(mx[2]-mn[2])};
 }
 
-/* ---- finiture: viewer 3D + pannello ---- */
-let SC=null,STATO='F3'; /* Lib 05 par. 9: F3 e' l'argomento del settore */
+/* ---- finiture: la scala F0-F3 guidata dallo scorrimento (Rev. 04). Si parte da F0 e si arriva a F3,
+        che resta l'argomento del settore (Lib 05 par. 9) ---- */
+let SC=null,STATO='F0';
 function statoFin(f){
   STATO=f;if(SC)SC.stato(f);
   $$('.provino').forEach(b=>{const on=b.dataset.f===f;b.classList.toggle('attivo',on);b.setAttribute('aria-pressed',on);});
   $('#fin_tag').textContent=t(f.toLowerCase()+'g');
   $('#fin_tit').textContent=t(f.toLowerCase()+'t');
   $('#fin_txt').textContent=t(f.toLowerCase()+'p');
-  $('#fin_ral').hidden=f!=='F2';
 }
-$$('.provino').forEach(b=>b.onclick=()=>statoFin(b.dataset.f));
-$$('.swatch').forEach(s=>s.onclick=()=>{
-  if(SC)SC.ral(s.dataset.ral);
-  $$('.swatch').forEach(x=>{x.classList.toggle('attivo',x===s);x.setAttribute('aria-pressed',x===s);});});
+const FL={traccia:$('.fl-traccia'),palco:$('.fl-palco'),lastre:[...$$('.fl-lastra img')],laser:$('.fl-laser'),avanz:$('.fl-avanz span'),fasi:['F0','F1','F2','F3']};
+const liscia=x=>x<=0?0:x>=1?1:x*x*(3-2*x);
+/* s va da 0 a 3: la parte intera e' la finitura raggiunta, la frazione e' il passaggio del laser verso la successiva.
+   Ogni finitura resta ferma per un tratto (fra 0 e 0,25 e fra 0,75 e 1 della frazione): il laser passa nel mezzo. */
+function mostra(s){
+  const k=Math.min(2,Math.floor(s)),r=liscia((s-k-0.25)/0.5);
+  FL.lastre.forEach((im,i)=>{const v=i===0?1:i<=k?1:i===k+1?r:0;im.style.clipPath=`inset(${((1-v)*100).toFixed(3)}% 0 0 0)`;});
+  const muove=r>0&&r<1&&s<3;
+  FL.laser.style.opacity=muove?1:0;
+  FL.laser.style.top=((1-r)*100)+'%';
+  const f=FL.fasi[Math.min(3,r>=0.5?k+1:k)];
+  if(f!==STATO)statoFin(f);
+  FL.avanz.style.transform=`scaleX(${(s/3).toFixed(4)})`;
+}
+function corsa(){const h=FL.traccia.offsetHeight-FL.palco.offsetHeight;return h>1?h:0;}
+function scorri(){const h=corsa();if(!h)return;const p=Math.min(1,Math.max(0,-FL.traccia.getBoundingClientRect().top/h));mostra(p*3);}
+let inCoda=false;
+addEventListener('scroll',()=>{if(!inCoda){inCoda=true;requestAnimationFrame(()=>{inCoda=false;scorri();});}},{passive:true});
+addEventListener('resize',scorri);
+/* un clic sulla scala porta lo scorrimento al punto in cui quella finitura e' ferma; senza palco fisso cambia e basta */
+$$('.provino').forEach(b=>b.onclick=()=>{const i=FL.fasi.indexOf(b.dataset.f),h=corsa();
+  if(!h){mostra(i);return;}
+  const y=FL.traccia.getBoundingClientRect().top+scrollY+h*(i/3);scrollTo({top:y,behavior:'smooth'});});
 
 /* ---- preventivatore ---- */
 /* esempio del comparto: Lib 05 par. 9, stella di formato 160 x 160 x 30 mm, circa 90 cm3 */
@@ -886,7 +922,7 @@ $('#q_es').onclick=()=>{NOMEFILE='';
 
 /* ---- avvio ---- */
 materiali();
-SC=DPG3D.avviaScena(document.getElementById('scena3d'));
 applica();
+mostra(0);scorri();
 </script>
 </body></html>

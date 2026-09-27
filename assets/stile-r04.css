@@ -268,3 +268,50 @@ p,.tav-d{text-wrap:pretty}
   .iscrizioni{grid-template-columns:repeat(2,minmax(0,1fr))}
   .iscrizioni>div:last-child:nth-child(odd){grid-column:1/-1}
 }
+
+/* =====================================================================
+   S5 · la scala delle finiture col laser (Rev. 04, solo PHM per ora)
+   Lo stesso pezzo in quattro rese a camera fissa, impilate; scorrendo, il laser sale
+   e scopre la finitura successiva. Il palco resta fermo mentre la traccia scorre.
+   ===================================================================== */
+.fin-laser{padding-bottom:0}
+.fl-traccia{position:relative;height:calc(100vh * 3.4)}
+.fl-palco{position:sticky;top:57px;height:calc(100vh - 57px);display:flex;align-items:center;padding:0 var(--lato)}
+.fl-dentro{max-width:var(--dentro);margin:0 auto;width:100%;display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:48px;align-items:center}
+.fl-fig{margin:0}
+.fl-lastra{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--nero)}
+.fl-lastra img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;will-change:clip-path}
+.fl-lastra img+img{clip-path:inset(100% 0 0 0)}
+/* il laser: un filo rosso incandescente con alone, e sotto una scia calda che sfuma sul pezzo appena lavorato */
+.fl-laser{position:absolute;left:0;right:0;top:100%;height:2px;opacity:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,120,110,0) 0%,#ffd9d4 12%,#fff 50%,#ffd9d4 88%,rgba(255,120,110,0) 100%);
+  box-shadow:0 0 6px 1px rgba(255,90,80,.95),0 0 22px 4px rgba(230,51,41,.75),0 0 60px 10px rgba(230,51,41,.35);
+  transition:opacity .2s}
+.fl-laser::after{content:"";position:absolute;left:0;right:0;top:2px;height:90px;
+  background:linear-gradient(180deg,rgba(230,51,41,.28),rgba(230,51,41,0));mix-blend-mode:screen}
+.fl-laser::before{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:rgba(255,255,255,.25)}
+@media (prefers-reduced-motion:reduce){.fl-laser{transition:none}}
+/* la scala a destra: quattro righe, quella attiva accesa */
+.fl-scala{list-style:none;margin:0 0 28px;padding:0;border-top:1px solid var(--filo-tav)}
+.fl-scala li{border-bottom:1px solid var(--filo-tav)}
+.fl-scala .provino{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;padding:14px 0;cursor:pointer;
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#6E6E73;transition:color .25s}
+.fl-scala .provino::before{content:"";flex:none;width:8px;height:8px;border:1px solid #4A4A4D;transition:background .25s,border-color .25s,box-shadow .25s}
+.fl-scala .provino:hover{color:var(--chiaro-2)}
+.fl-scala .provino.attivo{color:var(--carta)}
+.fl-scala .provino.attivo::before{background:var(--rosso);border-color:var(--rosso);box-shadow:0 0 10px 1px rgba(230,51,41,.7)}
+.fl-scala .provino:focus-visible{outline:2px solid var(--carta);outline-offset:2px}
+.fin-laser .pannello{min-height:330px}
+.fl-dentro>.fl-pannello{align-self:center}
+.fin-laser .pannello .tagf{color:var(--rosso)}
+.fin-laser .pannello h3{color:var(--carta);font-size:clamp(22px,2.2vw,30px);margin:10px 0 14px}
+.fin-laser .pannello p{color:var(--chiaro-2);font-size:16.5px;line-height:1.65}
+.fl-avanz{height:1px;background:var(--filo-tav);margin-top:20px;overflow:hidden}
+.fl-avanz span{display:block;height:100%;background:var(--rosso);transform-origin:left;transform:scaleX(0)}
+/* sotto i 900 px niente palco fisso: la scala si usa coi bottoni */
+@media(max-width:900px){
+  .fl-traccia{height:auto}
+  .fl-palco{position:static;height:auto;padding:0 var(--lato) var(--sez-y)}
+  .fl-dentro{grid-template-columns:1fr;gap:28px}
+  .fin-laser .pannello{min-height:0}
+}
