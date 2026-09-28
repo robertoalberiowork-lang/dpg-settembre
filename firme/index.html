@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/favicon.svg">
+<title>Firme Due Pi Greco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{--nero:#0B0B0C;--rosso:#ED1B24;--rosso-sito:#E63329;--carta:#FAF9F7;--panna:#F1EFEB;--riga:#D9D6D1;--grafite:#4A4A4D;--grigio:#76767A;
+--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--serif:'Source Serif 4',Georgia,serif;--disp:'Archivo',system-ui,Arial,sans-serif}
+*{box-sizing:border-box}
+body{background:var(--panna);color:var(--nero);font-family:var(--serif);font-size:16px;line-height:1.55;margin:0}
+.testa{background:var(--nero);color:var(--carta);border-bottom:2px solid var(--rosso-sito);padding:12px 16px;
+  font:600 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between}
+.testa b{font:800 14px var(--disp);letter-spacing:-.01em;text-transform:none}
+main{max-width:1040px;margin:0 auto;padding-inline:16px;padding-block:34px 70px;display:grid;gap:44px}
+h1{font:800 clamp(30px,5vw,48px)/1.04 var(--disp);letter-spacing:-.028em;margin:0 0 12px;text-wrap:balance}
+h2{font:800 22px/1.15 var(--disp);letter-spacing:-.02em;margin:0;text-wrap:balance}
+.intro p{max-width:62ch;margin:0;color:#2A2A2D}
+.passo{display:grid;gap:16px}
+.passo-testa{display:flex;align-items:baseline;gap:12px}
+.num{font:600 12px var(--mono);letter-spacing:.14em;color:var(--rosso-sito)}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.scheda{position:relative;display:grid;grid-template-rows:auto 1fr;background:#fff;border:1px solid var(--riga);cursor:pointer;transition:border-color .15s}
+.scheda input{position:absolute;opacity:0;pointer-events:none}
+.scheda:hover{border-color:var(--grafite)}
+.scheda:has(input:checked){border-color:var(--rosso);box-shadow:0 0 0 1px var(--rosso)}
+.scheda:has(input:focus-visible){outline:2px solid var(--nero);outline-offset:3px}
+.vetrina{display:flex;justify-content:center;background:#fff;border-bottom:1px solid var(--riga)}
+.scura .vetrina{background:var(--nero);border-color:var(--nero)}
+.vetrina img{display:block;width:100%;max-width:330px;height:auto}
+.testo{display:grid;gap:4px;padding:12px 14px 14px;align-content:start}
+.nome{font:800 17px var(--disp);letter-spacing:-.01em;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nome::before{content:"";width:14px;height:14px;border:1.5px solid var(--grafite);border-radius:50%;flex:none}
+.scheda:has(input:checked) .nome::before{border-color:var(--rosso);background:radial-gradient(var(--rosso) 0 3.5px,transparent 4px)}
+.consiglio{font:600 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;background:var(--rosso-sito);color:var(--carta);padding:2px 7px}
+.descr{font-size:14.5px;line-height:1.45;color:#2A2A2D}
+.dati{font:11px var(--mono);letter-spacing:.06em;color:var(--grigio);margin-top:4px}
+.foglio-wrap{overflow-x:auto;background:#fff;border:1px solid var(--riga)}
+.foglio{padding:22px;width:max-content}
+.didascalia{font:12px var(--mono);color:var(--grigio);margin:0}
+.opzioni{display:flex;flex-wrap:wrap;gap:10px}
+.opz{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--riga);padding:11px 16px;cursor:pointer;font:500 15px var(--disp)}
+.opz:has(input:checked){border-color:var(--rosso);box-shadow:0 0 0 1px var(--rosso)}
+.opz input{accent-color:var(--rosso);margin:0}
+.opz:has(input:focus-visible){outline:2px solid var(--nero);outline-offset:2px}
+label.lab{font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--grafite)}
+textarea{width:100%;max-width:640px;min-height:78px;font:15px/1.5 var(--serif);padding:10px 12px;border:1px solid var(--riga);background:#fff;color:var(--nero);resize:vertical}
+textarea:focus{outline:2px solid var(--nero);outline-offset:1px}
+.risposta{background:var(--nero);color:var(--carta);padding:18px 20px;display:grid;gap:14px;max-width:720px}
+.risposta pre{margin:0;white-space:pre-wrap;font:14px/1.6 var(--mono);color:var(--carta);user-select:all}
+.azioni{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+button{font:800 15px var(--disp);background:var(--rosso);color:#fff;border:0;padding:11px 20px;cursor:pointer}
+button:hover{background:#C8141C}
+button:focus-visible{outline:2px solid var(--carta);outline-offset:3px}
+.esito{font:12px var(--mono);color:#C9C7C2}
+@media (prefers-reduced-motion:reduce){.scheda,.opz{transition:none}}
+</style>
+</head><body>
+
+<div class="testa"><b>Due Pi Greco</b><span>Firme email · Rev. 03 · Roberto Alberio</span></div>
+<main>
+<section class="intro">
+<h1>Quale firma usiamo?</h1>
+<p>Sei animazioni del marchio per la firma delle email, più la versione ferma. Nella firma vera ogni animazione parte dopo cinque secondi di marchio fermo; qui la pausa è accorciata per vederle subito. Scegli quella che ti convince di più, dimmi se la usiamo tutti o solo io, e mandami la risposta.</p>
+</section>
+<section class="passo" aria-labelledby="p1">
+<div class="passo-testa"><span class="num">1 / 3</span><h2 id="p1">Scegli l'animazione</h2></div>
+<div class="griglia" role="radiogroup" aria-labelledby="p1"><label class="scheda" for="s-sinterizzazione">
+<input type="radio" name="scelta" id="s-sinterizzazione" value="sinterizzazione" checked>
+<span class="vetrina"><img src="anteprime/logo-sinterizzazione.gif" width="300" height="165" alt="Animazione Sinterizzazione"></span>
+<span class="testo"><span class="nome">Sinterizzazione<span class="consiglio">Consigliata</span></span><span class="descr">La racla stende la polvere, il laser ripassa il contorno del π e lo riempie a tratteggio, come in una SLS vera.</span>
+<span class="dati">Su bianco · 80 KB</span></span></label><label class="scheda" for="s-rotazione">
+<input type="radio" name="scelta" id="s-rotazione" value="rotazione">
+<span class="vetrina"><img src="anteprime/logo-rotazione.gif" width="300" height="165" alt="Animazione Rotazione 3D"></span>
+<span class="testo"><span class="nome">Rotazione 3D</span><span class="descr">Il segno prende spessore e gira come un modello nel CAD, poi torna in vista frontale. La più vistosa.</span>
+<span class="dati">Su bianco · 314 KB</span></span></label><label class="scheda" for="s-strati">
+<input type="radio" name="scelta" id="s-strati" value="strati">
+<span class="vetrina"><img src="anteprime/logo-strati.gif" width="300" height="165" alt="Animazione Strati"></span>
+<span class="testo"><span class="nome">Strati</span><span class="descr">Il marchio cresce a strati dal basso sul piano di stampa, poi le righe si levigano. Come sul sito.</span>
+<span class="dati">Su bianco · 172 KB</span></span></label><label class="scheda scura" for="s-incandescenza">
+<input type="radio" name="scelta" id="s-incandescenza" value="incandescenza">
+<span class="vetrina"><img src="anteprime/logo-incandescenza.gif" width="300" height="165" alt="Animazione Incandescenza"></span>
+<span class="testo"><span class="nome">Incandescenza</span><span class="descr">Un piano laser ricostruisce il π dal basso: la materia fusa è bianca e si raffredda nel rosso del marchio.</span>
+<span class="dati">Su nero · 130 KB</span></span></label><label class="scheda scura" for="s-rotazione-nero">
+<input type="radio" name="scelta" id="s-rotazione-nero" value="rotazione-nero">
+<span class="vetrina"><img src="anteprime/logo-rotazione-nero.gif" width="300" height="165" alt="Animazione Rotazione 3D su nero"></span>
+<span class="testo"><span class="nome">Rotazione 3D su nero</span><span class="descr">La rotazione sul fondo del sito.</span>
+<span class="dati">Su nero · 322 KB</span></span></label><label class="scheda scura" for="s-strati-nero">
+<input type="radio" name="scelta" id="s-strati-nero" value="strati-nero">
+<span class="vetrina"><img src="anteprime/logo-strati-nero.gif" width="300" height="165" alt="Animazione Strati su nero"></span>
+<span class="testo"><span class="nome">Strati su nero</span><span class="descr">Gli strati sul fondo del sito.</span>
+<span class="dati">Su nero · 183 KB</span></span></label><label class="scheda" for="s-statica">
+<input type="radio" name="scelta" id="s-statica" value="statica">
+<span class="vetrina"><img src="anteprime/logo-statica.png" width="300" height="165" alt="Animazione Statica"></span>
+<span class="testo"><span class="nome">Statica</span><span class="descr">Il marchio fermo, per chi preferisce niente movimento.</span>
+<span class="dati">Su bianco · 17 KB</span></span></label></div>
+</section>
+<section class="passo" aria-labelledby="pf">
+<div class="passo-testa"><span class="num">Anteprima</span><h2 id="pf">Come appare nella firma</h2></div>
+<div class="foglio-wrap"><div class="foglio" id="firma"></div></div>
+<p class="didascalia" id="firma-nome"></p>
+</section>
+<section class="passo" aria-labelledby="p2">
+<div class="passo-testa"><span class="num">2 / 3</span><h2 id="p2">Chi la usa?</h2></div>
+<div class="opzioni" role="radiogroup" aria-labelledby="p2">
+<label class="opz" for="u-tutti"><input type="radio" name="uso" id="u-tutti" value="La usiamo tutti in azienda" checked>La usiamo tutti</label>
+<label class="opz" for="u-roberto"><input type="radio" name="uso" id="u-roberto" value="La usa solo Roberto (commerciale)">Solo Roberto</label>
+<label class="opz" for="u-dopo"><input type="radio" name="uso" id="u-dopo" value="Ne parliamo insieme">Ne parliamo</label>
+</div>
+<label class="lab" for="nota">Nota (facoltativa)</label>
+<textarea id="nota" placeholder="Per esempio: mi piace, ma più lenta"></textarea>
+</section>
+<section class="passo" aria-labelledby="p3">
+<div class="passo-testa"><span class="num">3 / 3</span><h2 id="p3">Mandami la risposta</h2></div>
+<div class="risposta"><pre id="testo"></pre>
+<div class="azioni"><button type="button" id="copia">Copia la risposta</button><span class="esito" id="esito" aria-live="polite">Incollala in una mail o su WhatsApp a Roberto.</span></div></div>
+</section>
+</main>
+<script>
+const TPL="<table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#0B0B0C;mso-table-lspace:0pt;mso-table-rspace:0pt;\"><tr><td valign=\"middle\" style=\"padding:0 6px 0 0;border-right:1px solid #D9D6D1;\"><a href=\"https://www.duepigreco3d.it/\" style=\"text-decoration:none;\"><img src=\"{{LOGO}}\" width=\"200\" height=\"110\" alt=\"DUE PI GRECO\" border=\"0\" style=\"display:block;width:200px;height:110px;border:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;color:#0B0B0C;{{LOGO_FONDO}}\"></a></td><td valign=\"middle\" style=\"padding:0 0 0 18px;\"><table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;\"><tr><td style=\"font-family:Arial,Helvetica,sans-serif;color:#0B0B0C;font-size:19px;line-height:23px;font-weight:bold;mso-line-height-rule:exactly;\">Roberto Alberio</td></tr><tr><td style=\"font-family:Arial,Helvetica,sans-serif;color:#0B0B0C;font-size:9.5px;line-height:15px;font-weight:bold;letter-spacing:1.2px;color:#595959;padding:2px 0 0 0;\">SALES ENGINEER &middot; BUSINESS DEVELOPMENT</td></tr><tr><td style=\"font-family:Arial,Helvetica,sans-serif;color:#0B0B0C;font-size:12px;line-height:17px;font-weight:bold;padding:11px 0 0 0;\">Due Pi Greco S.r.l.</td></tr><tr><td style=\"font-family:Arial,Helvetica,sans-serif;color:#0B0B0C;font-size:10.5px;line-height:15px;color:#595959;\">A SolidWorld Group company</td></tr><tr><td style=\"font-family:Consolas,'Lucida Console',Menlo,Monaco,'Courier New',monospace;font-size:9.5px;line-height:15px;color:#8C8C90;padding:3px 0 0 0;white-space:nowrap;\">SLS &middot; SAF &middot; FDM &nbsp;|&nbsp; PA12 &middot; PA11 &middot; PP &middot; TPU</td></tr><tr><td style=\"padding:10px 0 0 0;\"><table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;\"><tr><td style=\"font-family:Consolas,'Lucida Console',Menlo,Monaco,'Courier New',monospace;font-size:9px;line-height:19px;color:#8C8C90;padding:0 8px 0 0;vertical-align:top;\">M</td><td style=\"font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#0B0B0C;vertical-align:top;white-space:nowrap;\"><a href=\"tel:+393516070681\" style=\"color:#0B0B0C;text-decoration:none;\">+39 351 607 0681</a></td></tr><tr><td style=\"font-family:Consolas,'Lucida Console',Menlo,Monaco,'Courier New',monospace;font-size:9px;line-height:19px;color:#8C8C90;padding:0 8px 0 0;vertical-align:top;\">T</td><td style=\"font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#0B0B0C;vertical-align:top;white-space:nowrap;\"><a href=\"tel:+390423715172\" style=\"color:#0B0B0C;text-decoration:none;\">+39 0423 715172</a></td></tr><tr><td style=\"font-family:Consolas,'Lucida Console',Menlo,Monaco,'Courier New',monospace;font-size:9px;line-height:19px;color:#8C8C90;padding:0 8px 0 0;vertical-align:top;\">E</td><td style=\"font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#0B0B0C;vertical-align:top;white-space:nowrap;\"><a href=\"mailto:r.alberio@duepigreco3d.it\" style=\"color:#0B0B0C;text-decoration:none;\">r.alberio@duepigreco3d.it</a></td></tr><tr><td style=\"font-family:Consolas,'Lucida Console',Menlo,Monaco,'Courier New',monospace;font-size:9px;line-height:19px;color:#8C8C90;padding:0 8px 0 0;vertical-align:top;\">W</td><td style=\"font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#0B0B0C;vertical-align:top;white-space:nowrap;\"><a href=\"https://www.duepigreco3d.it/\" style=\"color:#ED1B24;text-decoration:none;font-weight:bold;\">duepigreco3d.it</a></td></tr></table></td></tr></table></td></tr><tr><td colspan=\"2\" style=\"padding:12px 0 0 0;\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;\"><tr><td style=\"border-top:1px solid #D9D6D1;padding:8px 0 0 0;font-family:Arial,Helvetica,sans-serif;color:#0B0B0C;font-size:9.5px;line-height:15px;letter-spacing:0.8px;\"><a href=\"https://duepigreco3d.it/design/\" style=\"color:#595959;text-decoration:none;\">DESIGN</a>&nbsp; &middot; &nbsp;<a href=\"https://duepigreco3d.it/engineering/\" style=\"color:#595959;text-decoration:none;\">ENGINEERING</a>&nbsp; &middot; &nbsp;<a href=\"https://duepigreco3d.it/additive-manufacturing/\" style=\"color:#595959;text-decoration:none;\">ADDITIVE MANUFACTURING</a></td></tr><tr><td style=\"font-family:Arial,Helvetica,sans-serif;color:#0B0B0C;font-size:10px;line-height:15px;color:#595959;padding:2px 0 0 0;\">Via delle Industrie 18/20 &middot; 31050 Ponzano Veneto (TV) &middot; Italy</td></tr></table></td></tr></table>";
+const NOMI={"sinterizzazione": "Sinterizzazione", "rotazione": "Rotazione 3D", "strati": "Strati", "incandescenza": "Incandescenza", "rotazione-nero": "Rotazione 3D su nero", "strati-nero": "Strati su nero", "statica": "Statica"};
+const SCURE=["incandescenza","rotazione-nero","strati-nero"];
+const $=id=>document.getElementById(id);
+const val=n=>(document.querySelector('input[name="'+n+'"]:checked')||{}).value;
+function aggiorna(){
+  const k=val("scelta"),src="anteprime/logo-"+k+(k==="statica"?".png":".gif");
+  $("firma").innerHTML=TPL.replace("{{LOGO}}",src).replace("{{LOGO_FONDO}}",SCURE.includes(k)?"background-color:#0B0B0C;":"");
+  $("firma-nome").textContent="Firma con: "+NOMI[k]+" · 200 × 110 px a video, immagine 3× per gli schermi ad alta densità";
+  const nota=$("nota").value.trim();
+  $("testo").textContent="Firma email DPG\nLa mia scelta: "+NOMI[k]+"\nChi la usa: "+val("uso")+(nota?"\nNota: "+nota:"");
+  try{localStorage.setItem("firme-dpg",JSON.stringify({k,u:val("uso"),nota:$("nota").value}))}catch(e){}
+}
+try{const s=JSON.parse(localStorage.getItem("firme-dpg")||"null");
+  if(s){const a=document.querySelector('input[name="scelta"][value="'+s.k+'"]');if(a)a.checked=true;
+  const b=[...document.querySelectorAll('input[name="uso"]')].find(i=>i.value===s.u);if(b)b.checked=true;$("nota").value=s.nota||""}}catch(e){}
+document.addEventListener("change",aggiorna);$("nota").addEventListener("input",aggiorna);
+$("copia").addEventListener("click",()=>{
+  const t=$("testo").textContent;
+  navigator.clipboard.writeText(t).then(()=>{$("esito").textContent="Copiata. Incollala in una mail o su WhatsApp a Roberto."})
+  .catch(()=>{const r=document.createRange();r.selectNodeContents($("testo"));const s=getSelection();s.removeAllRanges();s.addRange(r);
+    $("esito").textContent="Testo selezionato: copialo con Ctrl+C (o Cmd+C)."});
+});
+aggiorna();
+</script>
+</body></html>
