@@ -145,7 +145,7 @@ h3{font-weight:var(--peso-t);line-height:1.22;letter-spacing:-0.012em}
 .dati-chiave li:first-child{border-left:0;padding-left:0}
 .dati-chiave b{display:block;font-family:var(--disp);font-weight:var(--peso-t);font-size:clamp(28px,2.6vw,36px);
   letter-spacing:-.02em;line-height:1;color:var(--carta)}
-.dati-chiave span{display:block;margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;line-height:1.55;color:var(--grigio-2);max-width:28ch}
+.dati-chiave span{display:block;margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;line-height:1.55;color:var(--grigio-2);max-width:34ch}
 @media(max-width:900px){.dati-chiave{grid-template-columns:repeat(2,minmax(0,1fr))}
   .dati-chiave li:nth-child(3){border-left:0;padding-left:0}
   .dati-chiave li:nth-child(n+3){border-top:1px solid var(--filo-tav)}}
@@ -301,7 +301,7 @@ p,.tav-d{text-wrap:pretty}
 .fl-scala .provino.attivo{color:var(--carta)}
 .fl-scala .provino.attivo::before{background:var(--rosso);border-color:var(--rosso);box-shadow:0 0 10px 1px rgba(230,51,41,.7)}
 .fl-scala .provino:focus-visible{outline:2px solid var(--carta);outline-offset:2px}
-.fin-laser .pannello{min-height:330px}
+.fin-laser .pannello{min-height:352px}
 .fl-dentro>.fl-pannello{align-self:center}
 .fin-laser .pannello .tagf{color:var(--rosso)}
 .fin-laser .pannello h3{color:var(--carta);font-size:clamp(22px,2.2vw,30px);margin:10px 0 14px}
@@ -315,3 +315,39 @@ p,.tav-d{text-wrap:pretty}
   .fl-dentro{grid-template-columns:1fr;gap:28px}
   .fin-laser .pannello{min-height:0}
 }
+
+/* =====================================================================
+   Tavole Tron (Rev. 04, 28/09/2026): i disegni sono rese da CAD con il loro piano quadrettato in prospettiva.
+   La carta quadrettata piatta del foglio non serve piu' (doppia griglia): resta il nero, restano i segni d'angolo.
+   Lo sfondo delle rese e' gia' il nero pagina (#0B0B0C), quindi l'immagine non disegna un riquadro.
+   ===================================================================== */
+.foglio,.tavola .tav-cad,.famiglia .mappa-img,.banda.b2 .figura .foglio{background-image:none}
+.banda.b2 .figura .foglio{padding:0}
+.banda.b2 .figura img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.tavola .tav-cad::after,.famiglia .mappa-img::after,.banda.b2 .figura .foglio::after{z-index:1}
+.famiglia .mappa-img{margin:0}
+.famiglia .n{position:absolute;top:0;left:0;z-index:2}
+/* sequenza VSP: la resa riempie il riquadro, il numero del passo sta sopra, nel cielo vuoto della tavola */
+.passo .n{position:absolute;top:12px;left:12px;margin:0;z-index:1}
+.passo img{padding:0;object-fit:cover;height:100%}
+.passo{transition:border-color .3s}
+.passo:hover{border-color:#3A3A3E}
+.mappa .mappa-img{border:1px solid var(--filo-scuro)}
+/* richiami: il filo parte dal punto rosso e si accende appena, come le linee delle tavole */
+.richiami-cad path,.richiami-hero .fili path{stroke:#9A9AA0}
+.richiami-cad circle,.richiami-hero .punti circle{fill:var(--rosso);filter:drop-shadow(0 0 6px rgba(230,51,41,.85))}
+
+/* colore a specifica su F2, sul nero del palco */
+.fin-laser .ral{margin:18px 0 0;gap:10px}
+.fin-laser .ral[hidden]{display:flex;visibility:hidden}
+.fin-laser .catena{color:var(--grigio-2);margin:0 6px 0 0;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.fin-laser .swatch{width:26px;height:26px;border:1px solid #4A4A4D;transition:transform .2s}
+.fin-laser .swatch:hover{transform:translateY(-2px)}
+.fin-laser .swatch.attivo{outline:1px solid var(--carta);outline-offset:3px}
+.fin-laser .swatch:focus-visible{outline:2px solid var(--carta);outline-offset:3px}
+/* l'esploso della home non ha cornice: i bordi dell'immagine sfumano nel nero, nessun riquadro si vede */
+.tavola-hero img{
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%),linear-gradient(180deg,transparent 0,#000 10%,#000 88%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 12%),linear-gradient(180deg,transparent 0,#000 10%,#000 88%,transparent 100%);
+  mask-composite:intersect}
