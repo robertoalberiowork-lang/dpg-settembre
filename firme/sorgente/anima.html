@@ -1,0 +1,257 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8">
+<title>DPG firme · motore animazioni</title>
+<!-- Motore delle GIF di firma. Ogni animazione e una funzione pura del tempo t (secondi):
+     render(nome, t) disegna il fotogramma sul canvas 600x330 (3x del formato a video 200x110).
+     t = 0 e t = durata restituiscono entrambi il marchio finito: il primo fotogramma della GIF
+     e quello che vede Outlook classico, che non anima. -->
+<style>body{margin:0;background:#777}canvas{display:block}</style></head><body>
+<canvas id="c" width="600" height="330"></canvas>
+<svg id="misura" width="0" height="0" style="position:absolute"></svg>
+<script>
+const W=600,H=330;
+const NERO='#0B0B0C',ROSSO='#ED1B24',CARTA='#FAF9F7',BIANCO='#FFFFFF';
+const LW=528,S=LW/1992,OX=(W-LW)/2,OY=(H-1014*S)/2;
+const K=S*0.1;                       // unita del tracciato -> pixel
+const BASE=[K,0,0,-K,OX,OY+S*1014];  // come transform="translate(0,1014) scale(.1,-.1)"
+
+let D, P={}, BB={}, LEN={}, POLVERE;
+const c=document.getElementById('c'), x=c.getContext('2d');
+
+// ---------- utilita ----------
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const fase=(t,a,b)=>clamp((t-a)/(b-a));
+const eio=u=>u<.5?4*u*u*u:1-Math.pow(-2*u+2,3)/2;         // ease in-out cubica
+const eo=u=>1-Math.pow(1-u,3);
+const mix=(a,b,u)=>a+(b-a)*u;
+function hex(h){h=h.replace('#','');return[0,2,4].map(i=>parseInt(h.substr(i,2),16))}
+function col(a,b,u){const A=hex(a),B=hex(b);return`rgb(${A.map((v,i)=>Math.round(mix(v,B[i],u))).join(',')})`}
+function base(m=[1,0,0,1,0,0]){ // m (pixel) composto con BASE
+  const [a,b,cc,d,e,f]=m,[A,B,C,Dd,E,F]=BASE;
+  x.setTransform(a*A+cc*B,b*A+d*B,a*C+cc*Dd,b*C+d*Dd,a*E+cc*F+e,b*E+d*F);
+}
+function riempi(p,colore,m){x.save();base(m);x.fillStyle=colore;x.fill(p,'evenodd');x.restore()}
+function bboxPx(raw){ // bbox tracciato -> pixel
+  return{x0:OX+K*raw.x,x1:OX+K*(raw.x+raw.width),y0:OY+S*1014-K*(raw.y+raw.height),y1:OY+S*1014-K*raw.y};
+}
+function rnd(seed){return()=>{seed=(seed*16807)%2147483647;return(seed-1)/2147483646}}
+
+function init(dati){
+  D=dati;
+  const parti={reg:D.nero.slice(0,2).join(' '),quadro:D.nero[2],testo:D.nero.slice(3).join(' '),
+               due:D.rosso[0],pi:D.rosso[1]};
+  const svg=document.getElementById('misura');
+  for(const k in parti){
+    P[k]=new Path2D(parti[k]);
+    const el=document.createElementNS('http://www.w3.org/2000/svg','path');
+    el.setAttribute('d',parti[k]);svg.appendChild(el);
+    BB[k]=bboxPx(el.getBBox());LEN[k]=el.getTotalLength();
+  }
+  BB.segno={x0:Math.min(BB.quadro.x0,BB.due.x0),x1:BB.quadro.x1,y0:Math.min(BB.quadro.y0,BB.due.y0),y1:BB.quadro.y1};
+  // letto di polvere: grana fine, seme fisso (fotogrammi ripetibili)
+  POLVERE=document.createElement('canvas');POLVERE.width=W;POLVERE.height=H;
+  const p=POLVERE.getContext('2d'),r=rnd(7);
+  p.fillStyle='#F2F0EC';p.fillRect(0,0,W,H);
+  for(let i=0;i<9000;i++){p.fillStyle=r()<.5?'#E4E1DB':'#FFFFFF';p.fillRect(Math.floor(r()*W),Math.floor(r()*H),1,1)}
+}
+
+// ---------- marchio ----------
+function marchio(o={}){
+  const nero=o.nero||NERO, rosso=o.rosso||ROSSO;
+  if(!o.noReg)riempi(P.reg,nero);
+  if(!o.noQuadro)riempi(P.quadro,nero);
+  if(!o.noTesto)riempi(P.testo,nero);
+  if(!o.noDue)riempi(P.due,rosso);
+  if(!o.noPi)riempi(P.pi,rosso);
+}
+function fondo(colore){x.setTransform(1,0,0,1,0,0);x.fillStyle=colore;x.fillRect(0,0,W,H)}
+function clipParte(k){base();x.clip(P[k],'evenodd');x.setTransform(1,0,0,1,0,0)}
+// interno del quadro, dove sta il letto di polvere
+function interno(){const b=BB.quadro,s=13;return{x0:b.x0+s,x1:b.x1-s,y0:b.y0+s,y1:b.y1-s}}
+
+// laser: nucleo bianco, alone rosso
+function laser(px,py,forza=1,scuro=false){
+  x.save();x.setTransform(1,0,0,1,0,0);
+  const g=x.createRadialGradient(px,py,0,px,py,18*forza);
+  g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.14,'rgba(255,255,255,1)');
+  g.addColorStop(.28,scuro?'rgba(255,90,80,.95)':'rgba(237,27,36,.9)');
+  g.addColorStop(1,'rgba(237,27,36,0)');
+  x.fillStyle=g;x.beginPath();x.arc(px,py,18*forza,0,7);x.fill();x.restore();
+}
+function puntoSulContorno(k,u){
+  const el=document.querySelectorAll('#misura path')[Object.keys(P).indexOf(k)];
+  const q=el.getPointAtLength(LEN[k]*u);return[OX+K*q.x,OY+S*1014-K*q.y];
+}
+// contorno parziale tracciato dal laser
+function contorno(k,u,colore,spess){
+  x.save();base();x.strokeStyle=colore;x.lineWidth=spess/K;x.lineJoin='round';
+  x.setLineDash([LEN[k]*u,LEN[k]*2]);x.stroke(P[k]);x.restore();
+}
+// tratteggio di sinterizzazione a 45 gradi, u = avanzamento 0..1
+function tratteggio(k,u,passo,colore,spess,conLaser,scuro){
+  const b=BB[k],r2=Math.SQRT1_2;
+  const q0=(b.x0+b.y0)*r2,q1=(b.x1+b.y1)*r2,s0=(b.x0-b.y1)*r2,s1=(b.x1-b.y0)*r2;
+  const n=Math.ceil((q1-q0)/passo),cur=u*n,ci=Math.floor(cur),fr=cur-ci;
+  x.save();clipParte(k);x.strokeStyle=colore;x.lineWidth=spess;x.beginPath();
+  const pt=(q,s)=>[(q+s)*r2,(q-s)*r2];
+  for(let i=0;i<Math.min(ci,n);i++){const q=q0+i*passo;x.moveTo(...pt(q,s0));x.lineTo(...pt(q,s1))}
+  let dot=null;
+  if(ci<n&&u>0&&u<1){ // riga in corso, percorso a serpentina
+    const q=q0+ci*passo,sa=ci%2?s1:s0,sb=ci%2?s0:s1,se=mix(sa,sb,fr);
+    x.moveTo(...pt(q,sa));x.lineTo(...pt(q,se));dot=pt(q,se);
+  }
+  x.stroke();x.restore();
+  if(dot&&conLaser){ // il fascio si accende solo sopra il pezzo
+    x.save();base();const dentro=x.isPointInPath(P[k],dot[0],dot[1],'evenodd');x.restore();
+    if(dentro)laser(dot[0],dot[1],.8,scuro);
+  }
+}
+// racla del ricoprimento: barra verticale con cordone di polvere davanti
+function racla(bx){
+  const i=interno();x.save();x.setTransform(1,0,0,1,0,0);
+  const g=x.createLinearGradient(bx,0,bx+22,0);
+  g.addColorStop(0,'rgba(200,196,189,.95)');g.addColorStop(1,'rgba(242,240,236,0)');
+  x.fillStyle=g;x.fillRect(bx,i.y0-6,22,i.y1-i.y0+12);
+  x.fillStyle='#4A4A4D';x.fillRect(bx-3,i.y0-10,4,i.y1-i.y0+20);
+  x.restore();
+}
+
+// =========================================================
+const ANIM={};
+
+// 1 · SINTERIZZAZIONE ------------------------------------------------
+// La racla stende uno strato di polvere e copre il simbolo; il laser ne ripassa il contorno,
+// lo riempie a tratteggio come in una SLS vera; una seconda passata di racla scopre il pezzo finito.
+ANIM.sinterizzazione={durata:3.6,fondo:BIANCO,draw(t){
+  fondo(BIANCO);
+  const I=interno(),X0=I.x0-40,X1=I.x1+40;
+  const b1=mix(X0,X1,eio(fase(t,0,.6)));          // prima passata: copre
+  const b2=mix(X0,X1,eio(fase(t,3.0,3.55)));       // seconda passata: scopre
+  const cont=fase(t,.7,1.55),tratt=fase(t,1.6,2.85);
+  marchio({noPi:true});
+  const pieno=(xmin,xmax)=>{x.save();x.beginPath();x.rect(xmin,0,xmax-xmin,H);x.clip();riempi(P.pi,ROSSO);x.restore()};
+  const letto=(xmin,xmax)=>{
+    const a=Math.max(xmin,I.x0),z=Math.min(xmax,I.x1);if(z<=a)return;
+    x.save();x.beginPath();x.rect(a,I.y0,z-a,I.y1-I.y0);x.clip();x.drawImage(POLVERE,0,0);
+    if(cont>0)contorno('pi',cont,ROSSO,2.2);
+    if(tratt>0)tratteggio('pi',tratt,4.2,ROSSO,1.7,false);
+    x.restore();
+  };
+  if(t<.6){pieno(b1,W);letto(0,b1)}
+  else if(t<3.0)letto(0,W);
+  else{letto(b2,W);pieno(0,b2)}
+  riempi(P.due,ROSSO); // il "2" sporge sul bordo: resta sempre pieno
+  if(cont>0&&cont<1)laser(...puntoSulContorno('pi',cont));
+  else if(tratt>0&&tratt<1)tratteggio('pi',tratt,4.2,'rgba(0,0,0,0)',0,true);
+  if(t<.6)racla(b1);
+  if(t>=3.0&&t<3.55)racla(b2);
+}};
+
+// 2 · ROTAZIONE -----------------------------------------------------
+// Il segno diventa un pezzo solido con il suo spessore e ruota come un modello in un CAD,
+// poi torna in vista frontale. La scritta resta ferma.
+function rotazione(scuro){return{durata:3.6,fps:20,fondo:scuro?NERO:BIANCO,draw(t){
+  const FG=scuro?CARTA:NERO;
+  fondo(scuro?NERO:BIANCO);
+  marchio({nero:FG,noQuadro:1,noDue:1,noPi:1});
+  const b=BB.segno,cx=(b.x0+b.x1)/2,cy=(b.y0+b.y1)/2;
+  // traiettoria: -40 gradi, +30 gradi, frontale
+  let th,ph;
+  if(t<1.25){const u=eio(fase(t,0,1.25));th=mix(0,-40,u);ph=mix(0,14,u)}
+  else if(t<2.5){const u=eio(fase(t,1.25,2.5));th=mix(-40,30,u);ph=mix(14,-10,u)}
+  else{const u=eio(fase(t,2.5,3.5));th=mix(30,0,u);ph=mix(-10,0,u)}
+  const T=th*Math.PI/180,F=ph*Math.PI/180,sc=1+.05*Math.sin(Math.PI*fase(t,0,3.5));
+  const prof=34; // spessore in pixel
+  const M=z=>[Math.cos(T)*sc,0,0,Math.cos(F)*sc,cx-cx*Math.cos(T)*sc+z*Math.sin(T),cy-cy*Math.cos(F)*sc+z*Math.sin(F)];
+  if(Math.abs(th)>.05||Math.abs(ph)>.05){
+    for(let z=prof;z>=1;z-=1){
+      const u=Math.ceil(z/prof*4)/4; // luce a quattro fasce: fianco piu chiaro vicino alla faccia
+      riempi(P.quadro,scuro?col('#77767A','#C9C7C2',1-u):col('#2C2C30','#56565B',1-u),M(z));
+      riempi(P.due,col('#7E0E14','#B3141C',1-u),M(z));
+      riempi(P.pi,col('#7E0E14','#B3141C',1-u),M(z));
+    }
+  }
+  riempi(P.quadro,FG,M(0));riempi(P.due,ROSSO,M(0));riempi(P.pi,ROSSO,M(0));
+}}}
+ANIM.rotazione=rotazione(false);ANIM['rotazione-nero']=rotazione(true);
+
+// 3 · INCANDESCENZA (su nero) ----------------------------------------
+// Sul fondo del sito: il simbolo si spegne a sagoma, un piano laser lo ricostruisce dal basso;
+// la materia appena fusa e bianca e si raffredda nel rosso del marchio.
+ANIM.incandescenza={durata:3.4,fondo:NERO,draw(t){
+  fondo(NERO);
+  marchio({nero:CARTA,noDue:1,noPi:1});
+  const b={x0:Math.min(BB.due.x0,BB.pi.x0),x1:BB.pi.x1,y0:BB.due.y0,y1:BB.pi.y1};
+  const spegni=fase(t,0,.45),T0=.5,T1=2.5;
+  const ys=t<T0?b.y1+2:mix(b.y1+2,b.y0-2,eio(fase(t,T0,T1)));
+  const tRiga=y=>{ // istante in cui il piano e passato per y (inversa numerica della curva)
+    let lo=0,hi=1;for(let i=0;i<22;i++){const m=(lo+hi)/2;if(mix(b.y1+2,b.y0-2,eio(m))>y)lo=m;else hi=m}
+    return T0+(lo+hi)/2*(T1-T0)};
+  // sagoma fredda
+  if(t>0&&t<T1+.9){
+    x.save();base();x.strokeStyle=`rgba(250,249,247,${.22*spegni*(1-fase(t,T1,T1+.8))})`;x.lineWidth=1.3/K;
+    x.stroke(P.due);x.stroke(P.pi);x.restore();
+  }
+  for(const k of['due','pi']){
+    x.save();clipParte(k);
+    if(t<T0){x.fillStyle=ROSSO;x.globalAlpha=1-eo(spegni);x.fillRect(0,0,W,H)}
+    else{
+      const passo=2;
+      for(let y=b.y1;y>ys;y-=passo){
+        const eta=t-tRiga(y-passo/2);
+        const c=eta<.12?col('#FFFFFF','#FFD0C8',eta/.12):eta<.9?col('#FFD0C8',ROSSO,eo((eta-.12)/.78)):ROSSO;
+        x.fillStyle=c;x.fillRect(0,Math.max(ys,y-passo),W,Math.min(passo,y-ys)+.6);
+      }
+    }
+    x.restore();
+  }
+  if(t>=T0&&t<T1){ // piano laser
+    x.save();x.setTransform(1,0,0,1,0,0);
+    const a=BB.quadro.x0-8,z=BB.quadro.x1+8;
+    const g=x.createLinearGradient(0,ys-10,0,ys+10);
+    g.addColorStop(0,'rgba(237,27,36,0)');g.addColorStop(.5,'rgba(237,27,36,.45)');g.addColorStop(1,'rgba(237,27,36,0)');
+    x.fillStyle=g;x.fillRect(a,ys-10,z-a,20);
+    x.fillStyle='#FF5A50';x.fillRect(a,ys-1,z-a,2);
+    x.fillStyle='#FFFFFF';x.fillRect(a,ys-.5,z-a,1);
+    x.restore();
+  }
+}};
+
+// 4 · STRATI ------------------------------------------------------
+// Tutto il marchio si costruisce a strati dal basso, come sul piatto di stampa, con la stessa
+// logica dell'animazione del sito; le righe di strato si leggono e poi si levigano.
+function strati(scuro){const FO=scuro?NERO:BIANCO,mk=()=>marchio(scuro?{nero:CARTA}:{});return{durata:3.0,fondo:FO,draw(t){
+  fondo(FO);
+  const spegni=eio(fase(t,0,.4)),L=5;
+  const y0=OY-6,y1=OY+1014*S+6;
+  const u=fase(t,.45,2.35),yRaw=mix(y1,y0,u);
+  const yp=t<.45?y1:Math.floor((yRaw-y0)/L)*L+y0; // avanzamento a gradini di strato
+  // fantasma
+  x.save();x.globalAlpha=t<.45?1-spegni*.93:(t<2.35?.07:.07*(1-fase(t,2.35,2.6)));mk();x.restore();
+  if(t>=.45){
+    x.save();x.beginPath();x.rect(0,yp,W,H);x.clip();mk();
+    // righe di strato sul costruito, poi levigatura
+    const a=.55*(1-fase(t,2.3,2.9));
+    if(a>0){x.setTransform(1,0,0,1,0,0);x.fillStyle=`${scuro?'rgba(11,11,12,'+a+')':'rgba(255,255,255,'+a+')'}`;for(let y=yp+L;y<y1;y+=L)x.fillRect(0,y-.8,W,1.2)}
+    x.restore();
+  }
+  if(t>=.45&&t<2.4){ // piano di costruzione
+    x.save();x.setTransform(1,0,0,1,0,0);
+    const a=OX-14,z=OX+LW+14;
+    x.fillStyle='rgba(237,27,36,.14)';x.fillRect(a,yp-7,z-a,7);
+    x.fillStyle=ROSSO;x.fillRect(a,yp-1.5,z-a,2);
+    x.fillRect(a,yp-7,2,9);x.fillRect(z-2,yp-7,2,9);
+    x.restore();
+  }
+}}}
+ANIM.strati=strati(false);ANIM['strati-nero']=strati(true);
+
+// statica
+ANIM.statica={durata:0,fondo:BIANCO,draw(){fondo(BIANCO);marchio()}};
+
+window.init=init;
+window.render=(nome,t)=>{x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;
+  const A=ANIM[nome];if(t<=0||t>=A.durata){fondo(A.fondo);marchio(A.fondo===NERO?{nero:CARTA}:{})}else A.draw(t);
+  return c.toDataURL('image/png')};
+window.durata=n=>ANIM[n].durata;
+window.fps=n=>ANIM[n].fps||25;
+</script></body></html>
