@@ -7,7 +7,7 @@ from PIL import Image
 import numpy as np
 
 src, out = sys.argv[1], sys.argv[2]
-PAUSA = 5000
+PAUSA = int(os.environ.get("PAUSA", 5000))  # ms di marchio fermo; il provino online usa una pausa breve
 FISSI = [[255, 255, 255], [11, 11, 12], [237, 27, 36], [250, 249, 247]]
 os.makedirs(out, exist_ok=True)
 
