@@ -29,7 +29,47 @@
   </div>
   <div><div class="box-scrivi"><h3 data-i="o_t"></h3><p data-i="o_p"></p><p class="azioni"><a class="bottone" href="mailto:info@duepigreco3d.it" data-i="scrivi"></a></p></div></div>
 </div></section>
-<section class="sez sez--carta" id="calcolatori"><div class="dentro">
+<section class="sez sez--carta" id="quotazione"><div class="dentro">
+  <div class="testa reveal">
+    <span class="occhiello" data-i="s6o"></span>
+    <h2 data-i="s6t"></h2>
+    <p class="sotto-h" data-i="s6p"></p>
+  </div>
+  <div class="pannello-prev reveal">
+    <div class="avviso-demo"><span class="tg">Demo</span><p><span data-i="demo_d"></span> <span data-i="trasp"></span></p></div>
+    <div class="prev">
+      <div>
+        <div class="dropzone" id="q_drop" role="button" tabindex="0"><span data-i="drop"></span><br><span id="q_ok" class="esito" aria-live="polite"></span></div>
+        <p class="esempio"><button type="button" class="link-mono" id="q_es" data-i="es_btn"></button></p>
+        <div class="griglia-form griglia-form--misure">
+          <div class="campo campo--largo"><label for="q_vol" data-i="vol"></label><input id="q_vol" type="number" step="1" min="0" inputmode="decimal"></div>
+          <div class="campo"><label for="q_x">X mm</label><input id="q_x" type="number" step="1" min="0" inputmode="decimal"></div>
+          <div class="campo"><label for="q_y">Y mm</label><input id="q_y" type="number" step="1" min="0" inputmode="decimal"></div>
+          <div class="campo"><label for="q_z">Z mm</label><input id="q_z" type="number" step="1" min="0" inputmode="decimal"></div>
+          <div class="campo campo--largo"><label for="q_q" data-i="qta"></label><input id="q_q" type="number" step="1" min="1" value="10" inputmode="numeric"></div>
+        </div>
+        <div class="griglia-form">
+          <div class="campo" role="group" aria-labelledby="l_proc"><span class="etichetta" id="l_proc" data-i="proc"></span>
+            <div class="scelta-tec">
+              <button type="button" class="tec attiva" data-t="SLS" aria-pressed="true">SLS</button>
+              <button type="button" class="tec" data-t="FDM" aria-pressed="false">FDM</button>
+              <select id="q_mat" aria-labelledby="l_proc"></select>
+            </div></div>
+        </div>
+      </div>
+      <div>
+        <div class="fascia-hero">
+          <div class="k" data-i="fascia_k"></div>
+          <div class="v" id="q_v">·</div>
+          <div class="u" id="q_u"></div>
+        </div>
+        <table class="fasce" id="q_tab"></table>
+        <a class="bottone" id="q_cta" href="#quotazione" data-i="cta"></a>
+      </div>
+    </div>
+  </div>
+</div></section>
+<section class="sez sez--nero" id="calcolatori"><div class="dentro">
   <div class="testa reveal"><span class="occhiello" data-i="s_o"></span><h2 data-i="s_t"></h2></div>
   <div class="fam-griglia"><a class="fam prev-c reveal" href="settore-oem.html#quotazione"><figure><span class="cod">01</span><img src="assets/tav_oem_banda.webp" alt="" data-i-alt="p_s1" loading="lazy" decoding="async"></figure><div class="fam-corpo"><h3 data-i="p_s1"></h3><p data-i="nav_s1d"></p><span class="chiedi"><span data-i="vai"></span><em>→</em></span></div></a><a class="fam prev-c reveal" href="settore-vsp.html#quotazione"><figure><span class="cod">02</span><img src="assets/tav_vsp_hero.webp" alt="" data-i-alt="p_s2" loading="lazy" decoding="async"></figure><div class="fam-corpo"><h3 data-i="p_s2"></h3><p data-i="nav_s2d"></p><span class="chiedi"><span data-i="vai"></span><em>→</em></span></div></a><a class="fam prev-c reveal" href="settore-phm.html#quotazione"><figure><span class="cod">03</span><img src="assets/tav_phm_hero.webp" alt="" data-i-alt="p_s3" loading="lazy" decoding="async"></figure><div class="fam-corpo"><h3 data-i="p_s3"></h3><p data-i="nav_s3d"></p><span class="chiedi"><span data-i="vai"></span><em>→</em></span></div></a></div>
 </div></section>
@@ -117,8 +157,8 @@ const I18N={
 "occ": "Preventivo indicativo",
 "h1": "La fascia di prezzo, in un minuto.",
 "intro": "Scegliete il settore: il calcolatore usa i materiali e l'esempio del vostro comparto. Il file non viene caricato su nessun server; la conferma è di una persona, entro 24 ore lavorative.",
-"s_o": "Da dove partite",
-"s_t": "Tre calcolatori, uno per settore",
+"s_o": "Per settore",
+"s_t": "Il calcolatore con i materiali e l'esempio del vostro comparto",
 "vai": "Apri il calcolatore",
 "o_t": "Preferite scriverci?",
 "o_p": "Mandateci lo STEP o l'assieme per mail: vi rispondiamo con la fascia e, se serve, con quello che non conviene stampare.",
@@ -158,7 +198,29 @@ const I18N={
 "hf_o": "Domande frequenti",
 "hf_t": "Le quattro che ci fanno per prime.",
 "hf_link": "Tutte le domande",
-"hf_ts": "Le domande che arrivano dal vostro settore."
+"hf_ts": "Le domande che arrivano dal vostro settore.",
+"compila": "Inserite volume e dimensioni, o caricate lo STL.",
+"cta": "Chiedete la conferma in 24 ore",
+"cta_req": "Chiedete la quotazione",
+"da": "da",
+"demo_d": "I parametri di questa demo sono di esempio: la fascia non è un'offerta.",
+"drop": "Trascinate qui il file STL, o cliccate per sceglierlo",
+"err_stl": "File non riconosciuto o troppo grande: inseritelo a mano o mandatecelo per mail.",
+"es_btn": "Provate con un esempio: carter, 182 × 124 × 58 mm",
+"es_ok": "Esempio caricato: carter, circa 214 cm³",
+"f_f": "Fascia al pezzo",
+"f_q": "Quantità",
+"fascia_k": "Indicativamente, al pezzo",
+"file_ok": "letto nel browser",
+"mail_sub": "Richiesta di conferma quotazione (preventivatore web)",
+"proc": "Processo e materiale",
+"qta": "Quantità",
+"s6o": "Il calcolatore",
+"s6p": "Caricate lo STEP o l'STL, o inserite i dati a mano. Il file non viene caricato su nessun server: l'analisi avviene nel vostro browser.",
+"s6t": "La fascia di prezzo, in un minuto",
+"surich": "Per questo materiale la fascia si prepara su richiesta: chiedete la quotazione.",
+"trasp": "Sul prezzo reale incide anche la saturazione della camera di stampa. La fascia è indicativa e non vincolante: la conferma è di una persona, entro 24 ore lavorative.",
+"vol": "Volume cm³"
 },
 "de": {
 "nav_set": "Branchen",
@@ -215,8 +277,8 @@ const I18N={
 "occ": "Richtpreis",
 "h1": "Die Preisspanne, in einer Minute.",
 "intro": "Wählen Sie Ihre Branche: der Rechner nutzt die Werkstoffe und das Beispiel Ihres Bereichs. Die Datei wird auf keinen Server geladen; bestätigt wird von einer Person, innerhalb von 24 Arbeitsstunden.",
-"s_o": "Wo Sie anfangen",
-"s_t": "Drei Rechner, einer je Branche",
+"s_o": "Je Branche",
+"s_t": "Der Rechner mit den Werkstoffen und dem Beispiel Ihres Bereichs",
 "vai": "Rechner öffnen",
 "o_t": "Lieber schreiben?",
 "o_p": "Schicken Sie uns den STEP oder die Baugruppe per Mail: wir antworten mit der Spanne und, wenn nötig, mit dem, was sich nicht zu drucken lohnt.",
@@ -256,7 +318,29 @@ const I18N={
 "hf_o": "Häufige Fragen",
 "hf_t": "Die vier, die man uns zuerst stellt.",
 "hf_link": "Alle Fragen",
-"hf_ts": "Die Fragen aus Ihrer Branche."
+"hf_ts": "Die Fragen aus Ihrer Branche.",
+"compila": "Volumen und Abmessungen eingeben oder STL laden.",
+"cta": "Bestätigung in 24 Stunden anfordern",
+"cta_req": "Angebot anfordern",
+"da": "ab",
+"demo_d": "Die Parameter dieser Demo sind Beispielwerte: die Spanne ist kein Angebot.",
+"drop": "STL-Datei hierher ziehen oder klicken",
+"err_stl": "Datei nicht erkannt oder zu groß: von Hand eingeben oder per E-Mail senden.",
+"es_btn": "Mit einem Beispiel testen: Gehäuse, 182 × 124 × 58 mm",
+"es_ok": "Beispiel geladen: Gehäuse, ca. 214 cm³",
+"f_f": "Spanne pro Stück",
+"f_q": "Stückzahl",
+"fascia_k": "Richtwert, pro Stück",
+"file_ok": "im Browser gelesen",
+"mail_sub": "Anfrage Angebotsbestätigung (Web-Kalkulator)",
+"proc": "Verfahren und Material",
+"qta": "Stückzahl",
+"s6o": "Der Rechner",
+"s6p": "Laden Sie STEP oder STL, oder geben Sie die Daten von Hand ein. Die Datei wird auf keinen Server hochgeladen: die Analyse läuft in Ihrem Browser.",
+"s6t": "Die Preisspanne, in einer Minute",
+"surich": "Für dieses Material erstellen wir die Spanne auf Anfrage.",
+"trasp": "Der reale Preis hängt auch von der Auslastung der Baukammer ab. Die Spanne ist unverbindlich: die Bestätigung kommt von einer Person, innerhalb von 24 Arbeitsstunden.",
+"vol": "Volumen cm³"
 },
 "en": {
 "nav_set": "Sectors",
@@ -313,8 +397,8 @@ const I18N={
 "occ": "Indicative quote",
 "h1": "The price range, in a minute.",
 "intro": "Choose your sector: the calculator uses the materials and the example of your field. The file is not uploaded to any server; a person confirms within 24 working hours.",
-"s_o": "Where you start",
-"s_t": "Three calculators, one per sector",
+"s_o": "By sector",
+"s_t": "The calculator with the materials and the example of your field",
 "vai": "Open the calculator",
 "o_t": "Prefer to write?",
 "o_p": "Send us the STEP or the assembly by mail: we answer with the range and, if needed, with what does not pay to print.",
@@ -354,7 +438,29 @@ const I18N={
 "hf_o": "FAQ",
 "hf_t": "The four we are asked first.",
 "hf_link": "All questions",
-"hf_ts": "The questions from your sector."
+"hf_ts": "The questions from your sector.",
+"compila": "Enter volume and dimensions, or load the STL.",
+"cta": "Request confirmation within 24 hours",
+"cta_req": "Request a quote",
+"da": "from",
+"demo_d": "The parameters of this demo are sample values: the range is not an offer.",
+"drop": "Drop your STL file here, or click to choose it",
+"err_stl": "File not recognized or too large: enter data manually, or email it to us.",
+"es_btn": "Try an example: housing, 182 × 124 × 58 mm",
+"es_ok": "Example loaded: housing, about 214 cm³",
+"f_f": "Range per part",
+"f_q": "Quantity",
+"fascia_k": "Indicatively, per part",
+"file_ok": "read in your browser",
+"mail_sub": "Quote confirmation request (web calculator)",
+"proc": "Process and material",
+"qta": "Quantity",
+"s6o": "The calculator",
+"s6p": "Load a STEP or STL, or enter the data manually. Your file is never uploaded to any server: the analysis runs in your browser.",
+"s6t": "A price range, in one minute",
+"surich": "For this material the range is prepared on request.",
+"trasp": "The real price also depends on build-chamber saturation. The range is indicative and not binding: confirmation comes from a person, within 24 working hours.",
+"vol": "Volume cm³"
 }
 };
 
@@ -382,7 +488,127 @@ function filtri(sel){
   const h=location.hash.slice(1);const b=bott.find(x=>x.dataset.f===h);if(b)b.click();
 }
 
+/* ---- modello fascia (coefficienti calibrati, ago 2026): identico allo stampo, la calibrazione e' il pezzo F-12.
+        Cambia solo l'ordine dei materiali: prima quelli del comparto (Lib 03 par. 8). ---- */
+const M={sls:{a:0.50006,b:19.023,fissi:[48,65,83,100,118,135,153,170],quota:0.125,
+  camera:{x:700,y:380,z:580},min:90,
+  mat:{'PA2200':{ok:true},'TPU 90A':{ok:false},'PA11':{ok:false}}},
+ fdm:{fisso:96,camera:{x:914,y:610,z:914},min:120,
+  mat:{'Nylon 12CF':{ok:true,cm3:0.601},'Ultem 1010 CG':{ok:true,cm3:0.686},'Ultem 9085':{ok:true,cm3:0.621}}},
+ fasce:[[1,1.0],[50,0.88],[100,0.80]],banda:[0.88,1.12]};
+const ceil10=x=>Math.ceil((x-1e-9)/10)*10;
+const kQ=q=>{let k=1;for(const[s,v]of M.fasce)if(q>=s)k=v;return k;};
+function centrale(vol,x,y,z,tec,mat){
+  if(tec==='SLS'){
+    const d=[x,y,z].sort((p,q)=>q-p);
+    const vb=Math.max(60,d[0])*Math.max(60,d[1])*Math.max(30,d[2]);
+    const occ=vb/(M.sls.camera.x*M.sls.camera.y*M.sls.camera.z);
+    const i=Math.min(M.sls.fissi.length-1,Math.max(0,Math.ceil(occ/M.sls.quota-1e-9)-1));
+    return Math.max(M.sls.min,M.sls.fissi[i]+M.sls.a*vol+M.sls.b*vb/1e6);
+  }
+  return Math.max(M.fdm.min,M.fdm.fisso+M.fdm.mat[mat].cm3*vol);
+}
+function fascia(vol,x,y,z,tec,mat,q){
+  const c=centrale(vol,x,y,z,tec,mat)*kQ(q);
+  return{lo:ceil10(c*M.banda[0]),hi:ceil10(c*M.banda[1])};
+}
+const eurF=x=>x.toLocaleString({it:'it-IT',de:'de-DE',en:'en-IE'}[LANG],{maximumFractionDigits:0});
 
+/* ---- parser STL: identico allo stampo ---- */
+function parseSTL(buf){
+  if(buf.byteLength>100*1024*1024)throw 0;
+  const dv=new DataView(buf);let tris;
+  const head=new TextDecoder().decode(buf.slice(0,Math.min(400,buf.byteLength)));
+  const n=buf.byteLength>=84?dv.getUint32(80,true):0;
+  if(buf.byteLength>=84&&84+n*50===buf.byteLength){
+    if(n>3e6)throw 0;tris=new Float32Array(n*9);
+    for(let i=0;i<n;i++){let o=84+i*50+12;for(let k=0;k<9;k++)tris[i*9+k]=dv.getFloat32(o+k*4,true);}
+  }else if(/facet/i.test(head)){
+    const m=new TextDecoder().decode(buf).match(/vertex\s+([-\d.eE+]+)\s+([-\d.eE+]+)\s+([-\d.eE+]+)/g)||[];
+    if(m.length/3>3e6)throw 0;tris=new Float32Array(m.length*3);
+    m.forEach((v,i)=>{const p=v.split(/\s+/);tris[i*3]=+p[1];tris[i*3+1]=+p[2];tris[i*3+2]=+p[3];});
+  }else throw 0;
+  let vol=0,mn=[1e30,1e30,1e30],mx=[-1e30,-1e30,-1e30];
+  for(let i=0;i<tris.length/9;i++){
+    const a=tris.subarray(i*9,i*9+3),b=tris.subarray(i*9+3,i*9+6),c=tris.subarray(i*9+6,i*9+9);
+    vol+=(a[0]*(b[1]*c[2]-b[2]*c[1])-a[1]*(b[0]*c[2]-b[2]*c[0])+a[2]*(b[0]*c[1]-b[1]*c[0]))/6;
+    for(const p of[a,b,c])for(let k=0;k<3;k++){if(p[k]<mn[k])mn[k]=p[k];if(p[k]>mx[k])mx[k]=p[k];}
+  }
+  vol=Math.abs(vol)/1000;if(vol<0.001)throw 0;
+  return{vol:+vol.toFixed(1),x:Math.round(mx[0]-mn[0]),y:Math.round(mx[1]-mn[1]),z:Math.round(mx[2]-mn[2])};
+}
+
+/* ---- preventivatore ---- */
+/* esempio: carter 182 x 124 x 58 mm, 214 cm3 (lo stesso della pagina OEM) */
+const ESEMPIO={vol:214,x:182,y:124,z:58};
+let TEC='SLS',NOMEFILE='',ESITO=null;
+const num=(s,d=0)=>{const v=parseFloat($(s).value);return isFinite(v)?v:d;};
+function materiali(){
+  const tab=TEC==='SLS'?M.sls.mat:M.fdm.mat;
+  $('#q_mat').innerHTML=Object.keys(tab).map(m=>`<option>${m}</option>`).join('');
+}
+/* la mail resta in italiano: la legge l'ufficio DPG */
+function mailto(vol,x,y,z,q,mat,f){
+  const corpo=[NOMEFILE?`File: ${NOMEFILE}`:null,
+    ESITO&&ESITO.tipo==='es'?'Pezzo: esempio della pagina (carter)':null,
+    `Pagina: preventivo generale`,
+    `Volume: ${vol} cm3 · Ingombro: ${x}x${y}x${z} mm`,
+    `Tecnologia: ${TEC} · Materiale: ${mat} · Quantità: ${q}`,
+    f?`Fascia indicata: ${f.lo}..${f.hi} EUR/pezzo`:`Fascia: su richiesta`,
+    '','Generato da DPG-WEB Rev. 05 (demo)'].filter(Boolean).join('\n');
+  return `mailto:info@duepigreco3d.it?subject=${encodeURIComponent(t('mail_sub'))}&body=${encodeURIComponent(corpo)}`;
+}
+function esito(){
+  const e=$('#q_ok');
+  if(!ESITO){e.textContent='';return;}
+  e.textContent=ESITO.tipo==='file'?`${ESITO.nome} · ${ESITO.vol} cm³ · ${t('file_ok')}`:ESITO.tipo==='es'?t('es_ok'):t('err_stl');
+}
+function aggiorna(){
+  esito();
+  const vol=num('#q_vol'),x=num('#q_x'),y=num('#q_y'),z=num('#q_z'),q=Math.max(1,num('#q_q',1));
+  const mat=$('#q_mat').value;const cta=$('#q_cta');
+  if(!(vol>0&&x>0&&y>0&&z>0)){
+    $('#q_v').textContent='—';$('#q_u').textContent=t('compila');
+    $('#q_tab').innerHTML='';cta.style.opacity=.4;cta.setAttribute('aria-disabled','true');
+    cta.textContent=t('cta');cta.href='#quotazione';return;
+  }
+  const attivo=(TEC==='SLS'?M.sls.mat:M.fdm.mat)[mat]?.ok;
+  cta.style.opacity=1;cta.removeAttribute('aria-disabled');
+  if(!attivo){
+    $('#q_v').textContent='—';$('#q_u').textContent=t('surich');
+    $('#q_tab').innerHTML='';cta.textContent=t('cta_req');cta.href=mailto(vol,x,y,z,q,mat,null);return;
+  }
+  const f=fascia(vol,x,y,z,TEC,mat,q);
+  $('#q_v').textContent=`${eurF(f.lo)} .. ${eurF(f.hi)} €`;
+  $('#q_u').textContent=`× ${q}`;
+  $('#q_tab').innerHTML=`<tr><th>${t('f_q')}</th><th class="num">${t('f_f')}</th></tr>`+
+    M.fasce.map(([s])=>{const ff=fascia(vol,x,y,z,TEC,mat,s);
+      return `<tr><td>${s===1?'1':t('da')+' '+s}</td><td class="num">${eurF(ff.lo)} .. ${eurF(ff.hi)} €</td></tr>`;}).join('');
+  cta.textContent=t('cta');cta.href=mailto(vol,x,y,z,q,mat,f);
+}
+$$('.tec').forEach(b=>b.onclick=()=>{
+  TEC=b.dataset.t;$$('.tec').forEach(x=>{x.classList.toggle('attiva',x===b);x.setAttribute('aria-pressed',x===b);});
+  materiali();aggiorna();});
+document.body.addEventListener('input',e=>{if(e.target.closest('#quotazione'))aggiorna();});
+const dz=$('#q_drop');
+['dragover','dragenter'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.add('sopra');}));
+['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.remove('sopra');}));
+async function leggi(file){
+  try{const r=parseSTL(await file.arrayBuffer());NOMEFILE=file.name;
+    $('#q_vol').value=r.vol;$('#q_x').value=r.x;$('#q_y').value=r.y;$('#q_z').value=r.z;
+    ESITO={tipo:'file',nome:file.name,vol:r.vol};aggiorna();
+  }catch(_){ESITO={tipo:'err'};esito();}}
+function scegli(){const i=document.createElement('input');i.type='file';i.accept='.stl';
+  i.onchange=()=>i.files[0]&&leggi(i.files[0]);i.click();}
+dz.addEventListener('drop',e=>{if(e.dataTransfer.files[0])leggi(e.dataTransfer.files[0]);});
+dz.addEventListener('click',scegli);
+dz.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();scegli();}});
+$('#q_es').onclick=()=>{NOMEFILE='';
+  $('#q_vol').value=ESEMPIO.vol;$('#q_x').value=ESEMPIO.x;$('#q_y').value=ESEMPIO.y;$('#q_z').value=ESEMPIO.z;
+  ESITO={tipo:'es'};aggiorna();};
+
+/* ---- avvio ---- */
+materiali();
 applica();
 </script>
 </body></html>
