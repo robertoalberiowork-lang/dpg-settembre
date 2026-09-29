@@ -161,3 +161,90 @@
 
 /* piede: colonna in piu' */
 .piede-col{grid-template-columns:minmax(0,1.4fr) minmax(0,.9fr) minmax(0,1.1fr) minmax(0,1.3fr) minmax(0,1fr)}
+
+/* =====================================================================
+   Rev. 05b · tendine Tecnologie e Risorse, preventivo in barra, tre passi,
+   confronto additive/stampo, processi fianco a fianco, FAQ, filtri per requisito
+   ===================================================================== */
+.menu>a.menu-cta{margin-left:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+  color:var(--carta);background:var(--rosso);padding:8px 13px;transition:background .2s}
+.menu>a.menu-cta:hover{background:#C82A21}
+.menu>a.menu-cta[aria-current="page"]{box-shadow:inset 0 -2px 0 var(--carta)}
+.menu-sotto a i{white-space:nowrap}
+@media(max-width:1240px){.contatto-top{display:none}}
+
+/* tre passi */
+.passi{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;position:relative;counter-reset:p}
+.passi::before{content:"";position:absolute;left:0;right:0;top:21px;height:1px;background:linear-gradient(90deg,var(--rosso),var(--rosso) 70%,transparent)}
+.passi li{position:relative;padding:0 36px 0 0}
+.passi i{display:inline-flex;align-items:center;justify-content:center;width:43px;height:43px;border:1px solid var(--rosso);background:var(--nero);
+  font-style:normal;font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--rosso);position:relative;z-index:1}
+.sez--carta .passi i{background:var(--carta)}
+.passi h3{font-family:var(--disp);font-weight:var(--peso-t);font-size:22px;letter-spacing:-.015em;margin:26px 0 10px}
+.passi p{font-size:16px;line-height:1.6;color:var(--chiaro-2);margin:0;max-width:34ch}
+.sez--carta .passi p{color:var(--testo-carta)}
+
+/* confronto additive / stampo e processi fianco a fianco */
+.confronto,.affianco{width:100%;border-collapse:collapse}
+.confronto th,.confronto td,.affianco th,.affianco td{text-align:left;vertical-align:top;padding:18px 22px 18px 0;font-size:16px;line-height:1.5}
+.confronto thead th,.affianco thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding-bottom:12px}
+.confronto thead th{border-bottom:2px solid var(--nero);color:var(--nero)}
+.confronto thead th.noi{color:var(--rosso)}
+.confronto tbody th{font-family:var(--disp);font-weight:var(--peso-t);font-size:17px;letter-spacing:-.01em;color:var(--nero)}
+.confronto td{border-bottom:1px solid var(--riga);color:var(--testo-carta)}
+.confronto tbody th{border-bottom:1px solid var(--riga)}
+.confronto td:nth-child(2){color:var(--nero);position:relative;padding-left:18px;background:linear-gradient(90deg,rgba(230,51,41,.06),transparent 60%)}
+.confronto td:nth-child(2)::before{content:"";position:absolute;left:0;top:26px;width:8px;height:2px;background:var(--rosso)}
+.confronto tr:last-child td:nth-child(2){background:none;color:var(--grafite)}
+.confronto tr:last-child td:nth-child(2)::before{background:var(--grafite)}
+.affianco thead th{border-bottom:1px solid #3A3A3E;color:var(--grigio-2)}
+.affianco thead th a{display:block;font-family:var(--disp);font-size:28px;letter-spacing:-.01em;color:var(--carta);text-decoration:none;text-transform:none;font-weight:var(--peso-t)}
+.affianco thead th a:hover{color:var(--rosso)}
+.affianco thead th small{display:block;margin-top:6px;font-weight:400}
+.affianco tbody th{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grigio-2);font-weight:500;padding-top:21px}
+.affianco td{color:var(--chiaro-2);border-bottom:1px solid var(--filo-tav)}
+.affianco tbody th{border-bottom:1px solid var(--filo-tav)}
+.affianco td.mono{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--carta)}
+.affianco td:nth-child(n+2){border-left:1px solid var(--filo-tav);padding-left:22px}
+
+/* FAQ a fisarmonica */
+.faq{border-top:1px solid var(--riga)}
+.sez--nero .faq{border-color:var(--filo-tav)}
+.faq details{border-bottom:1px solid var(--riga)}
+.sez--nero .faq details{border-color:var(--filo-tav)}
+.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:48px 1fr 24px;align-items:baseline;gap:0 8px;padding:22px 0;
+  font-family:var(--disp);font-weight:var(--peso-t);font-size:20px;letter-spacing:-.01em;line-height:1.3;transition:color .2s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-weight:400;font-size:20px;color:var(--rosso);text-align:right;transition:transform .2s}
+.faq details[open] summary::after{content:"−"}
+.faq summary i{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--rosso)}
+.faq summary:hover{color:var(--rosso)}
+.faq summary:focus-visible{outline:2px solid var(--rosso);outline-offset:4px}
+.faq details p{margin:0 0 24px 56px;max-width:72ch;font-size:16.5px;line-height:1.65;color:var(--testo-carta)}
+.sez--nero .faq details p{color:var(--chiaro-2)}
+
+/* riquadro "scriveteci" nella testata */
+.box-scrivi{border:1px solid var(--filo-tav);border-top:2px solid var(--rosso);background:rgba(15,15,17,.85);padding:26px 26px 22px}
+.box-scrivi h3{font-family:var(--disp);font-weight:var(--peso-t);font-size:22px;margin:0 0 10px}
+.box-scrivi p{font-size:15.5px;line-height:1.6;color:var(--chiaro-2);margin:0 0 18px}
+.box-scrivi .azioni{margin:0;display:flex;flex-wrap:wrap;gap:10px}
+
+/* preventivo: carte-calcolatore */
+.prev-c{text-decoration:none}
+.prev-c .chiedi{margin-top:auto}
+.prev-c:hover .chiedi{color:var(--carta)}.prev-c:hover .chiedi em{transform:translateX(4px)}
+
+/* filtri: separatore fra processo e requisito */
+.filtri-sep{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grafite);align-self:center;
+  padding:0 6px 0 14px;margin-left:6px;border-left:1px solid var(--riga)}
+
+@media(max-width:900px){
+  .passi{grid-template-columns:1fr;gap:32px}.passi::before{display:none}
+  .confronto,.affianco{font-size:14px}.confronto th,.confronto td,.affianco th,.affianco td{padding-right:12px}
+}
+
+/* correzioni Rev. 05b: l'attributo height delle immagini non deve vincere su aspect-ratio; barra piu' compatta */
+.fam img,.processo img,.fin-riga img{height:auto}
+.menu{margin-left:12px}
+.menu>a,.menu-apri{padding:9px 9px;letter-spacing:.1em}
+@media(max-width:1520px){.contatto-top{display:none}}
