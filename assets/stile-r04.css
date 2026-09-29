@@ -1,0 +1,353 @@
+/* DPG-WEB · Rev. 04 · pilota di rifinitura grafica (27/09/2026)
+   Si carica DOPO stile.css e solo sulle pagine pilota (index.html, settore-phm.html):
+   OEM e VSP restano Rev. 03 finche' il pilota non e' approvato. Quando lo e', questo blocco
+   confluisce in stile.css e il <link> si aggiunge alle altre pagine.
+   Stessa identita' (nero, carta, rosso; Archivo, Source Serif, Plex Mono; la tavola col cartiglio),
+   disegnata piu' fine: titoli meno pesanti, piu' aria, tavole su foglio quadrettato,
+   dati chiave in evidenza, un solo bottone, un piede vero. */
+
+:root{
+  --peso-t:650;              /* titoli: era 800 */
+  --sez-y:88px;              /* piu' aria fra le sezioni: era 64 */
+  --aria:40px;
+  --stacco:48px;
+  --filo-tav:#26262A;        /* cornice delle tavole su nero */
+  --quadretto:rgba(250,249,247,.045);
+  --reperi:#56565B;          /* segni d'angolo del foglio */
+  --grigio-2:#8C8C90;        /* testo piccolo su nero: minimo 4.5:1 */
+  --testo-carta:#34343A;     /* corpo su carta, un filo piu' morbido del nero */
+  --margine:max(var(--lato),calc((100% - var(--dentro))/2));  /* allinea al container gli elementi a tutta larghezza */
+}
+@media(max-width:700px){:root{--sez-y:56px;--aria:28px;--stacco:36px}}
+
+/* ---------- tipografia: stessa famiglia, meno peso ---------- */
+h1,h2{font-weight:var(--peso-t);letter-spacing:-0.022em}
+h1{line-height:1.03}
+h2{line-height:1.1}
+h3{font-weight:var(--peso-t);line-height:1.22;letter-spacing:-0.012em}
+.testa h2{font-size:clamp(28px,3.1vw,42px)}
+.occhiello{font-size:11.5px;letter-spacing:.16em;line-height:1.45}
+.sotto-h{font-size:18px;line-height:1.6;max-width:62ch;opacity:1}
+.sez--carta .sotto-h,.sez--bianco .sotto-h{color:var(--testo-carta)}
+.sez--nero .sotto-h{color:var(--chiaro-2)}
+.testa .sotto-h{margin-top:16px}
+@media(max-width:700px){.occhiello{letter-spacing:.12em}}
+
+/* ---------- topbar ---------- */
+.topbar{padding-top:12px;padding-bottom:12px}
+.topbar b{font-weight:750}
+.topbar .targhetta{border-color:#3A3A3E;color:#9A9A9E;letter-spacing:.12em}
+.contatto-top{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--carta);text-decoration:none;border:1px solid #3A3A3E;padding:5px 12px;margin-right:6px;
+  transition:border-color .2s,background .2s}
+.contatto-top:hover{border-color:var(--rosso);background:var(--rosso)}
+@media(max-width:600px){.contatto-top{display:none}}
+
+/* ---------- bottoni: una sola famiglia ---------- */
+.bottone,.banda.b2 .entra{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
+  line-height:1.2;padding:16px 24px;transition:background .2s,border-color .2s,color .2s}
+.bottone.contorno:hover{border-color:var(--carta)}
+.sez--carta .bottone.contorno:hover,.sez--bianco .bottone.contorno:hover{border-color:var(--nero);background:var(--nero);color:var(--carta)}
+@media(max-width:560px){.azioni .bottone{flex:1 1 100%;text-align:center}}
+/* preventivo non ancora compilato: grigio dichiarato, non rosso sbiadito */
+#q_cta[aria-disabled="true"]{opacity:1!important;background:var(--riga2);color:#77777C;cursor:not-allowed}
+
+/* ---------- il foglio: la tavola sta su carta quadrettata, con i segni d'angolo ---------- */
+.foglio,.tavola .tav-cad,.famiglia .mappa-img,.banda.b2 .figura .foglio{
+  position:relative;background-color:var(--nero);
+  background-image:linear-gradient(var(--quadretto) 1px,transparent 1px),linear-gradient(90deg,var(--quadretto) 1px,transparent 1px);
+  background-size:24px 24px;background-position:-1px -1px}
+.tavola .tav-cad::after,.famiglia .mappa-img::after,.banda.b2 .figura .foglio::after{
+  content:"";position:absolute;inset:10px;pointer-events:none;
+  background:
+    linear-gradient(var(--reperi),var(--reperi)) top left/14px 1px no-repeat,
+    linear-gradient(var(--reperi),var(--reperi)) top left/1px 14px no-repeat,
+    linear-gradient(var(--reperi),var(--reperi)) top right/14px 1px no-repeat,
+    linear-gradient(var(--reperi),var(--reperi)) top right/1px 14px no-repeat,
+    linear-gradient(var(--reperi),var(--reperi)) bottom left/14px 1px no-repeat,
+    linear-gradient(var(--reperi),var(--reperi)) bottom left/1px 14px no-repeat,
+    linear-gradient(var(--reperi),var(--reperi)) bottom right/14px 1px no-repeat,
+    linear-gradient(var(--reperi),var(--reperi)) bottom right/1px 14px no-repeat}
+.tavola{border-color:var(--filo-tav)}
+/* la didascalia diventa un cartiglio: cella codice | cella descrizione */
+.tavola figcaption{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0;padding:0;border-top:1px solid var(--filo-tav)}
+.tavola figcaption .tav-c{padding:11px 14px;border-right:1px solid var(--filo-tav);white-space:nowrap;align-self:stretch;display:flex;align-items:center}
+.tavola figcaption .tav-d{padding:11px 14px;font-size:11px;line-height:1.55;color:var(--grigio-2)}
+@media(max-width:560px){.tavola figcaption{grid-template-columns:1fr}
+  .tavola figcaption .tav-c{border-right:0;border-bottom:1px solid var(--filo-tav);white-space:normal}}
+
+/* =====================================================================
+   CANCELLO (index.html)
+   ===================================================================== */
+.hero-cancello .dentro{max-width:calc(var(--dentro) + 2 * var(--lato));padding:72px var(--lato) 56px}
+.hero-cancello .dentro>*{max-width:460px}
+.hero-cancello .dpgla{height:84px!important}   /* il marchio animato resta, ma non compete col titolo */
+.hero-cancello h1{font-size:clamp(40px,4.6vw,68px);margin-top:36px!important}
+.hero-cancello p.sub{font-size:19px;line-height:1.55;color:#E6E4E0}
+.hero-cancello .privacy{font-size:12px;color:var(--grigio-2);letter-spacing:.02em;margin-top:18px}
+.tavola-hero{width:min(58vw,1100px,calc((100vh - 230px)*1.49));right:-2vw}
+.did-hero{padding:0 var(--margine) 14px;text-transform:none;letter-spacing:.04em;font-size:11px;color:var(--grigio-2)}
+/* il binario: una riga di scelta allineata al container, accento rosso sul filo alto */
+.binario{padding-inline:var(--margine);background:rgba(11,11,12,.9)}
+.binario>*{padding:24px 24px;transition:background .25s,box-shadow .25s}
+.binario .binario-t{padding-left:0;color:var(--grigio-2)}
+.binario b{font-weight:var(--peso-t);font-size:17px}
+.binario a:hover{background:#141416;box-shadow:inset 0 2px 0 var(--rosso)}
+.binario a:hover em{color:var(--rosso)}
+.binario a:hover i{color:var(--rosso)}
+@media(max-width:1100px){.tavola-hero{width:min(70vw,900px);right:-6vw}}
+@media(max-width:900px){
+  .hero-cancello .dentro{padding:44px var(--lato) 8px}
+  .hero-cancello .dpgla{height:64px!important}
+  .did-hero{padding:0 var(--lato) 20px;font-size:10.5px}
+  .binario{padding-inline:0}
+  .binario>*{padding:18px var(--lato)}
+}
+
+/* le bande: stesso container, figure uguali su foglio, cartiglio sotto */
+.banda.b2{padding:0 var(--lato)}
+.banda.b2 .dentro{max-width:var(--dentro);grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;padding:88px 0}
+.banda.b2.inversa .dentro{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.banda.b2 .settore-num{gap:14px}
+.banda.b2 .settore-num i{font-weight:var(--peso-t);font-size:44px;letter-spacing:-.02em}
+.banda.b2 h2{font-size:clamp(30px,3.3vw,46px);line-height:1.06;margin:18px 0 16px}
+.banda.b2 p{font-size:18px;line-height:1.6;max-width:40ch}
+.banda.b2 .entra{margin-top:28px;border-color:#4A4A4D}
+.banda.b2 .figura{border:1px solid var(--filo-tav);background:var(--nero);transition:border-color .3s}
+.banda.b2 .figura .foglio{padding:32px 36px}
+.banda.b2 .figura img{aspect-ratio:3/2;object-fit:contain;max-height:none;width:100%}
+.banda.b2:hover .figura{border-color:#3A3A3E}
+.banda.b2:hover .figura img{transform:scale(1.02)}
+.banda.b2 figcaption{display:grid;grid-template-columns:auto minmax(0,1fr);margin:0;border-top:1px solid var(--filo-tav);
+  text-align:left;text-transform:none;letter-spacing:.04em;font-size:11px;color:var(--grigio-2)}
+.banda.b2 figcaption .tav-c{padding:11px 14px;border-right:1px solid var(--filo-tav);letter-spacing:.14em;text-transform:uppercase;color:var(--chiaro-2);white-space:nowrap}
+.banda.b2 figcaption .tav-d{padding:11px 14px;line-height:1.55}
+@media(max-width:900px){
+  .banda.b2 .dentro,.banda.b2.inversa .dentro{grid-template-columns:1fr;gap:32px;padding:64px 0}
+  .banda.b2 .figura .foglio{padding:18px}
+  .banda.b2 figcaption{grid-template-columns:1fr;font-size:10.5px}
+  .banda.b2 figcaption .tav-c{border-right:0;border-bottom:1px solid var(--filo-tav)}
+}
+
+/* =====================================================================
+   COMPARTO (settore-phm.html): hero, dati chiave, voci, materiali, casi, finiture, rovescio
+   ===================================================================== */
+.hero .dentro{gap:56px}
+.hero .briciole{margin-bottom:32px}
+.hero h1{font-size:clamp(36px,4.3vw,60px);margin:14px 0 20px}
+.hero p.intro{font-size:18.5px;line-height:1.6}
+.azioni{margin-top:32px}
+
+/* dati chiave: la riga di numeri che i grandi mettono sotto l'hero */
+.dati-chiave{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  margin:24px 0 0;padding:0;list-style:none;border-top:1px solid var(--filo-tav)}
+.dati-chiave li{padding:26px 24px 4px;border-left:1px solid var(--filo-tav)}
+.dati-chiave li:first-child{border-left:0;padding-left:0}
+.dati-chiave b{display:block;font-family:var(--disp);font-weight:var(--peso-t);font-size:clamp(28px,2.6vw,36px);
+  letter-spacing:-.02em;line-height:1;color:var(--carta)}
+.dati-chiave span{display:block;margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;line-height:1.55;color:var(--grigio-2);max-width:34ch}
+@media(max-width:900px){.dati-chiave{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dati-chiave li:nth-child(3){border-left:0;padding-left:0}
+  .dati-chiave li:nth-child(n+3){border-top:1px solid var(--filo-tav)}}
+@media(max-width:420px){.dati-chiave li{padding:20px 14px 4px}.dati-chiave li:nth-child(odd){padding-left:0}}
+
+/* le quattro voci: aperte, con il numero, due per riga (mai colonne strette) */
+.griglia4{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 64px;counter-reset:voce}
+@media(max-width:700px){.griglia4{grid-template-columns:1fr;gap:36px}}
+.blocco{background:transparent;border:0;border-top:1px solid var(--inchiostro);padding:20px 0 0}
+.blocco::before{content:counter(voce,decimal-leading-zero);counter-increment:voce;display:block;margin-bottom:16px;
+  font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;color:var(--rosso)}
+.blocco h3{font-size:clamp(20px,1.9vw,24px);margin:0 0 12px}
+.blocco p{font-size:17px;line-height:1.65;color:var(--testo-carta);margin:0 0 20px}
+.blocco .tag{border-top:0;padding-top:0;font-size:11px;letter-spacing:.1em;color:var(--grafite)}
+.blocco .tag::before{content:"";display:inline-block;width:6px;height:6px;background:var(--rosso);margin-right:10px;vertical-align:1px}
+/* la frase che chiude la sezione: in evidenza, non persa in coda */
+.sotto-h.coda{margin:64px 0 0;max-width:46ch;padding-left:24px;border-left:3px solid var(--rosso);
+  font-family:var(--disp);font-weight:500;font-size:clamp(20px,2vw,26px);line-height:1.35;letter-spacing:-.01em;color:var(--inchiostro)}
+
+/* famiglie su nero: ogni tavola su foglio */
+.famiglia{border-color:var(--filo-tav)}
+.famiglia .n{margin:16px 16px 0}
+.famiglia .mappa-img{margin:10px 16px 0}
+.famiglia .mappa-img img{background:transparent}
+.famiglia table.distinta{margin-top:16px;border-top-color:var(--filo-tav)}
+.famiglia table.distinta td{border-bottom-color:var(--filo-tav);padding-top:11px;padding-bottom:11px}
+.striscia figcaption{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px;margin-top:16px}
+.striscia figcaption .tav-d{color:var(--grigio-2)}
+.nota-mono{font-size:11px;color:var(--grigio-2);max-width:96ch}
+@media(max-width:560px){.striscia figcaption{grid-template-columns:1fr}}
+
+/* materiali: misura di lettura contenuta, materiale in evidenza */
+.tab-scorri{max-width:980px}
+table.dati{font-size:16.5px}
+table.dati th{padding:0 16px 12px 0;border-bottom:1px solid var(--inchiostro);color:var(--grafite)}
+table.dati td{padding:18px 16px 18px 0;line-height:1.6;color:var(--testo-carta)}
+table.dati td.mat{font-size:13.5px;font-weight:600;color:var(--inchiostro);padding-top:20px}
+table.dati td.mat+td.mat{font-weight:500;color:var(--grafite)}
+@media(max-width:560px){table.dati td{padding:0}table.dati tr{padding:16px 0}}
+
+/* casi */
+.casi{gap:24px}
+.sez--carta .caso{padding:32px;border:1px solid var(--riga);border-top:2px solid var(--inchiostro)}
+.caso h3{font-size:clamp(20px,1.8vw,23px);margin-bottom:12px}
+.sez--carta .caso p{font-size:16.5px;line-height:1.65;color:var(--testo-carta)}
+@media(max-width:560px){.sez--carta .caso{padding:24px}}
+
+/* finiture: provini puliti, accento rosso sul provino attivo, testo in alto accanto al viewer */
+.provini{gap:16px}
+.provino{border:1px solid var(--riga);transition:border-color .2s}
+.provino:hover{border-color:var(--grafite)}
+.provino.attivo{border:1px solid var(--nero);box-shadow:inset 0 -3px 0 var(--rosso)}
+.provini:not(.con-foto) .provino .chip{height:96px}
+.provini:not(.con-foto) .provino .nome{font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--inchiostro);padding:12px 14px 14px}
+.fin-mod{gap:56px;margin-top:32px;align-items:start}
+.viewer{padding:0;border-color:var(--riga)}
+.pannello{padding-top:16px}
+.pannello h3{font-size:clamp(22px,2.2vw,28px);margin:10px 0 14px}
+.pannello p{font-size:17px;line-height:1.65;color:var(--testo-carta)}
+
+/* preventivo */
+.pannello-prev{padding:32px}
+.pannello-prev .fascia-hero{padding:24px}
+.pannello-prev .fascia-hero .v{font-weight:var(--peso-t)}
+@media(max-width:560px){.pannello-prev{padding:20px}}
+
+/* il rovescio: dentro il ritmo della pagina, etichetta a sinistra */
+#rovescio{padding-top:0}
+.rovescio{max-width:none;display:grid;grid-template-columns:180px minmax(0,1fr);gap:8px 32px;align-items:baseline;
+  padding:28px 32px;font-size:17px;line-height:1.65}
+.rovescio br{display:none}
+.rovescio b{letter-spacing:.16em}
+.rovescio span{max-width:72ch}
+@media(max-width:700px){.rovescio{grid-template-columns:1fr;padding:22px 20px}}
+
+/* striscia finale: piu' respiro, foglio quadrettato appena accennato */
+.cta-strip{padding:96px var(--lato);border-top:1px solid var(--filo-tav);
+  background-image:linear-gradient(rgba(250,249,247,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(250,249,247,.03) 1px,transparent 1px);
+  background-size:24px 24px}
+.cta-strip h2{font-size:clamp(28px,3.4vw,46px)}
+.cta-strip p{font-size:18px;margin-top:12px}
+@media(max-width:700px){.cta-strip{padding:64px var(--lato)}}
+
+/* =====================================================================
+   PIEDE: colonne vere, e il cartiglio come riquadro delle iscrizioni di una tavola
+   ===================================================================== */
+.piede4{background:var(--nero);color:var(--carta);padding:0 var(--lato);border-top:1px solid var(--filo-tav)}
+.piede4 .piede-dentro{max-width:var(--dentro);margin:0 auto;padding:64px 0 40px}
+.piede-col{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1.2fr) minmax(0,1.5fr);gap:32px var(--passo);padding-bottom:48px}
+.piede-col h4{margin:0 0 14px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--grigio-2)}
+.piede-col p{margin:0;font-size:15.5px;line-height:1.75;color:var(--chiaro-2)}
+.piede-col a{color:var(--chiaro-2);text-decoration:none;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.piede-col a:hover{color:var(--carta);border-bottom-color:var(--rosso)}
+.piede-col a i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--rosso);margin-right:8px}
+.piede-marchio{display:flex;gap:16px;align-items:flex-start}
+.piede-marchio .logo{flex:none;line-height:0}
+.piede-marchio .logo svg{height:40px;width:auto;display:block}
+.piede-marchio .logo .dpg-nero{fill:var(--carta)}
+.piede-marchio .logo .dpg-rosso{fill:var(--rosso)}
+.piede-marchio b{display:block;font-family:var(--disp);font-weight:750;font-size:16px;letter-spacing:-.01em;margin-bottom:4px;color:var(--carta)}
+/* riquadro iscrizioni: celle con etichetta e valore, come sulle tavole */
+.iscrizioni{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;margin:0;
+  background:var(--filo-tav);border:1px solid var(--filo-tav)}
+.iscrizioni>div{background:var(--nero);padding:10px 14px 12px}
+.iscrizioni dt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#77777C}
+.iscrizioni dd{margin:4px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--chiaro-2)}
+@media(max-width:900px){.piede-col{grid-template-columns:repeat(2,minmax(0,1fr))}.piede-marchio{grid-column:1/-1}}
+@media(max-width:480px){.piede-col{grid-template-columns:1fr}.iscrizioni{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- ritocchi dopo la prima resa (27/09/2026) ---------- */
+/* a capo bilanciati: niente parola orfana nei titoli, nel binario e nelle frasi brevi */
+h1,h2,h3,.binario b,.dati-chiave span,.hero-cancello .privacy{text-wrap:balance}
+p,.tav-d{text-wrap:pretty}
+/* l'occhiello su due righe resta un blocco compatto */
+.occhiello{display:block}
+/* cartiglio della tavola in hero: la cella codice va a capo invece di schiacciare la descrizione */
+.tavola figcaption .tav-c{white-space:normal;max-width:30ch;line-height:1.5;text-wrap:balance}
+@media(max-width:900px){
+  .binario .binario-t{padding-left:var(--lato)}
+  .iscrizioni{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .iscrizioni>div:last-child:nth-child(odd){grid-column:1/-1}
+}
+
+/* =====================================================================
+   S5 · la scala delle finiture col laser (Rev. 04, solo PHM per ora)
+   Lo stesso pezzo in quattro rese a camera fissa, impilate; scorrendo, il laser sale
+   e scopre la finitura successiva. Il palco resta fermo mentre la traccia scorre.
+   ===================================================================== */
+.fin-laser{padding-bottom:0}
+.fl-traccia{position:relative;height:calc(100vh * 3.4)}
+.fl-palco{position:sticky;top:57px;height:calc(100vh - 57px);display:flex;align-items:center;padding:0 var(--lato)}
+.fl-dentro{max-width:var(--dentro);margin:0 auto;width:100%;display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:48px;align-items:center}
+.fl-fig{margin:0}
+.fl-lastra{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--nero)}
+.fl-lastra img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;will-change:clip-path}
+.fl-lastra img+img{clip-path:inset(100% 0 0 0)}
+/* il laser: un filo rosso incandescente con alone, e sotto una scia calda che sfuma sul pezzo appena lavorato */
+.fl-laser{position:absolute;left:0;right:0;top:100%;height:2px;opacity:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,120,110,0) 0%,#ffd9d4 12%,#fff 50%,#ffd9d4 88%,rgba(255,120,110,0) 100%);
+  box-shadow:0 0 6px 1px rgba(255,90,80,.95),0 0 22px 4px rgba(230,51,41,.75),0 0 60px 10px rgba(230,51,41,.35);
+  transition:opacity .2s}
+.fl-laser::after{content:"";position:absolute;left:0;right:0;top:2px;height:90px;
+  background:linear-gradient(180deg,rgba(230,51,41,.28),rgba(230,51,41,0));mix-blend-mode:screen}
+.fl-laser::before{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:rgba(255,255,255,.25)}
+@media (prefers-reduced-motion:reduce){.fl-laser{transition:none}}
+/* la scala a destra: quattro righe, quella attiva accesa */
+.fl-scala{list-style:none;margin:0 0 28px;padding:0;border-top:1px solid var(--filo-tav)}
+.fl-scala li{border-bottom:1px solid var(--filo-tav)}
+.fl-scala .provino{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;width:100%;padding:14px 0;cursor:pointer;
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#6E6E73;transition:color .25s}
+.fl-scala .provino::before{content:"";flex:none;width:8px;height:8px;border:1px solid #4A4A4D;transition:background .25s,border-color .25s,box-shadow .25s}
+.fl-scala .provino:hover{color:var(--chiaro-2)}
+.fl-scala .provino.attivo{color:var(--carta)}
+.fl-scala .provino.attivo::before{background:var(--rosso);border-color:var(--rosso);box-shadow:0 0 10px 1px rgba(230,51,41,.7)}
+.fl-scala .provino:focus-visible{outline:2px solid var(--carta);outline-offset:2px}
+.fin-laser .pannello{min-height:352px}
+.fl-dentro>.fl-pannello{align-self:center}
+.fin-laser .pannello .tagf{color:var(--rosso)}
+.fin-laser .pannello h3{color:var(--carta);font-size:clamp(22px,2.2vw,30px);margin:10px 0 14px}
+.fin-laser .pannello p{color:var(--chiaro-2);font-size:16.5px;line-height:1.65}
+.fl-avanz{height:1px;background:var(--filo-tav);margin-top:20px;overflow:hidden}
+.fl-avanz span{display:block;height:100%;background:var(--rosso);transform-origin:left;transform:scaleX(0)}
+/* sotto i 900 px niente palco fisso: la scala si usa coi bottoni */
+@media(max-width:900px){
+  .fl-traccia{height:auto}
+  .fl-palco{position:static;height:auto;padding:0 var(--lato) var(--sez-y)}
+  .fl-dentro{grid-template-columns:1fr;gap:28px}
+  .fin-laser .pannello{min-height:0}
+}
+
+/* =====================================================================
+   Tavole Tron (Rev. 04, 28/09/2026): i disegni sono rese da CAD con il loro piano quadrettato in prospettiva.
+   La carta quadrettata piatta del foglio non serve piu' (doppia griglia): resta il nero, restano i segni d'angolo.
+   Lo sfondo delle rese e' gia' il nero pagina (#0B0B0C), quindi l'immagine non disegna un riquadro.
+   ===================================================================== */
+.foglio,.tavola .tav-cad,.famiglia .mappa-img,.banda.b2 .figura .foglio{background-image:none}
+.banda.b2 .figura .foglio{padding:0}
+.banda.b2 .figura img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.tavola .tav-cad::after,.famiglia .mappa-img::after,.banda.b2 .figura .foglio::after{z-index:1}
+.famiglia .mappa-img{margin:0}
+.famiglia .n{position:absolute;top:0;left:0;z-index:2}
+/* sequenza VSP: la resa riempie il riquadro, il numero del passo sta sopra, nel cielo vuoto della tavola */
+.passo .n{position:absolute;top:12px;left:12px;margin:0;z-index:1}
+.passo img{padding:0;object-fit:cover;height:100%}
+.passo{transition:border-color .3s}
+.passo:hover{border-color:#3A3A3E}
+.mappa .mappa-img{border:1px solid var(--filo-scuro)}
+/* richiami: il filo parte dal punto rosso e si accende appena, come le linee delle tavole */
+.richiami-cad path,.richiami-hero .fili path{stroke:#9A9AA0}
+.richiami-cad circle,.richiami-hero .punti circle{fill:var(--rosso);filter:drop-shadow(0 0 6px rgba(230,51,41,.85))}
+
+/* colore a specifica su F2, sul nero del palco */
+.fin-laser .ral{margin:18px 0 0;gap:10px}
+.fin-laser .ral[hidden]{display:flex;visibility:hidden}
+.fin-laser .catena{color:var(--grigio-2);margin:0 6px 0 0;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.fin-laser .swatch{width:26px;height:26px;border:1px solid #4A4A4D;transition:transform .2s}
+.fin-laser .swatch:hover{transform:translateY(-2px)}
+.fin-laser .swatch.attivo{outline:1px solid var(--carta);outline-offset:3px}
+.fin-laser .swatch:focus-visible{outline:2px solid var(--carta);outline-offset:3px}
+/* l'esploso della home non ha cornice: i bordi dell'immagine sfumano nel nero, nessun riquadro si vede */
+.tavola-hero img{
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%),linear-gradient(180deg,transparent 0,#000 10%,#000 88%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 12%),linear-gradient(180deg,transparent 0,#000 10%,#000 88%,transparent 100%);
+  mask-composite:intersect}
