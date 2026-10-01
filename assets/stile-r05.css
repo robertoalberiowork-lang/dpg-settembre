@@ -310,3 +310,12 @@
 .f3d-saf{margin:12px 0 0;font-family:var(--mono);font-size:11px;line-height:1.55;color:var(--grigio-2)}
 .f3d-saf[hidden]{display:none}
 @media(max-width:900px){.f3d-corpo{grid-template-columns:1fr}.f3d-pann{border-left:0;border-top:1px solid var(--filo-tav)}.f3d-scena{min-height:380px}}
+/* avvio leggero: immagine ferma finche' non si tocca il pezzo */
+.f3d-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s}
+.f3d-scena.viva .f3d-poster,.f3d-scena.viva .f3d-avvia{opacity:0;pointer-events:none}
+.f3d-avvia{position:absolute;right:24px;bottom:18px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--carta);background:rgba(11,11,12,.7);border:1px solid #3A3A3E;padding:10px 14px;cursor:pointer;transition:border-color .2s,background .2s,opacity .5s}
+.f3d-avvia:hover{border-color:var(--rosso);background:var(--rosso)}
+.f3d-avvia::before{content:"↻ ";color:var(--rosso)}.f3d-avvia:hover::before{color:var(--carta)}
+.f3d-scena.carica:not(.viva) .f3d-avvia::after{content:" …"}
+.f3d-scena:not(.viva) .f3d-hint{opacity:0}

@@ -5,7 +5,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/stile.css"><link rel="stylesheet" href="assets/stile-r04.css"><link rel="stylesheet" href="assets/stile-r05.css">
 <script src="assets/comune.js"></script>
-<script src="assets/js/finiture3d.js" defer></script>
+<script src="assets/js/finiture3d-avvio.js" defer></script>
 </head><body>
 <!-- DPG-WEB · settore-vsp · Rev. 04 (dalla Rev. 03) · stampo dei comparti (P-00, 20/09/2026)
      Ordine e fondi: H nero · S1 carta · S2 nero · S3 carta · S4 carta · S5 bianco · S6 carta con pannello bianco · S7 carta · C nero.
@@ -165,7 +165,8 @@
   <div class="f3d reveal" data-campo="vsp" data-base="assets/pezzi/">
   
   <div class="f3d-corpo">
-    <div class="f3d-scena"><canvas></canvas>
+    <div class="f3d-scena"><canvas></canvas><img class="f3d-poster" src="assets/pezzi/condotto.webp" alt="" width="1200" height="800" loading="lazy" decoding="async">
+      <button type="button" class="f3d-avvia" data-i="f3d_avvia"></button>
       <div class="f3d-info"><span class="f3d-proc"></span><b class="f3d-nome"></b></div>
       <span class="f3d-hint" data-i="f3d_hint"></span>
       <p class="f3d-no3d" data-i="f3d_no3d"></p>
@@ -521,7 +522,8 @@ const I18N={
 "pz_ugello_d":"testa a fessure su attacco esagonale",
 "pz_diffusore_n":"Diffusore a disco",
 "pz_diffusore_d":"fori calibrati e razze di rinforzo",
-"f3d_saf_f0":"Grigio da macchina, grana fine e uniforme: è la superficie di serie del polipropilene in SAF."
+"f3d_saf_f0":"Grigio da macchina, grana fine e uniforme: è la superficie di serie del polipropilene in SAF.",
+"f3d_avvia":"Ruotate il pezzo in 3D"
 },
 "de":{
 "brife":"Alle Branchen",
@@ -777,7 +779,8 @@ const I18N={
 "pz_ugello_d":"Schlitzkopf auf Sechskantanschluss",
 "pz_diffusore_n":"Scheibendiffusor",
 "pz_diffusore_d":"kalibrierte Bohrungen und Verstärkungsrippen",
-"f3d_saf_f0":"Grau ab Maschine, feine und gleichmäßige Körnung: die Serienoberfläche von Polypropylen im SAF-Verfahren."
+"f3d_saf_f0":"Grau ab Maschine, feine und gleichmäßige Körnung: die Serienoberfläche von Polypropylen im SAF-Verfahren.",
+"f3d_avvia":"Teil in 3D drehen"
 },
 "en":{
 "brife":"All sectors",
@@ -1033,7 +1036,8 @@ const I18N={
 "pz_ugello_d":"slotted head on a hex fitting",
 "pz_diffusore_n":"Disc diffuser",
 "pz_diffusore_d":"calibrated holes and stiffening spokes",
-"f3d_saf_f0":"Grey as built, with a fine and even grain: the series surface of SAF polypropylene."
+"f3d_saf_f0":"Grey as built, with a fine and even grain: the series surface of SAF polypropylene.",
+"f3d_avvia":"Rotate the part in 3D"
 }
 };
 const $=s=>document.querySelector(s);

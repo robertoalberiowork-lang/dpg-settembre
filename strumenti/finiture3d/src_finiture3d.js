@@ -48,13 +48,17 @@ function uvScatola(g) {
   }
   g.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
 }
+/* grana della polvere: rumore + granuli tondi scritti direttamente nei pixel (qualche ms, nessun download) */
 function grana(size, cells, amp, seed) {
-  const c = document.createElement('canvas'); c.width = c.height = size; const x = c.getContext('2d');
-  const img = x.createImageData(size, size); let s = seed; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
-  for (let i = 0; i < size * size; i++) { const v = 128 + (rnd() - .5) * 255 * amp; img.data[i * 4] = img.data[i * 4 + 1] = img.data[i * 4 + 2] = v; img.data[i * 4 + 3] = 255; }
-  x.putImageData(img, 0, 0);
-  for (let i = 0; i < cells; i++) { const v = Math.floor(128 + (rnd() - .5) * 200 * amp); x.fillStyle = `rgb(${v},${v},${v})`; x.beginPath(); x.arc(rnd() * size, rnd() * size, 0.6 + rnd() * 2.2, 0, 7); x.fill(); }
-  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.NoColorSpace; t.anisotropy = 8; return t;
+  const d = new Uint8Array(size * size * 4); let s = seed; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+  for (let i = 0; i < size * size; i++) { const v = 128 + (rnd() - .5) * 255 * amp; d[i * 4] = d[i * 4 + 1] = d[i * 4 + 2] = v; d[i * 4 + 3] = 255; }
+  for (let i = 0; i < cells; i++) {
+    const v = Math.floor(128 + (rnd() - .5) * 200 * amp), cx = rnd() * size, cy = rnd() * size, r = (0.6 + rnd() * 2.2) * size / 1024, r2 = r * r, R = Math.ceil(r);
+    for (let y = -R; y <= R; y++) for (let x = -R; x <= R; x++) if (x * x + y * y <= r2) {
+      const px = ((Math.round(cx) + x) % size + size) % size, py = ((Math.round(cy) + y) % size + size) % size, o = (py * size + px) * 4; d[o] = d[o + 1] = d[o + 2] = v; }
+  }
+  const t = new THREE.DataTexture(d, size, size); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.NoColorSpace;
+  t.magFilter = THREE.LinearFilter; t.minFilter = THREE.LinearMipmapLinearFilter; t.generateMipmaps = true; t.anisotropy = 8; t.needsUpdate = true; return t;
 }
 function ambiente(renderer) {
   const s = new THREE.Scene(); s.background = new THREE.Color(0x050506);
@@ -64,6 +68,8 @@ function ambiente(renderer) {
   const pm = new THREE.PMREMGenerator(renderer); return pm.fromScene(s, .02).texture;
 }
 
+/* dispositivi deboli: meno pixel e ombre piu' leggere; la rotazione automatica disegna a 30 fotogrammi */
+const LEGGERO = (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4 || matchMedia('(pointer:coarse)').matches;
 class Visore {
   constructor(el) {
     this.el = el; this.base = el.dataset.base || 'assets/pezzi/';
@@ -77,9 +83,14 @@ class Visore {
     this.uiRal.forEach(b => b.onclick = () => { this.ral = b.dataset.ral; this.uiRal.forEach(x => x.setAttribute('aria-pressed', x === b)); this.finitura('F2', true); });
     /* cambio lingua: i testi della pagina cambiano, il pannello li rilegge */
     document.addEventListener('click', e => { if (e.target.closest('.lang')) setTimeout(() => this.testoFin(), 0); });
-    const primo = el.dataset.campo || (this.uiCampi[0] && this.uiCampi[0].dataset.campo);
+    const attivo = this.uiCampi.find(b => b.classList.contains('attivo'));
+    const primo = (attivo && attivo.dataset.campo) || el.dataset.campo || (this.uiCampi[0] && this.uiCampi[0].dataset.campo);
     this.campo(primo, true);
-    new IntersectionObserver(es => es.forEach(e => { this.visibile = e.isIntersecting; if (e.isIntersecting) { this.avvia(); this.ciclo(); } }), { rootMargin: '200px' }).observe(this.scena);
+    if (el.dataset.pezzo && this.uiPezzi.some(b => b.dataset.pezzo === el.dataset.pezzo)) this.pezzo(el.dataset.pezzo, true);
+    if (el.dataset.avvioFin) { this.fin = el.dataset.avvioFin; this.testoFin(); }
+    this.visibile = true;
+    new IntersectionObserver(es => es.forEach(e => { this.visibile = e.isIntersecting; if (e.isIntersecting) this.ciclo(); }), { rootMargin: '200px' }).observe(this.scena);
+    this.avvia();
   }
   campo(c, primo) {
     this.uiCampi.forEach(b => { const on = b.dataset.campo === c; b.classList.toggle('attivo', on); b.setAttribute('aria-selected', on); });
@@ -123,9 +134,9 @@ class Visore {
     try {
       RectAreaLightUniformsLib.init();
       const r = this.r = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true, alpha: false });
-      r.setPixelRatio(Math.min(devicePixelRatio, 1.75)); r.toneMapping = THREE.AgXToneMapping; r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFShadowMap; r.localClippingEnabled = true;
+      r.setPixelRatio(Math.min(devicePixelRatio, LEGGERO ? 1 : 1.5)); r.toneMapping = THREE.AgXToneMapping; r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFShadowMap; r.localClippingEnabled = true;
       const sc = this.sc = new THREE.Scene(); sc.background = new THREE.Color(0x0b0b0c); sc.environment = ambiente(r); sc.environmentIntensity = .9;
-      const gG = grana(1024, 90000, 1, 7), gF = grana(1024, 60000, .55, 11); gG.repeat.set(1 / 9, 1 / 9); gF.repeat.set(1 / 7, 1 / 7);
+      const gG = grana(512, 22000, 1, 7), gF = grana(512, 15000, .55, 11); gG.repeat.set(2 / 9, 2 / 9); gF.repeat.set(2 / 7, 2 / 7);
       this.MAT = {
         F0: new THREE.MeshPhysicalMaterial({ color: GREZZO.SLS, roughness: 1, bumpMap: gG, bumpScale: 2.4 }),
         F1: new THREE.MeshPhysicalMaterial({ color: 0xd9d7d2, roughness: .8, bumpMap: gF, bumpScale: .9 }),
@@ -141,7 +152,7 @@ class Visore {
       const ring = new THREE.Mesh(new THREE.RingGeometry(112, 113.2, 256), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xe63329).multiplyScalar(1.4), toneMapped: false, transparent: true, opacity: .55, depthWrite: false })); ring.rotation.x = -Math.PI / 2; ring.position.y = .06; sc.add(ring);
       for (let i = 0; i < 72; i++) { const a = i / 72 * Math.PI * 2, l = i % 6 ? 3 : 7; const t = new THREE.Mesh(new THREE.PlaneGeometry(.6, l), new THREE.MeshBasicMaterial({ color: i % 6 ? 0x5a5a5f : 0xb0b0b4, toneMapped: false, depthWrite: false }));
         t.rotation.x = -Math.PI / 2; t.rotation.z = -a; t.position.set(Math.sin(a) * (116 + l / 2), .07, Math.cos(a) * (116 + l / 2)); sc.add(t); }
-      const key = new THREE.DirectionalLight(0xffffff, 1.5); key.position.set(-160, 260, 140); key.castShadow = true; key.shadow.mapSize.set(2048, 2048); key.shadow.radius = 5; key.shadow.bias = -.0004; key.shadow.normalBias = .3;
+      const key = new THREE.DirectionalLight(0xffffff, 1.5); key.position.set(-160, 260, 140); key.castShadow = true; key.shadow.mapSize.set(LEGGERO ? 1024 : 2048, LEGGERO ? 1024 : 2048); key.shadow.radius = 5; key.shadow.bias = -.0004; key.shadow.normalBias = .3;
       Object.assign(key.shadow.camera, { left: -160, right: 160, top: 160, bottom: -160, near: 10, far: 900 }); sc.add(key);
       const sb = new THREE.RectAreaLight(0xffffff, 2, 260, 160); sb.position.set(-120, 220, 160); sb.lookAt(0, 0, 0); sc.add(sb);
       const rR = new THREE.RectAreaLight(0xe63329, 30, 18, 220); rR.position.set(210, 70, -170); rR.lookAt(0, 8, 0); sc.add(rR);
@@ -172,8 +183,11 @@ class Visore {
     const bb = new THREE.Box3().setFromObject(grp), c = bb.getCenter(new THREE.Vector3());
     grp.position.set(-c.x, -bb.min.y + .4, -c.z);
     this.dim = 160 / s; this.alto = bb.max.y - bb.min.y; me.material = this.materiale();
+    this.el.dataset.pezzo = k;
     this.sc.add(grp);
-    this.ct.target.set(0, this.alto * .42, 0); this.ct.update();
+    this.ct.target.set(0, this.alto * .42, 0);
+    if (!this.visto) this.cam.position.set(250, 220, 330);   /* prima vista = stessa inquadratura dell'immagine ferma */
+    this.ct.update();
     this.scena.classList.remove('carica'); this.sporco = true; this.ciclo();
   }
   /* cambio di finitura: il pezzo nuovo sale dal piano come una passata, il vecchio resta sopra il taglio */
@@ -196,7 +210,8 @@ class Visore {
     const giro = () => {
       if (!this.visibile) { this.girando = false; return; }
       const mosso = this.ct.update();
-      if (mosso || this.sporco || this.ct.autoRotate) { this.r.render(this.sc, this.cam); this.sporco = false; }
+      this.dispari = !this.dispari;
+      if (mosso || this.sporco || (this.ct.autoRotate && this.dispari)) { this.r.render(this.sc, this.cam); this.sporco = false; if (!this.visto && this.mesh) { this.visto = true; this.scena.classList.add('viva'); } }
       requestAnimationFrame(giro);
     };
     giro();
