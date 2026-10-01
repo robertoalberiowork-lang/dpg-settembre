@@ -5,7 +5,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/stile.css"><link rel="stylesheet" href="assets/stile-r04.css"><link rel="stylesheet" href="assets/stile-r05.css">
 <script src="assets/comune.js"></script>
-<script src="assets/js/finiture3d.js" defer></script>
+<script src="assets/js/finiture3d-avvio.js" defer></script>
 </head><body>
 <!-- DPG-WEB · tecnologie · Rev. 05 (29/09/2026) · pagina dello scheletro ampliato. Testi dal dizionario I18N in fondo; solo fatti gia' approvati
      nelle pagine di settore e nelle schede applicazione. Il DE e' una bozza: lo rilegge Roberto. -->
@@ -50,7 +50,8 @@
   <div class="f3d reveal" data-campo="oem" data-base="assets/pezzi/">
   <div class="f3d-campi" role="tablist"><button type="button" class="f3d-campo" role="tab" data-campo="oem" data-i="f3d_c_oem"></button><button type="button" class="f3d-campo" role="tab" data-campo="vsp" data-i="f3d_c_vsp"></button><button type="button" class="f3d-campo" role="tab" data-campo="phm" data-i="f3d_c_phm"></button><button type="button" class="f3d-campo" role="tab" data-campo="h2o" data-i="f3d_c_h2o"></button></div>
   <div class="f3d-corpo">
-    <div class="f3d-scena"><canvas></canvas>
+    <div class="f3d-scena"><canvas></canvas><img class="f3d-poster" src="assets/pezzi/staffa.webp" alt="" width="1200" height="800" loading="lazy" decoding="async">
+      <button type="button" class="f3d-avvia" data-i="f3d_avvia"></button>
       <div class="f3d-info"><span class="f3d-proc"></span><b class="f3d-nome"></b></div>
       <span class="f3d-hint" data-i="f3d_hint"></span>
       <p class="f3d-no3d" data-i="f3d_no3d"></p>
@@ -224,6 +225,7 @@ const I18N={
 "f3d_fin": "La finitura",
 "f3d_hint": "Trascinate per ruotare · rotellina per avvicinare",
 "f3d_ral": "Colore a specifica, esempi RAL",
+"f3d_avvia": "Ruotate il pezzo in 3D",
 "f3d_saf_f0": "Grigio da macchina, grana fine e uniforme: è la superficie di serie del polipropilene in SAF.",
 "f3d_saf": "Il PP in SAF esce grigio dalla macchina: le finiture oltre il grezzo si concordano sul pezzo.",
 "f3d_no3d": "Il browser non mostra il 3D: le finiture sono descritte qui accanto.",
@@ -406,6 +408,7 @@ const I18N={
 "f3d_fin": "Die Oberfläche",
 "f3d_hint": "Ziehen zum Drehen · Mausrad zum Zoomen",
 "f3d_ral": "Farbe nach Vorgabe, RAL-Beispiele",
+"f3d_avvia": "Teil in 3D drehen",
 "f3d_saf_f0": "Grau ab Maschine, feine und gleichmäßige Körnung: die Serienoberfläche von Polypropylen im SAF-Verfahren.",
 "f3d_saf": "PP im SAF-Verfahren kommt grau aus der Maschine: Oberflächen über das Rohteil hinaus werden am Teil vereinbart.",
 "f3d_no3d": "Der Browser zeigt kein 3D: die Oberflächen sind nebenan beschrieben.",
@@ -588,6 +591,7 @@ const I18N={
 "f3d_fin": "The finish",
 "f3d_hint": "Drag to rotate · scroll to zoom",
 "f3d_ral": "Colour to specification, RAL examples",
+"f3d_avvia": "Rotate the part in 3D",
 "f3d_saf_f0": "Grey as built, with a fine and even grain: the series surface of SAF polypropylene.",
 "f3d_saf": "SAF polypropylene comes out of the machine grey: finishes beyond raw are agreed on the part.",
 "f3d_no3d": "Your browser does not show 3D: the finishes are described alongside.",
