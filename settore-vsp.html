@@ -5,6 +5,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/stile.css"><link rel="stylesheet" href="assets/stile-r04.css"><link rel="stylesheet" href="assets/stile-r05.css">
 <script src="assets/comune.js"></script>
+<script src="assets/js/finiture3d.js" defer></script>
 </head><body>
 <!-- DPG-WEB · settore-vsp · Rev. 04 (dalla Rev. 03) · stampo dei comparti (P-00, 20/09/2026)
      Ordine e fondi: H nero · S1 carta · S2 nero · S3 carta · S4 carta · S5 bianco · S6 carta con pannello bianco · S7 carta · C nero.
@@ -159,51 +160,28 @@
 </div></section>
 
 <!-- S5 · la scala delle finiture · bianco -->
-<section class="sez sez--nero fin-laser" id="finiture">
-  <div class="dentro">
-    <div class="testa reveal">
-      <span class="occhiello" data-i="s5o"></span>
-      <h2 data-i="s5t"></h2>
-      <p class="sotto-h" data-i="s5p"></p>
+<section class="sez sez--nero sez-f3d" id="finiture"><div class="dentro">
+  <div class="testa reveal"><span class="occhiello" data-i="f3d_o"></span><h2 data-i="f3d_t"></h2><p class="sotto-h" data-i="f3d_p"></p></div>
+  <div class="f3d reveal" data-campo="vsp" data-base="assets/pezzi/">
+  
+  <div class="f3d-corpo">
+    <div class="f3d-scena"><canvas></canvas>
+      <div class="f3d-info"><span class="f3d-proc"></span><b class="f3d-nome"></b></div>
+      <span class="f3d-hint" data-i="f3d_hint"></span>
+      <p class="f3d-no3d" data-i="f3d_no3d"></p>
     </div>
+    <aside class="f3d-pann">
+      <div class="f3d-lab" data-i="f3d_pezzo"></div>
+      <div class="f3d-pezzi"><button type="button" class="f3d-pz" data-campo="vsp" data-pezzo="condotto" data-proc="SLS" data-etichetta="SLS · PA12" aria-pressed="false"><b data-i="pz_condotto_n"></b><span data-i="pz_condotto_d"></span><i>SLS · PA12</i></button><button type="button" class="f3d-pz" data-campo="vsp" data-pezzo="fanale" data-proc="SLS" data-etichetta="SLS · PA12" aria-pressed="false"><b data-i="pz_fanale_n"></b><span data-i="pz_fanale_d"></span><i>SLS · PA12</i></button></div>
+      <div class="f3d-lab" data-i="f3d_fin"></div>
+      <ol class="f3d-fins"><li><button type="button" class="f3d-f" data-f="F0" aria-pressed="false"><b data-i="f0t"></b><span class="tg" data-i="f0g" hidden></span><span class="tx" data-i="f0p" hidden></span><span class="tx-saf" data-i="f3d_saf_f0" hidden></span></button></li><li><button type="button" class="f3d-f" data-f="F1" aria-pressed="false"><b data-i="f1t"></b><span class="tg" data-i="f1g" hidden></span><span class="tx" data-i="f1p" hidden></span></button></li><li><button type="button" class="f3d-f" data-f="F2" aria-pressed="false"><b data-i="f2t"></b><span class="tg" data-i="f2g" hidden></span><span class="tx" data-i="f2p" hidden></span></button></li><li><button type="button" class="f3d-f" data-f="F3" aria-pressed="false"><b data-i="f3t"></b><span class="tg" data-i="f3g" hidden></span><span class="tx" data-i="f3p" hidden></span></button></li></ol>
+      <div class="f3d-ral" hidden><span data-i="f3d_ral"></span><div><button type="button" class="f3d-sw" data-ral="9005" style="background:#0E0E10" title="RAL 9005" aria-label="RAL 9005" aria-pressed="true"></button><button type="button" class="f3d-sw" data-ral="3020" style="background:#BB1E10" title="RAL 3020" aria-label="RAL 3020" aria-pressed="false"></button><button type="button" class="f3d-sw" data-ral="7040" style="background:#9DA1AA" title="RAL 7040" aria-label="RAL 7040" aria-pressed="false"></button><button type="button" class="f3d-sw" data-ral="9003" style="background:#F2F3F0" title="RAL 9003" aria-label="RAL 9003" aria-pressed="false"></button><button type="button" class="f3d-sw" data-ral="5010" style="background:#004F7C" title="RAL 5010" aria-label="RAL 5010" aria-pressed="false"></button></div></div>
+      <div class="f3d-testo" aria-live="polite"><span class="tagf"></span><h3></h3><p></p></div>
+      <p class="f3d-saf" data-i="f3d_saf" hidden></p>
+    </aside>
   </div>
-  <div class="fl-traccia">
-    <div class="fl-palco"><div class="fl-dentro">
-      <figure class="tavola fl-fig">
-        <div class="fl-lastra">
-          <img src="assets/fin_vsp_F0.webp" width="1680" height="1120" alt="" data-i-alt="fl_alt" loading="lazy" decoding="async">
-          <img src="assets/fin_vsp_F1.webp" width="1680" height="1120" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img src="assets/fin_vsp_F2.webp" width="1680" height="1120" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img src="assets/fin_vsp_F3.webp" width="1680" height="1120" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <span class="fl-laser" aria-hidden="true"></span>
-        </div>
-        <figcaption><span class="tav-c" data-i="fl_c"></span><span class="tav-d" data-i="fl_d"></span></figcaption>
-      </figure>
-      <div class="fl-pannello">
-        <ol class="fl-scala">
-          <li><button type="button" class="provino attivo" data-f="F0" aria-pressed="true"><span data-i="f0t"></span></button></li>
-          <li><button type="button" class="provino" data-f="F1" aria-pressed="false"><span data-i="f1t"></span></button></li>
-          <li><button type="button" class="provino" data-f="F2" aria-pressed="false"><span data-i="f2t"></span></button></li>
-          <li><button type="button" class="provino" data-f="F3" aria-pressed="false"><span data-i="f3t"></span></button></li>
-        </ol>
-        <div class="pannello" aria-live="polite">
-          <span class="tagf" id="fin_tag"></span>
-          <h3 id="fin_tit"></h3>
-          <p id="fin_txt"></p>
-          <div class="ral" id="fin_ral" hidden>
-          <span class="catena" data-i="colore"></span>
-          <button type="button" class="swatch attivo" data-ral="9005" style="background:#0A0A0C" title="RAL 9005" aria-label="RAL 9005" aria-pressed="true"></button>
-          <button type="button" class="swatch" data-ral="3020" style="background:#BB1E10" title="RAL 3020" aria-label="RAL 3020" aria-pressed="false"></button>
-          <button type="button" class="swatch" data-ral="7040" style="background:#9BA0A4" title="RAL 7040" aria-label="RAL 7040" aria-pressed="false"></button>
-          <button type="button" class="swatch" data-ral="9003" style="background:#F2F3F0" title="RAL 9003" aria-label="RAL 9003" aria-pressed="false"></button>
-          <button type="button" class="swatch" data-ral="5010" style="background:#004F7C" title="RAL 5010" aria-label="RAL 5010" aria-pressed="false"></button>
-      </div>
-        </div>
-        <div class="fl-avanz" aria-hidden="true"><span></span></div>
-      </div>
-    </div></div>
-  </div>
-</section>
+</div>
+</div></section>
 
 <!-- S6 · preventivo indicativo · carta, campi nel pannello bianco -->
 <section class="sez sez--carta" id="quotazione"><div class="dentro">
@@ -511,7 +489,39 @@ const I18N={
 "faq9_a":"Sotto la scala delle macchine da tavolo il pezzo ve lo fate in casa, e fate bene. Sopra i volumi da stampo torna lo stampo. E il ricambio strutturale in metallo resta in metallo: lo instradiamo alla nostra rete di partner.",
 "sls_n":"Sinterizzazione laser",
 "saf_n":"Selective Absorption Fusion",
-"fdm_n":"Deposizione di filamento"
+"fdm_n":"Deposizione di filamento",
+"f3d_o":"Le finiture, sul pezzo",
+"f3d_t":"Scegliete il pezzo, poi la finitura.",
+"f3d_p":"Pezzi tipici di ogni campo, disegnati da noi. Trascinate per ruotarli; su F2 scegliete il colore. Resa da modello 3D, dichiarata: i provini veri si toccano in sede.",
+"f3d_pezzo":"Il pezzo",
+"f3d_fin":"La finitura",
+"f3d_hint":"Trascinate per ruotare · rotellina per avvicinare",
+"f3d_ral":"Colore a specifica, esempi RAL",
+"f3d_saf":"Il PP in SAF esce grigio dalla macchina: le finiture oltre il grezzo si concordano sul pezzo.",
+"f3d_no3d":"Il browser non mostra il 3D: le finiture sono descritte qui accanto.",
+"f3d_c_oem":"Macchine e OEM",
+"f3d_c_vsp":"Mezzi speciali",
+"f3d_c_phm":"Pharma",
+"f3d_c_h2o":"Acque e fluidi",
+"pz_staffa_n":"Staffa porta-sensori",
+"pz_staffa_d":"pettine e rinforzi in un pezzo",
+"pz_carter_n":"Carter ventilato",
+"pz_carter_d":"griglia, torrette e clip nella geometria",
+"pz_dito_n":"Dito di presa",
+"pz_dito_d":"presa a V e alleggerimenti, per EOAT",
+"pz_stella_n":"Stella di formato",
+"pz_stella_d":"dodici tasche, mozzo con chiavetta",
+"pz_nido_n":"Nido porta-siringhe",
+"pz_nido_d":"dieci sedi lamate per il carico in linea",
+"pz_condotto_n":"Condotto aria",
+"pz_condotto_d":"da rettangolo a tondo, flangia e cordone in un pezzo",
+"pz_fanale_n":"Supporto fanale",
+"pz_fanale_d":"asole di regolazione e anello portante",
+"pz_ugello_n":"Ugello di controlavaggio",
+"pz_ugello_d":"testa a fessure su attacco esagonale",
+"pz_diffusore_n":"Diffusore a disco",
+"pz_diffusore_d":"fori calibrati e razze di rinforzo",
+"f3d_saf_f0":"Grigio da macchina, grana fine e uniforme: è la superficie di serie del polipropilene in SAF."
 },
 "de":{
 "brife":"Alle Branchen",
@@ -735,7 +745,39 @@ const I18N={
 "faq9_a":"Unterhalb der Desktop-Klasse drucken Sie das Teil selbst, und das ist richtig so. Über Werkzeug-Stückzahlen kommt das Werkzeug zurück. Und das strukturelle Metallteil bleibt Metall: wir leiten es an unser Partnernetz weiter.",
 "sls_n":"Lasersintern",
 "saf_n":"Selective Absorption Fusion",
-"fdm_n":"Fused Deposition Modeling"
+"fdm_n":"Fused Deposition Modeling",
+"f3d_o":"Die Oberflächen, am Teil",
+"f3d_t":"Wählen Sie das Teil, dann die Oberfläche.",
+"f3d_p":"Typische Teile jeder Anwendung, von uns gezeichnet. Ziehen zum Drehen; bei F2 wählen Sie die Farbe. Darstellung aus dem 3D-Modell, so deklariert: die echten Muster liegen bei uns zum Anfassen.",
+"f3d_pezzo":"Das Teil",
+"f3d_fin":"Die Oberfläche",
+"f3d_hint":"Ziehen zum Drehen · Mausrad zum Zoomen",
+"f3d_ral":"Farbe nach Vorgabe, RAL-Beispiele",
+"f3d_saf":"PP im SAF-Verfahren kommt grau aus der Maschine: Oberflächen über das Rohteil hinaus werden am Teil vereinbart.",
+"f3d_no3d":"Der Browser zeigt kein 3D: die Oberflächen sind nebenan beschrieben.",
+"f3d_c_oem":"Maschinenbau und OEM",
+"f3d_c_vsp":"Sonderfahrzeuge",
+"f3d_c_phm":"Pharma",
+"f3d_c_h2o":"Wasser und Fluide",
+"pz_staffa_n":"Sensorhalter",
+"pz_staffa_d":"Kamm und Rippen aus einem Stück",
+"pz_carter_n":"Belüftetes Gehäuse",
+"pz_carter_d":"Gitter, Dome und Clips in der Geometrie",
+"pz_dito_n":"Greiffinger",
+"pz_dito_d":"V-Aufnahme und Erleichterungen, für EOAT",
+"pz_stella_n":"Formatstern",
+"pz_stella_d":"zwölf Taschen, Nabe mit Passfeder",
+"pz_nido_n":"Spritzennest",
+"pz_nido_d":"zehn gesenkte Aufnahmen für die Linienbeschickung",
+"pz_condotto_n":"Luftkanal",
+"pz_condotto_d":"von eckig zu rund, Flansch und Wulst aus einem Stück",
+"pz_fanale_n":"Scheinwerferhalter",
+"pz_fanale_d":"Langlöcher zur Einstellung und Tragring",
+"pz_ugello_n":"Rückspüldüse",
+"pz_ugello_d":"Schlitzkopf auf Sechskantanschluss",
+"pz_diffusore_n":"Scheibendiffusor",
+"pz_diffusore_d":"kalibrierte Bohrungen und Verstärkungsrippen",
+"f3d_saf_f0":"Grau ab Maschine, feine und gleichmäßige Körnung: die Serienoberfläche von Polypropylen im SAF-Verfahren."
 },
 "en":{
 "brife":"All sectors",
@@ -959,7 +1001,39 @@ const I18N={
 "faq9_a":"Below the desktop class you print the part yourself, and rightly so. Above moulding volumes the mould comes back. And a structural metal spare stays metal: we route it to our partner network.",
 "sls_n":"Laser sintering",
 "saf_n":"Selective Absorption Fusion",
-"fdm_n":"Fused deposition modeling"
+"fdm_n":"Fused deposition modeling",
+"f3d_o":"Finishes, on the part",
+"f3d_t":"Choose the part, then the finish.",
+"f3d_p":"Typical parts for each field, drawn by us. Drag to rotate; on F2 choose the colour. Rendered from the 3D model, and declared as such: the real samples are at our site to touch.",
+"f3d_pezzo":"The part",
+"f3d_fin":"The finish",
+"f3d_hint":"Drag to rotate · scroll to zoom",
+"f3d_ral":"Colour to specification, RAL examples",
+"f3d_saf":"SAF polypropylene comes out of the machine grey: finishes beyond raw are agreed on the part.",
+"f3d_no3d":"Your browser does not show 3D: the finishes are described alongside.",
+"f3d_c_oem":"Machinery and OEM",
+"f3d_c_vsp":"Special vehicles",
+"f3d_c_phm":"Pharma",
+"f3d_c_h2o":"Water and fluids",
+"pz_staffa_n":"Sensor bracket",
+"pz_staffa_d":"comb and ribs in one piece",
+"pz_carter_n":"Vented cover",
+"pz_carter_d":"grille, bosses and clips in the geometry",
+"pz_dito_n":"Gripper finger",
+"pz_dito_d":"V-grip and lightening pockets, for EOAT",
+"pz_stella_n":"Format star wheel",
+"pz_stella_d":"twelve pockets, keyed hub",
+"pz_nido_n":"Syringe nest",
+"pz_nido_d":"ten counterbored seats for line loading",
+"pz_condotto_n":"Air duct",
+"pz_condotto_d":"rectangular to round, flange and bead in one piece",
+"pz_fanale_n":"Headlight mount",
+"pz_fanale_d":"adjustment slots and carrier ring",
+"pz_ugello_n":"Backwash nozzle",
+"pz_ugello_d":"slotted head on a hex fitting",
+"pz_diffusore_n":"Disc diffuser",
+"pz_diffusore_d":"calibrated holes and stiffening spokes",
+"f3d_saf_f0":"Grey as built, with a fine and even grain: the series surface of SAF polypropylene."
 }
 };
 const $=s=>document.querySelector(s);
@@ -1030,45 +1104,6 @@ function parseSTL(buf){
   return{vol:+vol.toFixed(1),x:Math.round(mx[0]-mn[0]),y:Math.round(mx[1]-mn[1]),z:Math.round(mx[2]-mn[2])};
 }
 
-/* ---- finiture: la scala F0-F3 guidata dallo scorrimento (Rev. 04). Su F2 il colore a specifica cambia la lastra F2,
-        con varianti gia' rese e caricate solo al clic ---- */
-let STATO='F0',RAL='9005';
-function statoFin(f){
-  STATO=f;
-  $$('.provino').forEach(b=>{const on=b.dataset.f===f;b.classList.toggle('attivo',on);b.setAttribute('aria-pressed',on);});
-  $('#fin_tag').textContent=t(f.toLowerCase()+'g');
-  $('#fin_tit').textContent=t(f.toLowerCase()+'t');
-  $('#fin_txt').textContent=t(f.toLowerCase()+'p');
-  $('#fin_ral').hidden=f!=='F2';
-}
-const FL={traccia:$('.fl-traccia'),palco:$('.fl-palco'),lastre:[...$$('.fl-lastra img')],laser:$('.fl-laser'),avanz:$('.fl-avanz span'),fasi:['F0','F1','F2','F3']};
-const liscia=x=>x<=0?0:x>=1?1:x*x*(3-2*x);
-/* s va da 0 a 3: la parte intera e' la finitura raggiunta, la frazione e' il passaggio del laser verso la successiva.
-   Ogni finitura resta ferma per un tratto (fra 0 e 0,25 e fra 0,75 e 1 della frazione): il laser passa nel mezzo. */
-function mostra(s){
-  const k=Math.min(2,Math.floor(s)),r=liscia((s-k-0.25)/0.5);
-  FL.lastre.forEach((im,i)=>{const v=i===0?1:i<=k?1:i===k+1?r:0;im.style.clipPath=`inset(${((1-v)*100).toFixed(3)}% 0 0 0)`;});
-  const muove=r>0&&r<1&&s<3;
-  FL.laser.style.opacity=muove?1:0;
-  FL.laser.style.top=((1-r)*100)+'%';
-  const f=FL.fasi[Math.min(3,r>=0.5?k+1:k)];
-  if(f!==STATO)statoFin(f);
-  FL.avanz.style.transform=`scaleX(${(s/3).toFixed(4)})`;
-}
-function corsa(){const h=FL.traccia.offsetHeight-FL.palco.offsetHeight;return h>1?h:0;}
-function scorri(){const h=corsa();if(!h)return;const p=Math.min(1,Math.max(0,-FL.traccia.getBoundingClientRect().top/h));mostra(p*3);}
-let inCoda=false;
-addEventListener('scroll',()=>{if(!inCoda){inCoda=true;requestAnimationFrame(()=>{inCoda=false;scorri();});}},{passive:true});
-addEventListener('resize',scorri);
-/* un clic sulla scala porta lo scorrimento al punto in cui quella finitura e' ferma; senza palco fisso cambia e basta */
-$$('.provino').forEach(b=>b.onclick=()=>{const i=FL.fasi.indexOf(b.dataset.f),h=corsa();
-  if(!h){mostra(i);return;}
-  const y=FL.traccia.getBoundingClientRect().top+scrollY+h*(i/3);scrollTo({top:y,behavior:'smooth'});});
-$$('.swatch').forEach(s=>s.onclick=()=>{
-  RAL=s.dataset.ral;const im=FL.lastre[2];
-  im.src=`assets/fin_vsp_F2${RAL==='9005'?'':'_'+RAL}.webp`;
-  $$('.swatch').forEach(x=>{x.classList.toggle('attivo',x===s);x.setAttribute('aria-pressed',x===s);});});
-
 /* ---- preventivatore ---- */
 /* esempio del comparto: Lib 04 §9, condotto aria 240 x 120 x 95 mm, circa 180 cm3 */
 const ESEMPIO={vol:180,x:240,y:120,z:95};
@@ -1095,7 +1130,7 @@ function esito(){
   e.textContent=ESITO.tipo==='file'?`${ESITO.nome} · ${ESITO.vol} cm³ · ${t('file_ok')}`:ESITO.tipo==='es'?t('es_ok'):t('err_stl');
 }
 function aggiorna(){
-  statoFin(STATO);esito();
+  esito();
   const vol=num('#q_vol'),x=num('#q_x'),y=num('#q_y'),z=num('#q_z'),q=Math.max(1,num('#q_q',1));
   const mat=$('#q_mat').value;const cta=$('#q_cta');
   if(!(vol>0&&x>0&&y>0&&z>0)){
@@ -1141,6 +1176,5 @@ $('#q_es').onclick=()=>{NOMEFILE='';
 /* ---- avvio ---- */
 materiali();
 applica();
-mostra(0);scorri();
 </script>
 </body></html>
