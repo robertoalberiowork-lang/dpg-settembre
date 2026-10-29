@@ -1,0 +1,257 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Libreria applicativa Servi Doryl: stampi e cestelli per formaggio in piccola serie, PA2200 per contatto alimentare.">
+<title>Libreria · Servi Doryl · Due Pi Greco</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/stile.css"><link rel="stylesheet" href="assets/stile-r04.css"><link rel="stylesheet" href="assets/stile-r05.css">
+<script src="assets/comune.js"></script>
+
+<style>
+/* componenti propri della libreria, sopra Rev. 05 */
+.lib-scheda{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--filo-tav);border:1px solid var(--filo-tav)}
+.lib-scheda>div{background:var(--nero);padding:18px 20px 20px}
+.lib-scheda dt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#77777C}
+.lib-scheda dd{margin:6px 0 0;font-size:15.5px;line-height:1.5;color:var(--carta)}
+.lib-scheda dd a{color:inherit}
+.lib-scheda dd small{display:block;font-family:var(--mono);font-size:11px;color:var(--grigio-2);margin-top:4px}
+.sez--carta .lib-scheda{background:var(--riga);border-color:var(--riga)}
+.sez--carta .lib-scheda>div{background:var(--bianco)}
+.sez--carta .lib-scheda dd{color:var(--inchiostro)}
+.lib-colonne{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--passo)}
+.lib-colonne h3{font-family:var(--disp);font-weight:var(--peso-t);font-size:22px;letter-spacing:-.015em;margin:0 0 12px}
+.lib-colonne p,.lib-colonne li{font-size:16.5px;line-height:1.62}
+.sez--carta .lib-colonne p,.sez--carta .lib-colonne li{color:var(--testo-carta)}
+.sez--nero .lib-colonne p,.sez--nero .lib-colonne li{color:#D6D4D0}
+.lib-colonne ul{margin:0;padding:0;list-style:none}
+.lib-colonne li{position:relative;padding-left:16px;margin:0 0 8px}
+.lib-colonne li::before{content:"";position:absolute;left:0;top:.66em;width:6px;height:6px;background:var(--rosso)}
+.lib-colonne li b{font-weight:600}
+.sez--carta .lib-colonne li b{color:var(--inchiostro)}
+.lib-tab{width:100%;border-collapse:collapse}
+.lib-tab th{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;text-align:left;padding:0 16px 12px 0;border-bottom:2px solid var(--nero);color:var(--nero);font-weight:600}
+.lib-tab td{padding:18px 16px 18px 0;border-bottom:1px solid var(--riga);vertical-align:top;font-size:15.5px;line-height:1.55;color:var(--testo-carta)}
+.lib-tab td.cod{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--rosso);white-space:nowrap;padding-top:21px}
+.lib-tab td.nome{font-family:var(--disp);font-weight:var(--peso-t);font-size:18px;letter-spacing:-.01em;color:var(--inchiostro);min-width:14ch}
+.lib-tab td.nome small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--grafite);font-weight:400;margin-top:6px}
+.lib-tab td.mono{font-family:var(--mono);font-size:12.5px;color:var(--inchiostro);white-space:nowrap}
+.lib-tab tr.tipo td{background:#FFF6F5}
+.lib-tab tr.tipo td.cod::after{content:" · caso tipo";color:var(--grafite);letter-spacing:.06em}
+.lib-passi{counter-reset:p;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--filo-tav)}
+.lib-passi>div{padding:24px 24px 24px 0;border-left:1px solid var(--filo-tav);padding-left:24px}
+.lib-passi>div:first-child{border-left:0;padding-left:0}
+.lib-passi>div::before{counter-increment:p;content:"0" counter(p);display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--rosso);margin-bottom:12px}
+.lib-passi h3{font-family:var(--disp);font-weight:var(--peso-t);font-size:19px;margin:0 0 8px;color:var(--carta)}
+.lib-passi p{font-size:15px;line-height:1.6;color:var(--chiaro-2);margin:0}
+.lib-bozza{border:1px solid var(--filo-tav);padding:24px 28px;font-size:15.5px;line-height:1.65;color:#D6D4D0;max-width:76ch}
+.lib-bozza p{margin:0 0 12px}.lib-bozza p:last-child{margin:0}
+.lib-bozza .da{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grigio-2);margin-bottom:16px}
+@media(max-width:900px){.lib-colonne,.lib-passi{grid-template-columns:1fr}#bisogno .numeri{grid-template-columns:repeat(2,minmax(0,1fr))}#bisogno .numeri>div{padding:22px 16px 20px}#bisogno .numeri>div:nth-child(odd){border-left:0;padding-left:0}#bisogno .numeri>div:nth-child(n+3){border-top:1px solid var(--filo-tav)}.lib-passi>div{border-left:0;padding-left:0;border-top:1px solid var(--filo-tav)}.lib-passi>div:first-child{border-top:0}}
+@media(max-width:720px){.lib-tab thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.lib-tab tr{display:grid;grid-template-columns:1fr;padding:16px 0;border-bottom:1px solid var(--riga)}.lib-tab td{padding:4px 0;border:0}.lib-tab td.mono{white-space:normal}}
+</style>
+
+</head><body>
+<!-- DPG-LIB · 01 · Servi Doryl · Rev. 01 (29/10/2026) · libreria applicativa per un'azienda incontrata a Cibus Tec 2026.
+     Pagina in solo italiano, non collegata dal menu e non indicizzata. Fatti sul materiale e sulle finiture presi dalle pagine Rev. 05;
+     fatti sull'azienda dal suo sito; fattibilita' discussa con Diego. Testata e piede sono quelli di casi.html. -->
+<header class="topbar topbar--dentro"><div class="dentro">
+  <a class="marchio" href="index.html"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 855 1002" role="img" aria-label="Due Pi Greco"><title>Due Pi Greco</title><g transform="translate(0.000000,1002.000000) scale(0.100000,-0.100000)" fill-rule="evenodd"><path class="dpg-nero" fill="#0B0B0C" d="M2185 8777 c-3 -7 -4 -120 -3 -252 l3 -240 2850 -5 c1568 -3 2851 -6 2853 -8 1 -1 1 -1634 0 -3629 l-3 -3628 -3630 0 -3630 0 -3 2839 c-1 2078 -5 2843 -13 2852 -12 15 -448 21 -483 8 -15 -6 -16 -288 -16 -3105 l0 -3099 26 -10 c41 -16 8226 -13 8247 3 16 11 17 274 15 4147 l-3 4135 -3103 3 c-2502 2 -3104 0 -3107 -11z"/><path class="dpg-rosso" fill="#ED1B24" d="M555 9234 c-11 -2 -47 -9 -80 -16 -166 -31 -303 -146 -351 -294 -23 -73 -32 -335 -12 -352 12 -9 69 -12 224 -10 l209 3 11 90 c15 114 27 146 67 176 31 23 38 24 199 24 l168 0 37 -38 38 -37 0 -124 c0 -192 8 -187 -415 -291 -325 -80 -374 -100 -451 -182 -89 -95 -94 -120 -94 -483 l0 -315 715 0 715 0 0 190 0 190 -490 5 -490 5 -3 35 c-4 47 34 120 74 142 17 10 69 27 115 38 110 27 253 63 379 97 335 91 429 226 417 596 -8 225 -38 320 -133 414 -115 112 -211 136 -564 139 -146 1 -274 1 -285 -2z M2289 6883 c-23 -38 -72 -113 -108 -168 -35 -55 -82 -127 -103 -159 -21 -33 -38 -67 -38 -77 0 -11 27 -34 73 -63 257 -160 309 -192 325 -201 9 -6 36 -23 60 -38 23 -15 59 -37 80 -48 20 -11 51 -29 67 -39 17 -10 41 -25 55 -33 14 -7 84 -47 155 -89 127 -73 263 -148 316 -175 15 -7 32 -20 39 -28 13 -16 13 -19 -20 -140 -12 -44 -26 -96 -30 -115 -4 -19 -25 -98 -45 -175 -21 -77 -41 -156 -45 -176 -3 -19 -10 -41 -14 -47 -3 -6 -10 -30 -15 -54 -5 -24 -26 -106 -46 -183 -21 -77 -41 -156 -45 -175 -4 -19 -25 -98 -45 -175 -21 -77 -41 -156 -45 -175 -5 -19 -18 -71 -30 -115 -12 -44 -26 -96 -30 -115 -5 -19 -18 -71 -30 -115 -12 -44 -26 -96 -30 -115 -4 -19 -25 -98 -45 -175 -21 -77 -41 -156 -45 -175 -9 -38 -56 -215 -91 -345 -11 -44 -25 -96 -29 -115 -5 -19 -18 -71 -30 -115 -12 -44 -26 -96 -30 -115 -4 -19 -15 -62 -24 -95 -23 -86 -21 -103 12 -111 15 -4 70 -18 122 -32 52 -13 111 -28 130 -32 19 -4 71 -18 115 -31 44 -12 98 -23 119 -23 43 -1 43 -2 79 139 9 33 21 80 28 105 6 25 15 61 19 80 4 19 18 71 30 115 12 44 26 96 30 115 4 19 22 87 38 150 87 330 105 398 112 431 3 19 10 41 14 47 3 6 10 30 15 54 5 24 25 106 46 183 20 77 41 156 45 175 4 19 22 87 38 150 85 321 105 398 112 430 4 19 18 71 30 115 12 44 26 96 30 115 4 19 25 98 45 175 21 77 41 156 46 175 54 232 56 234 127 204 127 -55 332 -106 422 -107 78 0 206 30 369 89 114 41 119 41 127 7 3 -16 10 -41 15 -58 5 -16 23 -84 39 -150 38 -144 81 -309 122 -465 16 -63 34 -131 38 -150 4 -19 24 -98 45 -175 50 -193 89 -340 140 -540 24 -93 58 -224 75 -290 18 -66 36 -136 40 -155 4 -19 18 -71 30 -115 12 -44 26 -96 30 -115 4 -19 18 -71 30 -115 12 -44 25 -96 30 -115 4 -19 24 -96 43 -170 48 -181 73 -279 81 -314 7 -27 9 -28 54 -23 26 3 72 13 102 22 53 15 294 79 335 89 11 3 32 7 48 11 32 6 34 23 11 104 -22 81 -40 147 -59 221 -9 36 -22 88 -29 115 -8 28 -20 77 -29 110 -52 199 -65 251 -92 355 -10 36 -23 88 -30 115 -7 28 -19 70 -26 95 -6 25 -15 61 -19 80 -7 35 -52 204 -92 350 -11 41 -24 91 -28 110 -4 19 -24 98 -45 175 -20 77 -41 156 -45 175 -4 19 -18 71 -30 115 -12 44 -25 96 -30 115 -7 32 -31 124 -112 430 -16 63 -34 131 -38 150 -14 65 -32 135 -45 175 -25 74 -28 121 -10 139 9 9 20 16 25 16 5 0 44 20 86 45 41 25 78 45 81 45 3 0 39 20 80 45 40 25 76 45 79 45 7 0 583 348 717 433 53 34 97 68 97 76 0 8 -20 44 -43 80 -24 37 -64 98 -89 136 -129 201 -160 246 -172 251 -8 3 -60 -24 -117 -60 -148 -93 -623 -378 -694 -417 -33 -18 -73 -40 -90 -50 -16 -10 -50 -29 -75 -42 -25 -14 -74 -41 -110 -61 -184 -102 -527 -265 -660 -313 -158 -59 -207 -53 -459 54 -79 34 -460 223 -541 270 -19 11 -71 39 -115 63 -94 51 -313 176 -430 247 -114 67 -357 217 -422 260 -46 29 -89 53 -97 53 -7 0 -33 -30 -57 -67z"/></g></svg></span><b>DUE PI GRECO</b></a>
+  <span class="targhetta">Libreria · riservata</span>
+  <nav class="menu" aria-label="Menu"><div class="menu-voce"><button type="button" class="menu-apri" aria-expanded="false" aria-haspopup="true" data-i="nav_set"></button><div class="menu-sotto"><a href="settore-oem.html"><i>01</i><b data-i="p_s1"></b><span data-i="nav_s1d"></span></a><a href="settore-vsp.html"><i>02</i><b data-i="p_s2"></b><span data-i="nav_s2d"></span></a><a href="settore-phm.html"><i>03</i><b data-i="p_s3"></b><span data-i="nav_s3d"></span></a><a class="menu-tutte" href="applicazioni.html"><i>→</i><b data-i="nav_tutti"></b><span data-i="nav_ris_appd"></span></a></div></div><a href="applicazioni.html" data-i="nav_app"></a><div class="menu-voce"><button type="button" class="menu-apri" aria-expanded="false" aria-haspopup="true" data-i="nav_tec"></button><div class="menu-sotto"><a href="tecnologie.html#sls"><i>SLS</i><b data-i="sls_n"></b><span data-i="nav_tec_d1"></span></a><a href="tecnologie.html#saf"><i>SAF</i><b data-i="saf_n"></b><span data-i="nav_tec_d2"></span></a><a href="tecnologie.html#fdm"><i>FDM</i><b data-i="fdm_n"></b><span data-i="nav_tec_d3"></span></a><a href="tecnologie.html#finiture"><i>F0</i><b data-i="nav_tec_fin"></b><span data-i="nav_tec_find"></span></a><a href="tecnologie.html#servizi"><i>→</i><b data-i="nav_tec_srv"></b><span data-i="nav_tec_srvd"></span></a></div></div><div class="menu-voce"><button type="button" class="menu-apri" aria-expanded="false" aria-haspopup="true" data-i="nav_ris"></button><div class="menu-sotto"><a href="materiali.html"><i>01</i><b data-i="nav_ris_mat"></b><span data-i="nav_ris_matd"></span></a><a href="casi.html"><i>02</i><b data-i="nav_ris_casi"></b><span data-i="nav_ris_casid"></span></a><a href="faq.html"><i>03</i><b data-i="nav_ris_faq"></b><span data-i="nav_ris_faqd"></span></a></div></div><a class="menu-cta" href="preventivo.html" data-i="nav_prev"></a></nav>
+  <span class="spazio"></span>
+  <a class="contatto-top" href="#contatti" data-i="top_c"></a>
+  </div></header>
+<main id="contenuto">
+<section class="sez sez--nero hero-pag"><div class="dentro">
+  <div>
+    <p class="briciole"><a href="index.html">← Due Pi Greco</a></p>
+    <span class="occhiello">Libreria 01 · Cibus Tec 2026 · Parma, 29 ottobre</span>
+    <h1>Servi Doryl</h1>
+    <p class="intro">Stampi per formaggio dal 1972, gruppo ALPMA, Langeais (Francia). Produzione, non prototipazione: cestelli e stampi ad hoc in PA2200 per contatto alimentare, nelle serie da 50 a 200 pezzi che lo stampo a iniezione non copre.</p>
+  </div>
+  <div><ul class="indice">
+    <li><a href="#contatto"><span>Il contatto</span><b>01</b></a></li>
+    <li><a href="#chi"><span>Chi sono</span><b>02</b></a></li>
+    <li><a href="#bisogno"><span>Il bisogno</span><b>03</b></a></li>
+    <li><a href="#fattibilita"><span>Fattibilità</span><b>04</b></a></li>
+    <li><a href="#libreria"><span>La libreria</span><b>05</b></a></li>
+    <li><a href="#domande"><span>Limiti e domande</span><b>06</b></a></li>
+    <li><a href="#passi"><span>Prossimi passi</span><b>07</b></a></li>
+  </ul></div>
+</div></section>
+
+<section class="sez sez--nero sez--filo" id="contatto"><div class="dentro">
+  <div class="testa reveal"><span class="occhiello">01 · Il contatto</span><h2>Biglietto raccolto in fiera.</h2></div>
+  <dl class="lib-scheda reveal">
+    <div><dt>Persona</dt><dd>Emeline Dufou…<small>Directrice Commerciale · Sales Director. Cognome troncato nella foto del biglietto: da verificare sull'originale.</small></dd></div>
+    <div><dt>Telefono</dt><dd>+33 (0)6 73 87 79 ··<small>ultime cifre fuori inquadratura · centralino +33 2 47 96 11 50</small></dd></div>
+    <div><dt>E-mail</dt><dd>emeline.dufou…@servidoryl.com<small>da completare dal biglietto · generale: contact@servidoryl.com</small></dd></div>
+    <div><dt>Sede</dt><dd>Zone Industrielle Sud · 5 rue Lavoisier<br>F-37130 Langeais (Indre-et-Loire)<small><a href="https://www.servidoryl.com" rel="noopener" target="_blank">servidoryl.com</a></small></dd></div>
+    <div><dt>Dove</dt><dd>Cibus Tec 2026, Fiere di Parma<small>27–30 ottobre · incontro al loro stand, 29/10</small></dd></div>
+    <div><dt>Stato</dt><dd>Fattibilità discussa con Diego: materiale e finitura idonei.<small>prossimo atto: mail di follow-up con richiesta di uno STEP</small></dd></div>
+  </dl>
+</div></section>
+
+<section class="sez sez--carta" id="chi"><div class="dentro">
+  <div class="testa reveal"><span class="occhiello">02 · Chi sono</span><h2>Fanno solo stampi per formaggio. Da cinquant'anni.</h2></div>
+  <div class="lib-colonne reveal">
+    <div>
+      <h3>L'azienda</h3>
+      <p>Servi Doryl nasce dalla fusione (2006) di Servi, stampi in plastica per paste molli dal 1972, e Doryl, inventrice dello stampo microforato per paste pressate (brevetto 1982). Dal 2009 è nel gruppo ALPMA. Stabilimento di 7.000 m² a Langeais con ufficio tecnico, reparto plastica e officina inox e alluminio; più di 70 macchine, spesso costruite in casa.</p>
+      <p>Dichiarano oltre 3.000 clienti in 66 paesi e più di 10 milioni di formaggi al giorno formati nei loro stampi: dai grandi gruppi caseari alle cooperative piccole e medie. Centinaia di formaggi diversi: paste molli a crosta fiorita o lavata, cagliate lattiche, erborinati, paste pressate crude e cotte, capra, pecora, vacca, tofu.</p>
+    </div>
+    <div>
+      <h3>Il catalogo</h3>
+      <ul>
+        <li><b>Pasta pressata:</b> stampi e blocchi-stampo microforati, su misura, con oltre 40 combinazioni di trama e perforazione; coperchi di pressatura (foncets) singoli o a blocco, con molle di compensazione e armature inox.</li>
+        <li><b>Pasta molle:</b> vasche di coagulazione fino a 675 litri, micro-vasche a volume di stampo, blocchi-stampo e blocchi-rialzo, distributori di cagliata, vassoi e stuoie di sgocciolatura. Sistema brevettato Hi-Perf per il drenaggio.</li>
+        <li><b>Affinatura:</b> gamma Sanair, piedi e graticci in plastica, carrelli porta-graticci.</li>
+        <li><b>Materiali e processi:</b> polipropilene e polietilene per contatto alimentare; stampi "chaudronnés" (da lastra tramata e forata, piegata e lavorata) oppure iniettati e poi microforati; assemblaggio per polifusione, senza viti. Versioni rilevabili ai raggi X e al metal detector.</li>
+        <li><b>Su misura:</b> dichiarano "soluzioni su misura in piccole serie" e un servizio di prototipazione con prova sulla linea del cliente.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="nota-mono">Fonti: servidoryl.com (presentazione, pagine prodotto, articoli sulla prototipazione), letture del 29/10/2026. Numeri dichiarati dall'azienda.</p>
+</div></section>
+
+<section class="sez sez--nero" id="bisogno"><div class="dentro">
+  <div class="testa reveal"><span class="occhiello">03 · Il bisogno</span><h2>Produzione, non prototipazione.</h2></div>
+  <div class="lib-colonne reveal">
+    <div>
+      <h3>Il caso tipo</h3>
+      <p>Un caseificio ha una macchina a carosello e gli servono stampi ad hoc per quella macchina: cestelli riutilizzabili, tutti uguali, in un numero che non si ripaga con uno stampo a iniezione. Ne servono 50, 100, al massimo 200. Non di più.</p>
+      <p>Oggi Servi Doryl copre questa fascia con lo stampo chaudronné, cioè lastra tramata e forata, piegata, lavorata e saldata a mano: lavoro artigianale su ogni pezzo. Sopra, con l'iniezione, che chiede lo stampo e i suoi volumi. In mezzo c'è la serie corta su file, con la geometria libera e il costo per pezzo stabile dal primo all'ultimo.</p>
+    </div>
+    <div>
+      <h3>Dove entriamo noi</h3>
+      <ul>
+        <li><b>Serie da 50 a 200 pezzi</b> dallo stesso file: la nostra soglia naturale, sotto l'ammortamento dello stampo.</li>
+        <li><b>Geometria a disegno del cliente:</b> trama, perforazioni, piede e aggancio al carosello stanno nel modello 3D. Nessuna punzonatura, nessuna saldatura.</li>
+        <li><b>Riordino identico</b> per tutta la vita della macchina: il file resta, il pezzo torna uguale.</li>
+        <li><b>Loro restano il fornitore</b> del caseificio: noi produciamo dietro Servi Doryl, su loro disegno e loro marchio.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="numeri reveal" style="margin-top:var(--aria)">
+    <div><b>50–200</b><span>pezzi per serie: la fascia che lo stampo a iniezione non copre</span></div>
+    <div><b>PA2200</b><span>poliammide 12 in SLS, contatto alimentare Reg. UE 10/2011 per dichiarazione del produttore</span></div>
+    <div><b>700<small>mm</small></b><span>camera EOS P770: il cestello grande in un pezzo, la serie annidata in una macchinata</span></div>
+    <div><b>1</b><span>file: il vostro STEP, nessuna attrezzatura, riordino identico</span></div>
+  </div>
+</div></section>
+
+<section class="sez sez--carta" id="fattibilita"><div class="dentro">
+  <div class="testa reveal"><span class="occhiello">04 · Fattibilità · verificata con Diego</span><h2>Materiale e finitura ci sono. Il resto si conferma sul pezzo.</h2></div>
+  <div class="lib-colonne reveal">
+    <div>
+      <h3>Confermato</h3>
+      <ul>
+        <li><b>Materiale: PA2200 (PA12) in SLS.</b> Contatto alimentare secondo Reg. UE 10/2011, biocompatibilità ISO 10993-1 e USP classe VI, per dichiarazione del produttore del materiale. Consegna con dichiarazione di conformità al contatto.</li>
+        <li><b>Finitura: F1, sabbiato uniforme.</b> Pallinatura che chiude e uniforma la grana di sinterizzazione: opaco omogeneo, tatto asciutto, nessun rivestimento aggiunto. È la finitura che resta dentro la dichiarazione del materiale. F0 (grezzo tecnico) per le parti non a contatto.</li>
+        <li><b>Resistenza:</b> da −40 a +80 °C sotto carico; sterilizzabile a vapore, EtO e gamma.</li>
+        <li><b>Tracciabilità:</b> lotto e job riportati sul pezzo di serie (Q2); certificato del produttore del materiale dove il capitolato lo chiede (Q3).</li>
+        <li><b>Processo:</b> senza supporti, pareti sottili e fori nel modello; pezzi annidati nella camera, quindi la serie intera in una o poche macchinate.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Da confermare sul loro disegno</h3>
+      <ul>
+        <li><b>Ciclo di lavaggio:</b> temperatura, detergenti e frequenza. Il PA12 regge 80 °C sotto carico; sopra, o con chimica aggressiva, si valuta il polipropilene in SAF (chimica di acidi, basi e detergenti), per il quale il contatto alimentare va verificato caso per caso.</li>
+        <li><b>Superficie e cagliata:</b> rilascio del formaggio e pulibilità della grana F1 rispetto al PP iniettato. Si prova con due provini sulla loro linea, come fanno già con i loro prototipi.</li>
+        <li><b>Carichi:</b> per la pasta pressata, le spinte di pressatura e l'eventuale cintura inox; per la pasta molle, l'impilaggio e le ribaltatrici.</li>
+        <li><b>Il verniciato F2 resta fuori</b> dal contatto con il prodotto: colore a specifica solo sulle parti esterne, o identificazione per marcatura.</li>
+        <li><b>La validazione del ciclo</b> in caseificio resta loro: noi forniamo materiale, dichiarazione e provini.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="nota-mono">Fatti dal sito Rev. 05 (materiali, finiture, FAQ) e dal colloquio con Diego del 29/10/2026. Finitura e materiale si confermano sul disegno, come per ogni fornitura.</p>
+</div></section>
+
+<section class="sez sez--carta sez--filo" id="libreria"><div class="dentro">
+  <div class="testa reveal"><span class="occhiello">05 · La libreria</span><h2>Nove parti a catalogo Servi Doryl che reggono la serie corta.</h2>
+  <p class="sotto-h">Lette dal loro catalogo e tradotte in processo, materiale, finitura e lotto. La riga evidenziata è il caso tipo discusso in fiera.</p></div>
+  <table class="lib-tab reveal">
+    <thead><tr><th>Cod.</th><th>Parte</th><th>Cosa fa, e perché in additive</th><th>Processo · materiale</th><th>Finitura</th><th>Lotto</th></tr></thead>
+    <tbody>
+    <tr class="tipo"><td class="cod">SD-01</td><td class="nome">Cestello / stampo singolo per carosello<small>pasta molle · perforato</small></td><td>Stampo ad hoc per una macchina specifica del caseificio: trama, perforazioni, piede e aggancio nel modello. Sostituisce lo stampo chaudronné fatto a mano, pezzo per pezzo.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">50–200</td></tr>
+    <tr><td class="cod">SD-02</td><td class="nome">Stampo a trama e perforazione variabile<small>pasta pressata · microforato</small></td><td>Le 40 combinazioni di trama e perforazione diventano varianti di file: foro conico o cilindrico, densità e disegno a scelta, senza punzonatura. Per un formato nuovo, la pre-serie prima dell'iniezione.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">20–200</td></tr>
+    <tr><td class="cod">SD-03</td><td class="nome">Blocco-stampo multi-impronta<small>pasta molle · meccanizzato</small></td><td>Più impronte in un pezzo solo, con il passo della loro meccanizzazione, fino a 700 mm: dove oggi saldano stampi singoli in blocco.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">10–50</td></tr>
+    <tr><td class="cod">SD-04</td><td class="nome">Coperchio di pressatura (foncet)<small>pasta pressata</small></td><td>Corpo con sede per le molle di compensazione e per l'armatura inox dei grandi formati, singolo o a blocco. Il peso scende, la geometria è libera.</td><td class="mono">SLS · PA2200 / PA11</td><td class="mono">F1 · contatto</td><td class="mono">50–200</td></tr>
+    <tr><td class="cod">SD-05</td><td class="nome">Micro-vasca di coagulazione<small>pasta molle · a blocco</small></td><td>Una vasca per ogni stampo, assemblate in blocchi uguali ai blocchi-stampo: forma a scelta (semisferica, ellittica, cilindrica, a fondo piatto), senza stampo.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">50–200</td></tr>
+    <tr><td class="cod">SD-06</td><td class="nome">Distributore di cagliata e divisore<small>pasta molle · répartiteur</small></td><td>Oggi in alluminio, inox o plastica: in additive i canali e le sagome (anche a cuore) stanno dentro un pezzo solo, con il passo del blocco-stampo del cliente.</td><td class="mono">SLS · PA2200 oppure SAF · PP</td><td class="mono">F1 · contatto</td><td class="mono">1–50</td></tr>
+    <tr><td class="cod">SD-07</td><td class="nome">Ricambio per stampi fuori produzione<small>parco installato · oltre 20 anni</small></td><td>Stampi in servizio da più di vent'anni, a disegno perso: rilievo 3D del pezzo, ricostruzione e riproduzione; il ricambio rientra a magazzino, digitale.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">10–100</td></tr>
+    <tr><td class="cod">SD-08</td><td class="nome">Piedi, distanziali e graticci<small>affinatura · Sanair</small></td><td>Piedi di base, piedi in plastica, distanziali e giunti dei graticci: parti a formato per la cantina, in polipropilene dove conta la chimica dei lavaggi.</td><td class="mono">SAF · PP oppure SLS · PA2200</td><td class="mono">F0 / F1</td><td class="mono">50–500</td></tr>
+    <tr><td class="cod">SD-09</td><td class="nome">Parti di usura dei carrelli<small>carrelli porta-graticci</small></td><td>Le parti intercambiabili dichiarate a catalogo (guide, boccole, fermi): serie annuali piccole, riordinate identiche dal file.</td><td class="mono">SLS · PA2200 / PA11</td><td class="mono">F0</td><td class="mono">20–200</td></tr>
+    </tbody>
+  </table>
+  <p class="nota-mono">I lotti sono la nostra fascia di convenienza, non un limite tecnico. Sopra i 200–500 pezzi l'anno torna lo stampo, e lo diciamo. Il grado F3 non serve qui.</p>
+</div></section>
+
+<section class="sez sez--nero" id="domande"><div class="dentro">
+  <div class="testa reveal"><span class="occhiello">06 · Limiti e domande</span><h2>Cosa non abbiamo, e cosa chiedere alla prima call.</h2></div>
+  <div class="lib-colonne reveal">
+    <div>
+      <h3>I nostri limiti, detti prima</h3>
+      <ul>
+        <li><b>Rilevabilità:</b> il loro catalogo offre versioni rilevabili ai raggi X e al metal detector. Il PA2200 non lo è. Se il capitolato HACCP del caseificio lo chiede, la parte resta loro.</li>
+        <li><b>Colore:</b> il PA2200 esce bianco; il PP in SAF grigio. Il colore a specifica (F2) non va a contatto con il prodotto. L'identificazione si fa con marcatura sul pezzo.</li>
+        <li><b>Temperatura:</b> 80 °C sotto carico per il PA12. Lavaggi più caldi o chimica aggressiva spostano sul PP, con contatto da verificare.</li>
+        <li><b>Volumi:</b> sopra la fascia 200–500 l'anno conviene il loro stampo iniettato. Li aiutiamo a fare il passaggio, con la pre-serie fatta da noi.</li>
+        <li><b>Superficie:</b> la grana sinterizzata non è la lucidità del PP iniettato. Per il rilascio della cagliata vale solo la prova in linea.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Domande per Emeline</h3>
+      <ul>
+        <li>Quante richieste l'anno ricevete per serie da 50 a 200 stampi, e oggi come le evadete (chaudronné, iniezione, rifiuto)?</li>
+        <li>Quali formati e quali macchine (caroselli, formatrici, blocchi) tornano più spesso in quelle richieste?</li>
+        <li>Ciclo di lavaggio tipo dei vostri clienti: temperatura massima, detergenti, frequenza.</li>
+        <li>Capitolato igienico: USDA, 3-A, rilevabilità richiesta o no.</li>
+        <li>Chi tiene il disegno: voi (STEP vostro, marchio vostro) o il caseificio?</li>
+        <li>Che prova vi basta per qualificare un materiale nuovo: due provini sulla linea di un cliente, come per i vostri prototipi?</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="sez sez--nero sez--filo" id="passi"><div class="dentro">
+  <div class="testa reveal"><span class="occhiello">07 · Prossimi passi</span><h2>Dalla fiera al primo lotto in quattro mosse.</h2></div>
+  <div class="lib-passi reveal">
+    <div><h3>Mail di follow-up</h3><p>Entro la settimana, a Emeline, in francese: grazie, chi siamo in tre righe, il caso tipo da 50–200 pezzi e la richiesta di uno STEP.</p></div>
+    <div><h3>Due provini</h3><p>Sul loro STEP stampiamo due cestelli in PA2200, F0 e F1, con dichiarazione di conformità al contatto. Li spediamo a Langeais.</p></div>
+    <div><h3>Prova in linea</h3><p>Loro li mettono sulla linea di un cliente con il loro protocollo (siero, temperatura, pH, peso, lavaggi). Noi raccogliamo l'esito.</p></div>
+    <div><h3>Prezzo a tre lotti</h3><p>Quotazione su 50, 100 e 200 pezzi dello stesso file, con il riordino. Conferma di una persona entro 24 ore lavorative.</p></div>
+  </div>
+  <div class="lib-bozza reveal" style="margin-top:var(--aria)">
+    <p class="da">Bozza della mail · da rileggere prima dell'invio</p>
+    <p>Bonjour Madame,</p>
+    <p>merci pour l'échange à Cibus Tec. Due Pi Greco produit en série courte des pièces en polyamide PA2200 (frittage laser SLS) aptes au contact alimentaire selon le Règlement UE 10/2011, avec déclaration de conformité. Nous fabriquons de 50 à 200 pièces identiques à partir d'un seul fichier, sans outillage: c'est la fourchette qu'un moule d'injection ne couvre pas, par exemple les moules à façon pour un carrousel chez un fromager.</p>
+    <p>Si cela vous intéresse, envoyez-nous le STEP d'un moule que vous fabriquez aujourd'hui en petite série: nous vous retournons deux échantillons (finition brute et sablée) à tester sur ligne selon votre protocole, et un prix sur 50, 100 et 200 pièces.</p>
+    <p>Cordialement,<br>Roberto Alberio · Due Pi Greco S.r.l. · info@duepigreco3d.it · +39 0423 715172</p>
+  </div>
+</div></section>
+</main>
+<section class="cta-strip"><div class="dentro reveal"><div class="cta-testo"><h2>Il prossimo atto è uno STEP.</h2><p>Un cestello loro, due provini nostri, una prova sulla linea di un caseificio.</p></div><p class="azioni"><a class="bottone" href="https://www.servidoryl.com/contact/" rel="noopener" target="_blank">Contatti Servi Doryl</a></p></div></section>
+<footer class="piede4" id="contatti"><div class="piede-dentro">
+  <div class="piede-col">
+    <div class="piede-marchio"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 855 1002" role="img" aria-label="Due Pi Greco"><title>Due Pi Greco</title><g transform="translate(0.000000,1002.000000) scale(0.100000,-0.100000)" fill-rule="evenodd"><path class="dpg-nero" fill="#0B0B0C" d="M2185 8777 c-3 -7 -4 -120 -3 -252 l3 -240 2850 -5 c1568 -3 2851 -6 2853 -8 1 -1 1 -1634 0 -3629 l-3 -3628 -3630 0 -3630 0 -3 2839 c-1 2078 -5 2843 -13 2852 -12 15 -448 21 -483 8 -15 -6 -16 -288 -16 -3105 l0 -3099 26 -10 c41 -16 8226 -13 8247 3 16 11 17 274 15 4147 l-3 4135 -3103 3 c-2502 2 -3104 0 -3107 -11z"/><path class="dpg-rosso" fill="#ED1B24" d="M555 9234 c-11 -2 -47 -9 -80 -16 -166 -31 -303 -146 -351 -294 -23 -73 -32 -335 -12 -352 12 -9 69 -12 224 -10 l209 3 11 90 c15 114 27 146 67 176 31 23 38 24 199 24 l168 0 37 -38 38 -37 0 -124 c0 -192 8 -187 -415 -291 -325 -80 -374 -100 -451 -182 -89 -95 -94 -120 -94 -483 l0 -315 715 0 715 0 0 190 0 190 -490 5 -490 5 -3 35 c-4 47 34 120 74 142 17 10 69 27 115 38 110 27 253 63 379 97 335 91 429 226 417 596 -8 225 -38 320 -133 414 -115 112 -211 136 -564 139 -146 1 -274 1 -285 -2z M2289 6883 c-23 -38 -72 -113 -108 -168 -35 -55 -82 -127 -103 -159 -21 -33 -38 -67 -38 -77 0 -11 27 -34 73 -63 257 -160 309 -192 325 -201 9 -6 36 -23 60 -38 23 -15 59 -37 80 -48 20 -11 51 -29 67 -39 17 -10 41 -25 55 -33 14 -7 84 -47 155 -89 127 -73 263 -148 316 -175 15 -7 32 -20 39 -28 13 -16 13 -19 -20 -140 -12 -44 -26 -96 -30 -115 -4 -19 -25 -98 -45 -175 -21 -77 -41 -156 -45 -176 -3 -19 -10 -41 -14 -47 -3 -6 -10 -30 -15 -54 -5 -24 -26 -106 -46 -183 -21 -77 -41 -156 -45 -175 -4 -19 -25 -98 -45 -175 -21 -77 -41 -156 -45 -175 -5 -19 -18 -71 -30 -115 -12 -44 -26 -96 -30 -115 -5 -19 -18 -71 -30 -115 -12 -44 -26 -96 -30 -115 -4 -19 -25 -98 -45 -175 -21 -77 -41 -156 -45 -175 -9 -38 -56 -215 -91 -345 -11 -44 -25 -96 -29 -115 -5 -19 -18 -71 -30 -115 -12 -44 -26 -96 -30 -115 -4 -19 -15 -62 -24 -95 -23 -86 -21 -103 12 -111 15 -4 70 -18 122 -32 52 -13 111 -28 130 -32 19 -4 71 -18 115 -31 44 -12 98 -23 119 -23 43 -1 43 -2 79 139 9 33 21 80 28 105 6 25 15 61 19 80 4 19 18 71 30 115 12 44 26 96 30 115 4 19 22 87 38 150 87 330 105 398 112 431 3 19 10 41 14 47 3 6 10 30 15 54 5 24 25 106 46 183 20 77 41 156 45 175 4 19 22 87 38 150 85 321 105 398 112 430 4 19 18 71 30 115 12 44 26 96 30 115 4 19 25 98 45 175 21 77 41 156 46 175 54 232 56 234 127 204 127 -55 332 -106 422 -107 78 0 206 30 369 89 114 41 119 41 127 7 3 -16 10 -41 15 -58 5 -16 23 -84 39 -150 38 -144 81 -309 122 -465 16 -63 34 -131 38 -150 4 -19 24 -98 45 -175 50 -193 89 -340 140 -540 24 -93 58 -224 75 -290 18 -66 36 -136 40 -155 4 -19 18 -71 30 -115 12 -44 26 -96 30 -115 4 -19 18 -71 30 -115 12 -44 25 -96 30 -115 4 -19 24 -96 43 -170 48 -181 73 -279 81 -314 7 -27 9 -28 54 -23 26 3 72 13 102 22 53 15 294 79 335 89 11 3 32 7 48 11 32 6 34 23 11 104 -22 81 -40 147 -59 221 -9 36 -22 88 -29 115 -8 28 -20 77 -29 110 -52 199 -65 251 -92 355 -10 36 -23 88 -30 115 -7 28 -19 70 -26 95 -6 25 -15 61 -19 80 -7 35 -52 204 -92 350 -11 41 -24 91 -28 110 -4 19 -24 98 -45 175 -20 77 -41 156 -45 175 -4 19 -18 71 -30 115 -12 44 -25 96 -30 115 -7 32 -31 124 -112 430 -16 63 -34 131 -38 150 -14 65 -32 135 -45 175 -25 74 -28 121 -10 139 9 9 20 16 25 16 5 0 44 20 86 45 41 25 78 45 81 45 3 0 39 20 80 45 40 25 76 45 79 45 7 0 583 348 717 433 53 34 97 68 97 76 0 8 -20 44 -43 80 -24 37 -64 98 -89 136 -129 201 -160 246 -172 251 -8 3 -60 -24 -117 -60 -148 -93 -623 -378 -694 -417 -33 -18 -73 -40 -90 -50 -16 -10 -50 -29 -75 -42 -25 -14 -74 -41 -110 -61 -184 -102 -527 -265 -660 -313 -158 -59 -207 -53 -459 54 -79 34 -460 223 -541 270 -19 11 -71 39 -115 63 -94 51 -313 176 -430 247 -114 67 -357 217 -422 260 -46 29 -89 53 -97 53 -7 0 -33 -30 -57 -67z"/></g></svg></span><p><b>Due Pi Greco S.r.l.</b><span data-i="p_claim"></span></p></div>
+    <div><h4 data-i="p_sedi"></h4><p>Ponzano Veneto (TV)<br>Resana (TV)</p></div>
+    <div><h4 data-i="p_contatti"></h4><p><a href="mailto:info@duepigreco3d.it">info@duepigreco3d.it</a><br><a href="tel:+390423715172">+39 0423 715172</a><br><a href="https://duepigreco3d.it">duepigreco3d.it</a></p></div>
+    <div><h4 data-i="p_settori"></h4><p><a href="settore-oem.html"><i>01</i><span data-i="p_s1"></span></a><br><a href="settore-vsp.html"><i>02</i><span data-i="p_s2"></span></a><br><a href="settore-phm.html"><i>03</i><span data-i="p_s3"></span></a></p></div>
+    <div><h4 data-i="p_espl"></h4><p><a href="applicazioni.html"><span data-i="nav_app"></span></a><br><a href="tecnologie.html"><span data-i="nav_tec"></span></a><br><a href="materiali.html"><span data-i="nav_mat"></span></a><br><a href="casi.html"><span data-i="nav_casi"></span></a><br><a href="faq.html"><span data-i="nav_ris_faq"></span></a><br><a href="preventivo.html"><span data-i="nav_prev"></span></a></p></div>
+  </div>
+  <dl class="iscrizioni">
+    <div><dt data-i="c_doc"></dt><dd>DPG-LIB · Servi Doryl</dd></div>
+    <div><dt data-i="c_rev"></dt><dd>Rev. 01 · 29/10/2026</dd></div>
+    <div><dt data-i="c_anno"></dt><dd>2026</dd></div>
+    <div><dt data-i="c_note"></dt><dd>uso interno e per il cliente · non collegata dal menu</dd></div>
+  </dl>
+</div></footer>
+<script>
+const I18N={"nav_set": "Settori", "nav_app": "Applicazioni", "nav_tec": "Tecnologie", "nav_mat": "Materiali", "nav_casi": "Casi", "nav_s1d": "carter, formati, attrezzaggi, ricambi", "nav_s2d": "allestimenti, flotte, finitura da carrozzeria", "nav_s3d": "parti a formato, dossier, cleanroom", "nav_tutti": "Tutte le applicazioni", "p_espl": "Esplora", "top_c": "Contatti", "p_claim": "Produzione additiva industriale per serie piccole e medie.", "p_sedi": "Sedi", "p_contatti": "Contatti", "p_settori": "Settori", "p_s1": "Macchine industriali e OEM", "p_s2": "Mezzi speciali e allestimenti", "p_s3": "Pharma e macchine di processo", "c_doc": "Documento", "c_rev": "Revisione", "c_anno": "Anno", "c_note": "Note", "c_de": "DE: bozza da rileggere", "nav_tec_d1": "EOS P770 · camera 700 × 380 × 580", "nav_tec_d2": "Polipropilene in serie", "nav_tec_d3": "Stratasys · tecnopolimeri", "nav_tec_fin": "Finiture F0–F3", "nav_tec_find": "dal grezzo al grado cleanroom", "nav_tec_srv": "Servizi", "nav_tec_srvd": "rilievo 3D, tracciabilità, preventivo", "nav_ris": "Risorse", "nav_ris_mat": "Materiali", "nav_ris_matd": "sette materiali con il loro limite", "nav_ris_casi": "Casi", "nav_ris_casid": "forniture in produzione", "nav_ris_faq": "Domande frequenti", "nav_ris_faqd": "costi, tempi, file, materiali", "nav_ris_appd": "sedici famiglie di parti", "nav_prev": "Preventivo", "sls_n": "Sinterizzazione laser", "saf_n": "Selective Absorption Fusion", "fdm_n": "Deposizione di filamento"};
+document.querySelectorAll('[data-i]').forEach(e=>e.textContent=I18N[e.dataset.i]??'');
+const oss=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vista');oss.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>oss.observe(el));
+</script>
+
+</body></html>
