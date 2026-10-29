@@ -35,6 +35,7 @@
 .lib-tab td.nome{font-family:var(--disp);font-weight:var(--peso-t);font-size:18px;letter-spacing:-.01em;color:var(--inchiostro);min-width:14ch}
 .lib-tab td.nome small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--grafite);font-weight:400;margin-top:6px}
 .lib-tab td.mono{font-family:var(--mono);font-size:12.5px;color:var(--inchiostro);white-space:nowrap}
+.lib-tab td.lim{font-family:var(--mono);font-size:12.5px;line-height:1.65;color:var(--grafite);min-width:220px}
 .lib-tab tr.tipo td{background:#FFF6F5}
 .lib-tab tr.tipo td.cod::after{content:" · caso tipo";color:var(--grafite);letter-spacing:.06em}
 .lib-passi{counter-reset:p;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--filo-tav)}
@@ -47,11 +48,12 @@
 .lib-bozza p{margin:0 0 12px}.lib-bozza p:last-child{margin:0}
 .lib-bozza .da{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grigio-2);margin-bottom:16px}
 @media(max-width:900px){.lib-colonne,.lib-passi{grid-template-columns:1fr}#bisogno .numeri{grid-template-columns:repeat(2,minmax(0,1fr))}#bisogno .numeri>div{padding:22px 16px 20px}#bisogno .numeri>div:nth-child(odd){border-left:0;padding-left:0}#bisogno .numeri>div:nth-child(n+3){border-top:1px solid var(--filo-tav)}.lib-passi>div{border-left:0;padding-left:0;border-top:1px solid var(--filo-tav)}.lib-passi>div:first-child{border-top:0}}
-@media(max-width:720px){.lib-tab thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.lib-tab tr{display:grid;grid-template-columns:1fr;padding:16px 0;border-bottom:1px solid var(--riga)}.lib-tab td{padding:4px 0;border:0}.lib-tab td.mono{white-space:normal}}
+@media(max-width:720px){.lib-tab thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.lib-tab tr{display:grid;grid-template-columns:1fr;padding:16px 0;border-bottom:1px solid var(--riga)}.lib-tab td{padding:4px 0;border:0}.lib-tab td.mono{white-space:normal}.lib-tab td[data-l]::before{content:attr(data-l) " · ";font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#77777C}}
 </style>
 
 </head><body>
-<!-- DPG-LIB · 01 · Servi Doryl · Rev. 01 (29/10/2026) · libreria applicativa per un'azienda incontrata a Cibus Tec 2026.
+<!-- DPG-LIB · 01 · Servi Doryl · Rev. 02 (29/10/2026) · libreria applicativa per un'azienda incontrata a Cibus Tec 2026.
+     Rev. 02: sezione 06 "Dove conveniamo" (tabella lastra/additivo con i limiti, microforature in SLS con F1, esempi numerici dal modello di prezzo del sito) e righe SD-01..SD-06 con i limiti geometrici. Fasce e soglia da confermare con Diego.
      Pagina in solo italiano, non collegata dal menu e non indicizzata. Fatti sul materiale e sulle finiture presi dalle pagine Rev. 05;
      fatti sull'azienda dal suo sito; fattibilita' discussa con Diego. Testata e piede sono quelli di casi.html. -->
 <header class="topbar topbar--dentro"><div class="dentro">
@@ -75,8 +77,9 @@
     <li><a href="#bisogno"><span>Il bisogno</span><b>03</b></a></li>
     <li><a href="#fattibilita"><span>Fattibilità</span><b>04</b></a></li>
     <li><a href="#libreria"><span>La libreria</span><b>05</b></a></li>
-    <li><a href="#domande"><span>Limiti e domande</span><b>06</b></a></li>
-    <li><a href="#passi"><span>Prossimi passi</span><b>07</b></a></li>
+    <li><a href="#conveniamo"><span>Dove conveniamo</span><b>06</b></a></li>
+    <li><a href="#domande"><span>Limiti e domande</span><b>07</b></a></li>
+    <li><a href="#passi"><span>Prossimi passi</span><b>08</b></a></li>
   </ul></div>
 </div></section>
 
@@ -173,12 +176,12 @@
   <table class="lib-tab reveal">
     <thead><tr><th>Cod.</th><th>Parte</th><th>Cosa fa, e perché in additive</th><th>Processo · materiale</th><th>Finitura</th><th>Lotto</th></tr></thead>
     <tbody>
-    <tr class="tipo"><td class="cod">SD-01</td><td class="nome">Cestello / stampo singolo per carosello<small>pasta molle · perforato</small></td><td>Stampo ad hoc per una macchina specifica del caseificio: trama, perforazioni, piede e aggancio nel modello. Sostituisce lo stampo chaudronné fatto a mano, pezzo per pezzo.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">50–200</td></tr>
-    <tr><td class="cod">SD-02</td><td class="nome">Stampo a trama e perforazione variabile<small>pasta pressata · microforato</small></td><td>Le 40 combinazioni di trama e perforazione diventano varianti di file: foro conico o cilindrico, densità e disegno a scelta, senza punzonatura. Per un formato nuovo, la pre-serie prima dell'iniezione.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">20–200</td></tr>
-    <tr><td class="cod">SD-03</td><td class="nome">Blocco-stampo multi-impronta<small>pasta molle · meccanizzato</small></td><td>Più impronte in un pezzo solo, con il passo della loro meccanizzazione, fino a 700 mm: dove oggi saldano stampi singoli in blocco.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">10–50</td></tr>
-    <tr><td class="cod">SD-04</td><td class="nome">Coperchio di pressatura (foncet)<small>pasta pressata</small></td><td>Corpo con sede per le molle di compensazione e per l'armatura inox dei grandi formati, singolo o a blocco. Il peso scende, la geometria è libera.</td><td class="mono">SLS · PA2200 / PA11</td><td class="mono">F1 · contatto</td><td class="mono">50–200</td></tr>
-    <tr><td class="cod">SD-05</td><td class="nome">Micro-vasca di coagulazione<small>pasta molle · a blocco</small></td><td>Una vasca per ogni stampo, assemblate in blocchi uguali ai blocchi-stampo: forma a scelta (semisferica, ellittica, cilindrica, a fondo piatto), senza stampo.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">50–200</td></tr>
-    <tr><td class="cod">SD-06</td><td class="nome">Distributore di cagliata e divisore<small>pasta molle · répartiteur</small></td><td>Oggi in alluminio, inox o plastica: in additive i canali e le sagome (anche a cuore) stanno dentro un pezzo solo, con il passo del blocco-stampo del cliente.</td><td class="mono">SLS · PA2200 oppure SAF · PP</td><td class="mono">F1 · contatto</td><td class="mono">1–50</td></tr>
+    <tr class="tipo"><td class="cod">SD-01</td><td class="nome">Cestello / stampo singolo per carosello<small>pasta molle · perforato</small></td><td>Stampo ad hoc per una macchina specifica del caseificio: trama, perforazioni, piede e aggancio nel modello. Sostituisce lo stampo chaudronné fatto a mano, pezzo per pezzo. Fori di drenaggio da 1,5 mm nel file su parete 2,5 mm; più fini, meccanici dopo la stampa.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">50–200</td></tr>
+    <tr><td class="cod">SD-02</td><td class="nome">Stampo a trama e perforazione variabile<small>pasta pressata · microforato</small></td><td>Le 40 combinazioni di trama e perforazione diventano varianti di file: foro conico o cilindrico, densità e disegno a scelta, senza punzonatura. Foro passante da 1,5 mm garantito su parete 2,5–4 mm, 1,0–1,2 mm su provino; la microforatura sotto 1 mm resta meccanica, sul pezzo stampato. Per un formato nuovo, la pre-serie prima dell'iniezione.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">20–200</td></tr>
+    <tr><td class="cod">SD-03</td><td class="nome">Blocco-stampo multi-impronta<small>pasta molle · meccanizzato</small></td><td>Più impronte in un pezzo solo, con il passo della loro meccanizzazione, fino a 700 mm: dove oggi saldano stampi singoli in blocco. Il blocco grande occupa la camera da solo: uno per macchinata, quindi la serie sensata è corta.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">10–50</td></tr>
+    <tr><td class="cod">SD-04</td><td class="nome">Coperchio di pressatura (foncet)<small>pasta pressata</small></td><td>Corpo con sede per le molle di compensazione e per l'armatura inox dei grandi formati, singolo o a blocco. Il peso scende, la geometria è libera. Sedi aperte verso l'esterno, così la polvere esce; il corpo pieno si svuota a nervature.</td><td class="mono">SLS · PA2200 / PA11</td><td class="mono">F1 · contatto</td><td class="mono">50–200</td></tr>
+    <tr><td class="cod">SD-05</td><td class="nome">Micro-vasca di coagulazione<small>pasta molle · a blocco</small></td><td>Una vasca per ogni stampo, assemblate in blocchi uguali ai blocchi-stampo: forma a scelta (semisferica, ellittica, cilindrica, a fondo piatto), senza stampo né sformo. Parete uniforme da 2,5–3 mm, raggi da 0,5 mm in su.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">50–200</td></tr>
+    <tr><td class="cod">SD-06</td><td class="nome">Distributore di cagliata e divisore<small>pasta molle · répartiteur</small></td><td>Oggi in alluminio, inox o plastica: in additive i canali e le sagome (anche a cuore) stanno dentro un pezzo solo, con il passo del blocco-stampo del cliente. Canali da 3 mm se corti, da 6 mm se lunghi, perché la polvere esca.</td><td class="mono">SLS · PA2200 oppure SAF · PP</td><td class="mono">F1 · contatto</td><td class="mono">1–50</td></tr>
     <tr><td class="cod">SD-07</td><td class="nome">Ricambio per stampi fuori produzione<small>parco installato · oltre 20 anni</small></td><td>Stampi in servizio da più di vent'anni, a disegno perso: rilievo 3D del pezzo, ricostruzione e riproduzione; il ricambio rientra a magazzino, digitale.</td><td class="mono">SLS · PA2200</td><td class="mono">F1 · contatto</td><td class="mono">10–100</td></tr>
     <tr><td class="cod">SD-08</td><td class="nome">Piedi, distanziali e graticci<small>affinatura · Sanair</small></td><td>Piedi di base, piedi in plastica, distanziali e giunti dei graticci: parti a formato per la cantina, in polipropilene dove conta la chimica dei lavaggi.</td><td class="mono">SAF · PP oppure SLS · PA2200</td><td class="mono">F0 / F1</td><td class="mono">50–500</td></tr>
     <tr><td class="cod">SD-09</td><td class="nome">Parti di usura dei carrelli<small>carrelli porta-graticci</small></td><td>Le parti intercambiabili dichiarate a catalogo (guide, boccole, fermi): serie annuali piccole, riordinate identiche dal file.</td><td class="mono">SLS · PA2200 / PA11</td><td class="mono">F0</td><td class="mono">20–200</td></tr>
@@ -187,8 +190,63 @@
   <p class="nota-mono">I lotti sono la nostra fascia di convenienza, non un limite tecnico. Sopra i 200–500 pezzi l'anno torna lo stampo, e lo diciamo. Il grado F3 non serve qui.</p>
 </div></section>
 
+<section class="sez sez--carta sez--filo" id="conveniamo"><div class="dentro">
+  <div class="testa reveal"><span class="occhiello">06 · Dove conveniamo · da confermare con Diego</span><h2>Complessità geometrica e serie corta, insieme.</h2>
+  <p class="sotto-h">Siamo competitivi quando il pezzo è complesso e la serie è corta. In additive la complessità non costa: trama, microforature, canali e sottosquadri sono nel file. Il costo lo fanno il volume di polvere e lo spazio in camera, non il numero di fori né le lavorazioni.</p></div>
+  <table class="lib-tab reveal">
+    <thead><tr><th>Dove il pezzo da lastra costa</th><th>Cosa cambia in additive</th><th>Il limite che diciamo prima</th></tr></thead>
+    <tbody>
+    <tr><td>Microperforazione e trama: punzonatura o foratura pezzo per pezzo, con fori irregolari.</td><td>Forma del foro, densità e disegno sono nel file: foro cilindrico o conico, nessuna punzonatura, nessun costo per il numero di fori.</td><td class="lim">Ø 1,5 mm garantito su parete 2,5–4 mm · 1,0–1,2 mm su provino · sotto 1 mm meccanica, dopo la stampa</td></tr>
+    <tr><td>Assemblaggio di stampi singoli in blocco: saldatura, polifusione.</td><td>Un pezzo solo multi-impronta, fino a 700 × 380 × 580 mm, con il passo della loro meccanizzazione.</td><td class="lim">il blocco grande occupa la camera da solo · serie sensata 10–50</td></tr>
+    <tr><td>Forme non sviluppabili da lastra: semisfere, cuori, raccordi.</td><td>Nessun vincolo di sviluppo né di sformo, nessuna ripresa a mano.</td><td class="lim">spessore uniforme 2,5–4 mm · raggi da 0,5 mm · pieni oltre 8–10 mm si svuotano</td></tr>
+    <tr><td>Canali e sedi interne: molle, armature, drenaggio.</td><td>Già nel pezzo, senza lavorazioni successive.</td><td class="lim">canali da 3 mm se corti, da 6 mm se lunghi · cavità chiuse con due fori di scarico da 4 mm, o sedi aperte</td></tr>
+    <tr><td>Spessori imposti dal semilavorato: la lastra è una sola.</td><td>Spessore libero punto per punto: 2,5 mm dove basta, materiale solo dove serve.</td><td class="lim">1,5 mm il minimo riproducibile · 2,5 mm il nostro standard a contatto (fornitura forni)</td></tr>
+    <tr><td>Stampo a iniezione per 100 pezzi.</td><td>Nessuno stampo: 100 pezzi costano 100 volte il pezzo, con lo sconto di lotto.</td><td class="lim">sopra 200–500 pezzi l'anno torna lo stampo</td></tr>
+    </tbody>
+  </table>
+  <p class="nota-mono">Dove non conveniamo: geometrie semplici e piane da lastra con poche lavorazioni, pieni massicci, serie sopra i 200–500 l'anno. La soglia è il costo dello stampo diviso la differenza fra il nostro prezzo al pezzo e il pezzo iniettato: con 150–250 € al pezzo, uno stampo da qualche decina di migliaia di euro rientra fra 200 e 500 pezzi.</p>
+
+  <div class="lib-colonne reveal" style="margin-top:var(--aria)">
+    <div>
+      <h3>Le microforature in SLS, con F1</h3>
+      <p>La domanda che faranno per prima. Risposta breve: le microforature si stampano, con un diametro minimo che dipende dallo spessore della parete, e la finitura F1 non le chiude. Il numero di fori non cambia il prezzo.</p>
+      <ul>
+        <li><b>Il limite.</b> Le regole EOS legano il foro minimo allo spessore: 0,5–0,8 mm solo su pareti da 0,3–0,6 mm. Su parete 2,5–4 mm il foro passante garantito è Ø 1,5 mm; fra 1,0 e 1,2 mm si stampa ma va provato, perché la polvere parzialmente sinterizzata può restringerlo. Il foro conico aiuta: sezione minima corta, la polvere esce.</li>
+        <li><b>Sotto 1 mm.</b> Non in SLS. O la microforatura meccanica dopo la stampa, come fanno oggi, su un pezzo già formato in additive; o trama e drenaggio ridisegnati con fori da 1,2–1,5 mm più fitti, a pari superficie aperta.</li>
+        <li><b>F1 e i fori.</b> Microsfere di vetro di pochi decimi di millimetro, a bassa pressione: non ostruiscono fori da 1 mm, anzi li liberano dalla polvere residua. Arrotondano il bordo e possono togliere qualche centesimo: su 1,0–1,2 mm si misura a spina dopo F1. Da 1,5 mm il tema non si pone.</li>
+        <li><b>La prova.</b> Con i due provini, una piastra di prova: fori da 0,8 a 2,0 mm a passo 0,1 su pareti da 2, 3 e 4 mm, cilindrici e conici, F1 su metà superficie. Si misura a Langeais.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Il foro passante, in una tabella</h3>
+      <table class="lib-tab">
+        <thead><tr><th>Foro</th><th>Parete 2,5–4 mm</th><th>Note</th></tr></thead>
+        <tbody>
+        <tr><td class="mono">≥ 1,5 mm</td><td data-l="parete 2,5–4 mm">sì, garantito</td><td data-l="note">nessuna prova</td></tr>
+        <tr><td class="mono">1,0–1,2 mm</td><td data-l="parete 2,5–4 mm">sì, su provino</td><td data-l="note">soffiatura, controllo a spina dopo F1; conico meglio di cilindrico</td></tr>
+        <tr><td class="mono">0,8 mm</td><td data-l="parete 2,5–4 mm">solo su parete fino a 1 mm</td><td data-l="note">non per le pareti a contatto</td></tr>
+        <tr><td class="mono">&lt; 0,8 mm</td><td data-l="parete 2,5–4 mm">no in SLS</td><td data-l="note">foratura meccanica dopo la stampa</td></tr>
+        </tbody>
+      </table>
+      <p class="nota-mono" style="margin-top:14px">Fonti: <a href="https://www.3dimpuls.com/sites/default/files/download/design_rules_overview_ls_-_formiga_p100-v1_1.pdf" rel="noopener" target="_blank">EOS, Design Rules Overview LS (2011)</a> · <a href="https://www.amf.uzh.ch/dam/jcr:8554ce1b-61a7-44a4-b859-dca90f0ac462/Design-Guideline-SLS.pdf" rel="noopener" target="_blank">UZH, Design Guideline SLS (2019)</a> · <a href="https://murtfeldt.de/en-GB/Additive-manufacturing/Design-tips/" rel="noopener" target="_blank">Murtfeldt, EOS P760/770</a> · <a href="https://www.hubs.com/knowledge-base/how-design-parts-sls-3d-printing/" rel="noopener" target="_blank">Hubs</a>. Media e pressione della nostra F1 sui forati, e il foro minimo già fatto in serie: Diego.</p>
+    </div>
+  </div>
+
+  <div class="testa reveal" style="margin-top:var(--aria)"><h3 style="font-family:var(--disp);font-weight:var(--peso-t);font-size:22px;letter-spacing:-.015em;margin:0 0 8px">Esempi numerici, dal modello di prezzo del sito</h3>
+  <p class="sotto-h">Fasce indicative dal modello calibrato del preventivatore (agosto 2026), su pezzi tipo e non su un file reale: da confermare sul preventivatore interno. Il prezzo cala del 12 % a 50 pezzi e del 20 % da 100 in su, poi resta stabile; incide la saturazione della camera.</p></div>
+  <table class="lib-tab reveal">
+    <thead><tr><th>Pezzo tipo</th><th>Ingombro · volume</th><th>1 pezzo</th><th>50 pezzi</th><th>100–200 pezzi</th><th>Per macchinata</th></tr></thead>
+    <tbody>
+    <tr class="tipo"><td class="nome">Cestello pasta molle per carosello<small>Ø 120 × 160 mm · parete 2,5 mm · forato</small></td><td class="mono" data-l="ingombro · volume">125 × 125 × 160 · ~150 cm³</td><td class="mono" data-l="1 pezzo">160–200 €</td><td class="mono" data-l="50 pezzi">140–170 €</td><td class="mono" data-l="100–200 pezzi">130–160 €</td><td class="mono" data-l="per macchinata">~20</td></tr>
+    <tr><td class="nome">Stampo pasta pressata microforato<small>Ø 200 × 120 mm · parete 4 mm</small></td><td class="mono" data-l="ingombro · volume">210 × 210 × 120 · ~340 cm³</td><td class="mono" data-l="1 pezzo">290–360 €</td><td class="mono" data-l="50 pezzi">250–320 €</td><td class="mono" data-l="100–200 pezzi">230–290 €</td><td class="mono" data-l="per macchinata">~10</td></tr>
+    <tr><td class="nome">Blocco-stampo a 6 impronte<small>600 × 300 × 150 mm · parete 3 mm</small></td><td class="mono" data-l="ingombro · volume">~1.400 cm³</td><td class="mono" data-l="1 pezzo">1.130–1.440 €</td><td class="mono" data-l="50 pezzi">1.000–1.270 €</td><td class="mono" data-l="100–200 pezzi">910–1.150 €</td><td class="mono" data-l="per macchinata">1 · 150–190 € per impronta</td></tr>
+    </tbody>
+  </table>
+  <p class="nota-mono">Letto al contrario: 100 cestelli costano 13.000–16.000 € senza attrezzatura, e il centunesimo costa come il primo. Il confronto è con lo stampo chaudronné, pezzo per pezzo, e con lo stampo a iniezione più i suoi 100 pezzi. Pezzi per macchinata: stima di annidamento, non un impegno.</p>
+</div></section>
+
 <section class="sez sez--nero" id="domande"><div class="dentro">
-  <div class="testa reveal"><span class="occhiello">06 · Limiti e domande</span><h2>Cosa non abbiamo, e cosa chiedere alla prima call.</h2></div>
+  <div class="testa reveal"><span class="occhiello">07 · Limiti e domande</span><h2>Cosa non abbiamo, e cosa chiedere alla prima call.</h2></div>
   <div class="lib-colonne reveal">
     <div>
       <h3>I nostri limiti, detti prima</h3>
@@ -215,7 +273,7 @@
 </div></section>
 
 <section class="sez sez--nero sez--filo" id="passi"><div class="dentro">
-  <div class="testa reveal"><span class="occhiello">07 · Prossimi passi</span><h2>Dalla fiera al primo lotto in quattro mosse.</h2></div>
+  <div class="testa reveal"><span class="occhiello">08 · Prossimi passi</span><h2>Dalla fiera al primo lotto in quattro mosse.</h2></div>
   <div class="lib-passi reveal">
     <div><h3>Mail di follow-up</h3><p>Entro la settimana, a Emeline, in francese: grazie, chi siamo in tre righe, il caso tipo da 50–200 pezzi e la richiesta di uno STEP.</p></div>
     <div><h3>Due provini</h3><p>Sul loro STEP stampiamo due cestelli in PA2200, F0 e F1, con dichiarazione di conformità al contatto. Li spediamo a Langeais.</p></div>
@@ -242,7 +300,7 @@
   </div>
   <dl class="iscrizioni">
     <div><dt data-i="c_doc"></dt><dd>DPG-LIB · Servi Doryl</dd></div>
-    <div><dt data-i="c_rev"></dt><dd>Rev. 01 · 29/10/2026</dd></div>
+    <div><dt data-i="c_rev"></dt><dd>Rev. 02 · 29/10/2026</dd></div>
     <div><dt data-i="c_anno"></dt><dd>2026</dd></div>
     <div><dt data-i="c_note"></dt><dd>uso interno e per il cliente · non collegata dal menu</dd></div>
   </dl>
