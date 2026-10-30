@@ -9,7 +9,8 @@ collegate dal menu del sito. Lo stile è quello del sito (`../assets/`), così l
 - `sovam-fr.html`: la stessa scheda in francese, da portare o mandare a SOVAM. Stessi fatti e stesse fonti; se si aggiorna una, si aggiorna l'altra.
 - `sovam-invio/`: il pacchetto da consegnare al cliente, in francese. `email.md` è la bozza dell'email (con traduzione e note
   prima dell'invio); `01-pistes-sovam.html` e `02-due-pi-greco-en-bref.html` sono i due allegati, `stampa.css` lo stile A4,
-  `pdf.js` genera i PDF (`node pdf.js` dalla cartella). Negli allegati entrano solo fatti già pubblicati sul sito DPG:
+  `pdf.js` genera i PDF (`node pdf.js` dalla cartella); `img/` contiene le immagini del sito convertite in JPEG ridotti,
+  perché Chromium incorporerebbe i WebP senza compressione (12 MB a PDF invece di 1). Negli allegati entrano solo fatti già pubblicati sul sito DPG:
   niente stato prospect, niente priorità, niente note di approccio, niente dati finanziari del cliente.
 
 ## Schema fisso di una scheda

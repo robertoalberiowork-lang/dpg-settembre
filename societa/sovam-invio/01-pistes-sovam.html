@@ -3,12 +3,25 @@
 <title>Pistes d'application · SOVAM · Due Pi Greco</title>
 <link rel="stylesheet" href="../../assets/fonts.css"><link rel="stylesheet" href="stampa.css">
 </head><body>
-<!-- DPG-WEB · societa/sovam-invio · allegato 1 per il cliente (FR). Solo fatti DPG già approvati sul sito; le piste sono proposte, non una distinta. -->
+<!-- DPG-WEB · societa/sovam-invio · allegato 1 per il cliente (FR). Solo fatti DPG già approvati sul sito; le piste sono proposte, non una distinta.
+     Grafica dal sito: tavole CAD (tav_vsp_*), pezzi (pezzi/*), scala finiture (fin_vsp_*), famiglie (app_*). -->
 
 <section class="parte">
 <span class="occhiello">Document de travail · préparé pour SOVAM, Châtillon-sur-Thouet</span>
 <h1>Où la fabrication additive peut servir vos équipements.</h1>
 <p class="intro">Nous avons lu votre gamme, votre service pièces de rechange et votre activité de retrofit avec une seule question : quelles pièces en plastique, produites aujourd'hui en quelques dizaines d'exemplaires ou réapprovisionnées à l'unité, se feraient mieux à partir d'un fichier ? Voici dix pistes, engin par engin. Ce sont des hypothèses de lecture, pas une nomenclature : elles se valident sur un STEP ou lors d'une visite d'atelier.</p>
+
+<figure class="tav">
+  <div class="cad"><img src="img/tav_vsp_hero.jpg" alt="Dessin technique : véhicule de secours sur châssis à trois essieux, en rouge les pièces produites en additif">
+  <svg class="richiami" viewBox="0 0 1800 1200" aria-hidden="true">
+    <path d="M700 238 L470 196"/><path d="M1080 487 L1290 342"/><path d="M724 767 L600 1046"/>
+    <circle cx="700" cy="238" r="8"/><circle cx="1080" cy="487" r="8"/><circle cx="724" cy="767" r="8"/>
+    <text x="80" y="150">Tête du mât d'éclairage</text><text class="proc" x="80" y="186">FDM · Nylon 12CF</text>
+    <text x="1300" y="330">Monitor incendie</text><text class="proc" x="1300" y="366">métal · réseau partenaires</text>
+    <text x="80" y="1080">Prise d'eau : cadre et trappe</text><text class="proc" x="80" y="1116">SLS · PA12 · peinture 2K</text>
+  </svg></div>
+  <figcaption><b>Dessin technique, pas une photo · DPG-WEB</b><span>Véhicule de secours sur châssis à trois essieux, à partir d'un modèle CAO de référence, pas d'une commande. En rouge, les pièces que nous produisons en additif. La même lecture s'applique à un escalier, un ambulift ou un tracteur.</span></figcaption>
+</figure>
 
 <div class="chiave">
   <div><b>1–50</b><span>pièces par lot : la plage où le coût à la pièce est stable, du premier au dernier engin</span></div>
@@ -16,20 +29,54 @@
   <div><b>F0–F3</b><span>échelle de finition, du brut technique à la peinture 2K dans votre couleur</span></div>
   <div><b>24 h</b><span>ouvrées : une personne confirme la fourchette de prix sur votre fichier</span></div>
 </div>
+</section>
+
+<section class="parte">
+<div class="sez nuova libera">
+<span class="occhiello">Pourquoi votre gamme se prête à l'additif</span>
+<h2>Quatre postes de votre compte d'exploitation</h2>
+<div class="due">
+  <div class="blocco conimg"><img src="img/app_all.jpg" alt=""><h3>Des séries de quelques dizaines, avec des variantes</h3><div class="testo"><p>Chaque engin existe en civil et en militaire, en thermique et en électrique, avec ou sans cabine, avec Kit Grand Froid. Chaque option est une nomenclature différente, produite en quelques exemplaires. Sans moule à amortir, la variante est un fichier : le coût à la pièce ne dépend pas du nombre d'engins de la commande.</p><span class="tag">aucun outillage · variante au prix d'un fichier</span></div></div>
+  <div class="blocco conimg"><img src="img/app_car.jpg" alt=""><h3>Des flottes en service pendant trente ans</h3><div class="testo"><p>Votre stock de 113&nbsp;700 références couvre des engins de plus de trente ans. Les pièces plastiques dont le moule a disparu, ou dont le fournisseur n'existe plus, peuvent revenir en stock numérique : à plan perdu, on part de la pièce, par relevé 3D. Le réapprovisionnement est identique au lot précédent, sans minimum de commande.</p><span class="tag">stock numérique · réapprovisionnement identique</span></div></div>
+  <div class="blocco conimg"><img src="img/app_int.jpg" alt=""><h3>Des intérieurs et des conduits consolidés</h3><div class="testo"><p>Planches de bord, capots d'électronique, supports d'instrumentation, conduits d'air : des ensembles de plusieurs pièces assemblées deviennent des monoblocs prêts au montage, avec les clips, les bossages et les canaux dans la géométrie. Moins de références, moins de vis, moins de montage.</p><span class="tag">moins de références · moins de montage</span></div></div>
+  <div class="blocco conimg"><img src="img/fin_vsp_F2_3020.jpg" alt=""><h3>Une finition de carrosserie</h3><div class="testo"><p>Vos engins sont exposés sur les aires de trafic, dans la livrée de vos clients. Nos pièces se peignent en 2K liquide selon spécification : couleur exacte, mat, brillant ou grainé, protection contre les UV, les chocs et l'abrasion. La surface est à la hauteur du véhicule, pas du prototype.</p><span class="tag">peinture 2K · couleur à spécification</span></div></div>
+</div>
+<div class="striscia s3 bassa" style="margin-top:10px">
+  <figure><img src="img/tav_vsp_telaio.jpg" alt=""><figcaption><b>01 · Châssis-cabine</b>sans aménagement</figcaption></figure>
+  <figure><img src="img/tav_vsp_modulo.jpg" alt=""><figcaption><b>02 · Châssis et module</b>citerne et compartiments ouverts</figcaption></figure>
+  <figure><img src="img/tav_vsp_retro.jpg" alt=""><figcaption><b>03 · Véhicule complet</b>mât d'éclairage et compartiment arrière</figcaption></figure>
+</div>
+</div>
 
 <div class="sez">
-<span class="occhiello">Pourquoi votre gamme se prête à l'additif</span>
-<div class="due">
-  <div class="blocco"><h3>Des séries de quelques dizaines, avec des variantes</h3><p>Chaque engin existe en civil et en militaire, en thermique et en électrique, avec ou sans cabine, avec Kit Grand Froid. Chaque option est une nomenclature différente, produite en quelques exemplaires. Sans moule à amortir, la variante est un fichier : le coût à la pièce ne dépend pas du nombre d'engins de la commande.</p><span class="tag">aucun outillage · variante au prix d'un fichier</span></div>
-  <div class="blocco"><h3>Des flottes en service pendant trente ans</h3><p>Votre stock de 113&nbsp;700 références couvre des engins de plus de trente ans. Les pièces plastiques dont le moule a disparu, ou dont le fournisseur n'existe plus, peuvent revenir en stock numérique : à plan perdu, on part de la pièce, par relevé 3D. Le réapprovisionnement est identique au lot précédent, sans minimum de commande.</p><span class="tag">stock numérique · réapprovisionnement identique</span></div>
-  <div class="blocco"><h3>Des intérieurs et des conduits consolidés</h3><p>Planches de bord, capots d'électronique, supports d'instrumentation, conduits d'air : des ensembles de plusieurs pièces assemblées deviennent des monoblocs prêts au montage, avec les clips, les bossages et les canaux dans la géométrie. Moins de références, moins de vis, moins de montage.</p><span class="tag">moins de références · moins de montage</span></div>
-  <div class="blocco"><h3>Une finition de carrosserie</h3><p>Vos engins sont exposés sur les aires de trafic, dans la livrée de vos clients. Nos pièces se peignent en 2K liquide selon spécification : couleur exacte, mat, brillant ou grainé, protection contre les UV, les chocs et l'abrasion. La surface est à la hauteur du véhicule, pas du prototype.</p><span class="tag">peinture 2K · couleur à spécification</span></div>
+<span class="occhiello">Comment nous lisons un véhicule</span>
+<h2>Le châssis est de série. L'aménagement ne l'est pas.</h2>
+<div class="mappa">
+  <figure class="tav">
+    <div class="cad"><img src="img/tav_vsp_profilo.jpg" alt="Vue latérale du véhicule avec compartiments ouverts et sept repères numérotés">
+    <ol class="marcatori" aria-hidden="true">
+      <li style="--x:75.06%;--y:42.49%">01</li><li style="--x:21.34%;--y:14.30%">02</li><li style="--x:83.51%;--y:60.05%">03</li><li style="--x:41.32%;--y:60.29%">04</li><li style="--x:42.06%;--y:72.60%">05</li><li style="--x:13.01%;--y:59.35%">06</li><li style="--x:58.67%;--y:69.55%">07</li>
+    </ol></div>
+    <figcaption><b>La carte des composants additifs</b><span>Sept familles repérées sur le véhicule. Les repères sont indicatifs : la nomenclature réelle se valide sur le cahier des charges, ensemble.</span></figcaption>
+  </figure>
+  <div>
+    <ol class="famiglie">
+      <li>Embases et supports de gyrophares</li>
+      <li>Carter de la tête du mât d'éclairage</li>
+      <li>Planche de bord et capots d'électronique de cabine</li>
+      <li>Protections et supports, compartiment du groupe électrogène</li>
+      <li>Cadre et trappe de la prise d'eau</li>
+      <li>Berceaux et guides du dévidoir, embouts de tuyau</li>
+      <li>Poignées et butées des rideaux</li>
+    </ol>
+    <p class="nota">C'est la lecture que nous proposons de faire sur vos engins : la planche de bord d'un K22, la nacelle d'une PA, l'habitacle d'un eHELP.</p>
+  </div>
 </div>
 </div>
 </section>
 
 <section class="parte">
-<div class="sez libera nuova">
+<div class="sez libera">
 <span class="occhiello">Les pistes</span>
 <h2>Dix pistes, lues sur votre gamme</h2>
 <table>
@@ -49,6 +96,20 @@
 </table>
 <p class="nota">Matériaux et finitions indiqués par famille de pièces ; ils se confirment sur votre plan. Aucune géométrie SOVAM n'a été vue : les pistes naissent des sous-ensembles que vos fiches produit énumèrent.</p>
 </div>
+
+<div class="sez">
+<span class="occhiello">Des pièces typiques, dessinées par nous</span>
+<h2>Ce à quoi ressemblent ces pièces</h2>
+<div class="striscia s5">
+  <figure><img src="img/pezzi_condotto.jpg" alt=""><figcaption><b>Conduit d'air</b>du rectangle au rond, bride et cordon en une pièce <i>SLS · PA12</i></figcaption></figure>
+  <figure><img src="img/pezzi_fanale.jpg" alt=""><figcaption><b>Support de feu</b>lumières de réglage et anneau porteur <i>SLS · PA12</i></figcaption></figure>
+  <figure><img src="img/pezzi_staffa.jpg" alt=""><figcaption><b>Patte porte-capteurs</b>peigne et renforts en une pièce <i>SLS · PA12</i></figcaption></figure>
+  <figure><img src="img/pezzi_carter.jpg" alt=""><figcaption><b>Carter ventilé</b>grille, bossages et clips dans la géométrie <i>SLS · PA12</i></figcaption></figure>
+  <figure><img src="img/pezzi_diffusore.jpg" alt=""><figcaption><b>Diffuseur à disque</b>trous calibrés et rayons de renfort <i>SAF · PP</i></figcaption></figure>
+</div>
+<p class="nota">Pièces de démonstration dessinées par Due Pi Greco, rendu à partir du modèle 3D. Aucune géométrie de client.</p>
+</div>
+
 <div class="sez">
 <span class="occhiello">Ce que nous ne proposons pas</span>
 <h2>Le revers, écrit avant que vous ne l'écriviez</h2>
@@ -61,7 +122,25 @@
 </section>
 
 <section class="parte">
-<div class="sez nuova">
+<div class="sez">
+<span class="occhiello">La finition</span>
+<h2>La pièce est la même. Ce qui change, c'est jusqu'où on la porte.</h2>
+<div class="striscia s4">
+  <figure><img src="img/fin_vsp_F0.jpg" alt=""><figcaption><b>F0 · Brut technique</b>blanc sorti de machine, grain de frittage apparent : pièces internes, gabarits, outillages <i>inclus</i></figcaption></figure>
+  <figure><img src="img/fin_vsp_F1.jpg" alt=""><figcaption><b>F1 · Sablé uniforme</b>grenaillage qui uniformise le grain : mat homogène, toucher sec, la base avant la couleur <i>inclus dans la fourchette</i></figcaption></figure>
+  <figure><img src="img/fin_vsp_F2.jpg" alt=""><figcaption><b>F2 · Peint 2K liquide</b>mastic, ponçage, apprêt et laque polyuréthane 2K : couleur exacte, niveau utilisateur final <i>notre spécialité · chiffrée à part</i></figcaption></figure>
+  <figure><img src="img/fin_vsp_F3.jpg" alt=""><figcaption><b>F3 · Qualité salle blanche</b>nettoyage et contrôle du procédé pour les environnements maîtrisés <i>SLS uniquement · chiffrée à part</i></figcaption></figure>
+</div>
+<div class="striscia s4 bassa">
+  <figure><img src="img/fin_vsp_F2_3020.jpg" alt=""><figcaption><b>F2 · RAL 3020</b>rouge signalisation</figcaption></figure>
+  <figure><img src="img/fin_vsp_F2_5010.jpg" alt=""><figcaption><b>F2 · RAL 5010</b>bleu gentiane</figcaption></figure>
+  <figure><img src="img/fin_vsp_F2_7040.jpg" alt=""><figcaption><b>F2 · RAL 7040</b>gris fenêtre</figcaption></figure>
+  <figure><img src="img/fin_vsp_F2_9003.jpg" alt=""><figcaption><b>F2 · RAL 9003</b>blanc de sécurité</figcaption></figure>
+</div>
+<p class="nota">Le même conduit d'air, de F0 à F3, puis en F2 dans quatre teintes RAL à titre d'exemple : la couleur se fait à spécification, celle de SOVAM ou de votre client. Rendu à partir du modèle 3D, déclaré comme tel : les échantillons réels se touchent en atelier. Avec des jeux inférieurs à 0,3 mm, l'ajustement entre pièces peintes n'est pas garanti.</p>
+</div>
+
+<div class="sez">
 <span class="occhiello">Les matériaux qui servent ici</span>
 <h2>Six matériaux, chacun avec sa limite</h2>
 <table>
@@ -77,19 +156,6 @@
 </table>
 <p class="nota">Valeurs indicatives et relatives au matériau : la pièce se qualifie sur votre plan. Les fiches matériau DPG-MAT accompagnent l'offre.</p>
 </div>
-
-<div class="sez">
-<span class="occhiello">La finition</span>
-<h2>La pièce est la même. Ce qui change, c'est jusqu'où on la porte.</h2>
-<div class="scala">
-  <div><b>F0 · Brut technique</b><p>Blanc sorti de machine, grain de frittage apparent. Pour les pièces fonctionnelles internes, les gabarits et les outillages.</p><span>inclus</span></div>
-  <div><b>F1 · Sablé uniforme</b><p>Grenaillage qui uniformise le grain : mat homogène, toucher sec. La bonne base avant la couleur.</p><span>inclus dans la fourchette</span></div>
-  <div><b>F2 · Peint 2K liquide</b><p>Mastic, ponçage, apprêt et laque polyuréthane 2K : mat, brillant ou grainé, couleur exacte à spécification, niveau esthétique utilisateur final.</p><span>notre spécialité · chiffrée à part</span></div>
-  <div><b>F3 · Qualité salle blanche</b><p>Nettoyage et contrôle du procédé pour les environnements maîtrisés. SLS uniquement.</p><span>SLS uniquement · chiffrée à part</span></div>
-</div>
-<p class="nota">Avec des jeux inférieurs à 0,3 mm, l'ajustement entre pièces peintes n'est pas garanti : sur une planche de bord en plusieurs pièces, nous le disons avant.</p>
-</div>
-
 </section>
 
 <section class="parte">
@@ -118,10 +184,10 @@
 <div class="sez">
 <span class="occhiello">Déjà en service ailleurs</span>
 <h2>Trois cas, même famille de besoins</h2>
-<div class="tre">
-  <div class="blocco"><h3>La finition, prise au sérieux</h3><p>À un constructeur historique de véhicules spéciaux qui demandait des garanties sur la peinture, nous avons répondu par la spécification complète de la laque 2K : adhérence directe sans apprêt, barrière anticorrosion, tenue aux huiles et aux carburants, noir mat stable aux UV.</p><span class="tag">spécification de peinture · laque 2K</span></div>
-  <div class="blocco"><h3>En course, en championnat</h3><p>Sur une voiture de rallye en championnat, nous produisons des pièces de rechange et des améliorations qui tiennent la course : conduit d'admission turbo optimisé en débit, grilles d'intercooler, déflecteurs et supports de phares. Ce qui tient le rallye tient la flotte.</p><span class="tag">PA11 · PA12 · Nylon 12CF</span></div>
-  <div class="blocco"><h3>Un kit de validation de 17 composants</h3><p>Pour un constructeur allemand de moteurs, un kit de validation complet de 17 composants, collecteurs, conduits d'eau et d'air, carters et supports, produits comme un seul lot.</p><span class="tag">un seul lot · PA11 · PA12 · Nylon 12CF</span></div>
+<div class="striscia s3">
+  <figure><img src="img/fin_oem_F2.jpg" alt=""><figcaption><b>La finition, prise au sérieux</b>À un constructeur historique de véhicules spéciaux qui demandait des garanties sur la peinture, nous avons répondu par la spécification complète de la laque 2K : adhérence directe sans apprêt, barrière anticorrosion, tenue aux huiles et aux carburants, noir mat stable aux UV. <i>spécification de peinture · laque 2K</i></figcaption></figure>
+  <figure><img src="img/app_mot.jpg" alt=""><figcaption><b>En course, en championnat</b>Sur une voiture de rallye en championnat, nous produisons des pièces de rechange et des améliorations qui tiennent la course : conduit d'admission turbo optimisé en débit, grilles d'intercooler, déflecteurs et supports de phares. Ce qui tient le rallye tient la flotte. <i>PA11 · PA12 · Nylon 12CF</i></figcaption></figure>
+  <figure><img src="img/app_val.jpg" alt=""><figcaption><b>Un kit de validation de 17 composants</b>Pour un constructeur allemand de moteurs, un kit de validation complet de 17 composants, collecteurs, conduits d'eau et d'air, carters et supports, produits comme un seul lot. <i>un seul lot · PA11 · PA12 · Nylon 12CF</i></figcaption></figure>
 </div>
 </div>
 </section>
