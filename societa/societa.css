@@ -60,3 +60,7 @@ ul.punti li b{font-family:var(--disp);font-weight:650}
 @media(max-width:760px){table.dati.soc{display:block;overflow-x:auto}}
 .avviso{border-left:3px solid var(--giallo);padding:12px 16px;font-size:15px;line-height:1.6;background:var(--panna);color:var(--inchiostro);margin:0 0 var(--aria)}
 .sez--nero .avviso{background:#141416;color:var(--carta)}
+
+/* rimando alla versione in un'altra lingua */
+.topbar a.lang{text-decoration:none}
+table.dati td.mat a.lingua{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--grafite)}

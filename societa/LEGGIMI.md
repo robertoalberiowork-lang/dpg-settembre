@@ -6,6 +6,7 @@ collegate dal menu del sito. Lo stile è quello del sito (`../assets/`), così l
 
 - `index.html`: l'indice, una riga per società (stato, settore DPG, priorità, data di lettura).
 - `sovam.html`: scheda S-01, SOVAM (Châtillon-sur-Thouet, Francia), mezzi speciali aeroportuali.
+- `sovam-fr.html`: la stessa scheda in francese, da portare o mandare a SOVAM. Stessi fatti e stesse fonti; se si aggiorna una, si aggiorna l'altra.
 
 ## Schema fisso di una scheda
 
