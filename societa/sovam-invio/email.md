@@ -10,22 +10,15 @@
 
 Bonjour Monsieur Le Corre,
 
-Je reviens vers vous au sujet de notre échange du 16 octobre : vous proposiez un créneau début novembre, et je vous confirmais ma disponibilité à l'exception des 3 et 5. Pour fixer les choses, voici trois propositions :
+En préparation de notre échange de début novembre, je vous envoie de quoi le rendre concret.
 
-- lundi 2 novembre, en fin de matinée ou en début d'après-midi ;
-- mercredi 4 novembre, à l'heure qui vous convient ;
-- vendredi 6 novembre, le matin.
+Le premier document reprend votre gamme engin par engin, les tracteurs K, les escaliers, les camions catering, les ambulifts, les plateformes PA et ALTA, votre service pièces de rechange et votre activité de retrofit, et propose pour chacun les pièces que nous ferions en additif, avec le matériau et la finition. Dix pistes en tout. Ce sont des hypothèses lues sur vos fiches produit, pas une nomenclature : la discussion sert justement à les confronter à votre réalité.
 
-Si la semaine suivante vous arrange davantage, je m'adapte volontiers. Un échange en visioconférence d'une trentaine de minutes suffit pour une première discussion ; une visite à Châtillon-sur-Thouet est également possible si vous préférez voir des pièces.
+Le second présente Due Pi Greco en deux pages : nos procédés, nos matériaux, notre échelle de finition, et la comparaison honnête entre additif et moule, y compris les cas où nous ne sommes pas la bonne réponse.
 
-Pour préparer cet échange, vous trouverez en pièce jointe deux documents :
+Si, à la lecture, deux ou trois pistes vous paraissent plus justes que les autres, nous partirons de celles-là. Et si vous avez sous la main le STEP d'une pièce qui vous pose problème, ou une référence plastique dont le plan a disparu, nous pouvons arriver à notre rendez-vous avec quelque chose de tangible.
 
-1. **Pistes d'application pour vos équipements** : dix pistes, engin par engin, lues sur vos fiches produit, votre service pièces de rechange et votre activité de retrofit, avec le matériau et la finition que nous proposerions pour chacune. Ce sont des hypothèses de lecture, pas une nomenclature : elles se valident sur une pièce.
-2. **Due Pi Greco en bref** : nos procédés, nos matériaux, notre échelle de finition et la comparaison honnête entre additif et moule, en deux pages.
-
-Trois situations nous semblent particulièrement faites pour l'additif : les pièces plastiques de vos engins les plus anciens, quand le moule ou le fournisseur a disparu ; les kits de retrofit électrique, en un à cinq exemplaires par engin ; et les intérieurs de cabine des tracteurs K et de l'eHELP, en monobloc et peints 2K à votre couleur. Si vous le souhaitez, nous pouvons arriver à notre rendez-vous avec une première pièce réalisée à partir d'un STEP que vous nous enverriez d'ici là.
-
-Dans l'attente de votre retour,
+Pour le créneau, je reste disponible début novembre, hors les 3 et 5, comme indiqué.
 
 Bien cordialement,
 
@@ -38,13 +31,19 @@ info@duepigreco3d.it · +39 0423 715172 · duepigreco3d.it
 
 ## Traduzione per chi la manda
 
-Buongiorno Signor Le Corre, torno sul nostro scambio del 16 ottobre: lei proponeva inizio novembre, io confermavo tranne il 3 e il 5. Per fissare: lunedì 2 (tarda mattinata o primo pomeriggio), mercoledì 4 (all'ora che preferisce), venerdì 6 (mattina). Se la settimana dopo è meglio, mi adatto. Bastano trenta minuti in videochiamata; una visita a Châtillon-sur-Thouet è possibile se preferisce vedere dei pezzi.
+Buongiorno Signor Le Corre, in preparazione del nostro scambio di inizio novembre le mando di che renderlo concreto.
 
-Per preparare l'incontro allego due documenti: (1) dieci piste d'applicazione per i vostri mezzi, lette sulle schede prodotto, sul reparto ricambi e sul retrofit, con materiale e finitura proposti; sono ipotesi, non una distinta, si validano su un pezzo; (2) Due Pi Greco in breve, due pagine. Tre situazioni ci sembrano fatte per l'additive: ricambi plastici dei mezzi vecchi a stampo perduto, kit del retrofit elettrico da uno a cinque pezzi, interni cabina dei trattori K e dell'eHELP in monoblocco verniciati 2K. Se vuole, arriviamo all'appuntamento con un primo pezzo fatto da uno STEP che ci manda prima.
+Il primo documento riprende la vostra gamma mezzo per mezzo (trattori K, scale, catering, ambulift, piattaforme PA e ALTA, reparto ricambi, retrofit) e propone per ciascuno le parti che faremmo in additive, con materiale e finitura. Dieci piste in tutto. Sono ipotesi lette sulle schede prodotto, non una distinta: la discussione serve proprio a confrontarle con la vostra realtà.
+
+Il secondo presenta Due Pi Greco in due pagine: processi, materiali, scala di finitura e il confronto onesto additive/stampo, compresi i casi in cui non siamo la risposta giusta.
+
+Se alla lettura due o tre piste le sembrano più giuste delle altre, partiremo da quelle. E se ha sottomano lo STEP di un pezzo che le dà problemi, o un codice plastico a disegno perduto, possiamo arrivare all'appuntamento con qualcosa di tangibile.
+
+Per la data, resto disponibile a inizio novembre, tranne il 3 e il 5, come indicato.
 
 ## Note prima dell'invio
 
-- Le date proposte partono da oggi, venerdì 30 ottobre: lunedì 2, mercoledì 4 e venerdì 6 novembre sono i giorni liberi della prima settimana, escludendo il 3 e il 5 che avevi già tolto. Se nel frattempo qualcosa è cambiato, correggi la lista prima di inviare.
+- Nessuna data proposta e nessun sollecito, di proposito: lui ha chiesto l'appuntamento, l'ultima riga ricorda solo la tua disponibilità già data. Se vuoi, aggiungi una sola data, non una lista.
 - Sostituire «[fonction]» con il proprio ruolo.
 - Nella bozza già presente in Outlook (quella con «anteprima_sov…» e «DuePiGreco_M…» allegati) c'è materiale precedente: decidi se tenere quegli allegati o sostituirli con i due PDF nuovi. I due nuovi sono pensati per essere letti prima dell'incontro, non al posto dell'incontro.
 - Gli allegati citano solo fatti già pubblicati sul sito DPG. Niente prezzi, niente promesse di tempi oltre le 24 ore per la fascia.
