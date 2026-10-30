@@ -1,0 +1,64 @@
+/* DPG-WEB · societa/sovam-invio · stile di stampa degli allegati per il cliente (A4, chiaro). Font del sito via ../../assets/fonts.css. */
+:root{--nero:#0B0B0C;--rosso:#E63329;--carta:#FAF9F7;--grafite:#4A4A4D;--riga:#D9D6D1;--riga2:#EAE7E3;--inchiostro:#1B1B1E;--grigio:#8C8C90;--panna:#F1EFEB;--giallo:#C9A227;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;--serif:'Source Serif 4',Georgia,serif;--disp:'Archivo',system-ui,sans-serif}
+@page{size:A4;margin:20mm 15mm 20mm 15mm}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#fff;color:var(--inchiostro);font-family:var(--serif);font-size:10.2pt;line-height:1.48}
+a{color:inherit;text-decoration:none}
+.parte{margin:0}
+.nuova{break-before:page}
+/* testata documento */
+.testata{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--nero);padding-bottom:8px;margin-bottom:22px}
+.testata .marchio{font-family:var(--disp);font-weight:800;font-size:13pt;letter-spacing:-.01em}
+.testata .marchio i{display:inline-block;width:9px;height:9px;background:var(--rosso);margin-right:8px;vertical-align:1px}
+.testata .doc{font-family:var(--mono);font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;color:var(--grafite);text-align:right;line-height:1.6}
+.occhiello{font-family:var(--mono);font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;color:var(--rosso);display:block;margin:0 0 6px}
+h1{font-family:var(--disp);font-weight:750;font-size:23pt;letter-spacing:-.025em;line-height:1.05;margin:0 0 12px;max-width:22ch}
+h2{font-family:var(--disp);font-weight:700;font-size:15pt;letter-spacing:-.02em;line-height:1.12;margin:0 0 10px}
+h3{font-family:var(--disp);font-weight:650;font-size:11pt;letter-spacing:-.01em;margin:0 0 5px}
+p{margin:0 0 9px}
+.intro{font-size:11.4pt;line-height:1.45;max-width:62ch;margin:0 0 16px}
+.sez{margin:0 0 20px;page-break-inside:avoid}
+.sez.libera{page-break-inside:auto}
+.due{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.tre{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 22px}
+/* dati chiave */
+.chiave{display:grid;grid-template-columns:repeat(4,1fr);gap:0 16px;margin:14px 0 22px;border-top:1px solid var(--nero)}
+.chiave div{padding:10px 0 0;border-left:1px solid var(--riga);padding-left:12px}
+.chiave div:first-child{border-left:0;padding-left:0}
+.chiave b{font-family:var(--disp);font-weight:750;font-size:19pt;letter-spacing:-.02em;display:block;line-height:1}
+.chiave span{font-family:var(--mono);font-size:7.3pt;letter-spacing:.04em;line-height:1.45;color:var(--grafite);display:block;margin-top:5px}
+/* blocchi */
+.blocco{border-top:1px solid var(--inchiostro);padding:8px 0 0;margin:0 0 14px;page-break-inside:avoid}
+.blocco p{font-size:10pt;line-height:1.5}
+.tag{font-family:var(--mono);font-size:7.3pt;letter-spacing:.1em;text-transform:uppercase;color:var(--grafite);display:block}
+.tag::before{content:"";display:inline-block;width:5px;height:5px;background:var(--rosso);margin-right:7px;vertical-align:1px}
+/* tabelle */
+table{width:100%;border-collapse:collapse;font-size:9.2pt;line-height:1.42;margin:6px 0 10px}
+th{font-family:var(--mono);font-size:7.2pt;letter-spacing:.12em;text-transform:uppercase;text-align:left;color:var(--grafite);padding:0 10px 6px 0;border-bottom:1px solid var(--inchiostro);vertical-align:bottom}
+td{padding:7px 10px 7px 0;border-bottom:1px solid var(--riga);vertical-align:top}
+tr{page-break-inside:avoid}
+td.mat{font-family:var(--disp);font-weight:650;font-size:9pt}
+td .cod{font-family:var(--mono);font-size:7.5pt;color:var(--rosso);letter-spacing:.08em}
+td .proc{font-family:var(--mono);font-size:7.8pt;color:var(--grafite);display:block;margin-top:2px}
+ul.punti{margin:0 0 10px;padding:0 0 0 1.1em;font-size:10pt;line-height:1.5}
+ul.punti li{margin:0 0 5px}
+ul.punti li b{font-family:var(--disp);font-weight:650}
+.nota{font-family:var(--mono);font-size:7.8pt;line-height:1.55;color:var(--grafite);margin:8px 0 0}
+.passi{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 18px;counter-reset:p}
+.passi div{counter-increment:p;border-top:1px solid var(--inchiostro);padding-top:8px}
+.passi div::before{content:"0" counter(p);font-family:var(--mono);font-size:8pt;color:var(--rosso);display:block;margin-bottom:4px}
+.passi p{font-size:9.6pt}
+.riquadro{background:var(--panna);padding:12px 14px;margin:0 0 14px;page-break-inside:avoid}
+.riquadro p{font-size:10pt;margin:0 0 6px}
+.riquadro p:last-child{margin:0}
+.avv{border-left:3px solid var(--giallo);padding:8px 12px;font-size:9.6pt;line-height:1.5;margin:0 0 14px}
+/* piede */
+.piede{border-top:1px solid var(--nero);margin-top:26px;padding-top:8px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:7.3pt;letter-spacing:.06em;color:var(--grafite);line-height:1.6}
+.piede b{color:var(--inchiostro);font-weight:600}
+.scala{display:grid;grid-template-columns:repeat(4,1fr);gap:0 14px}
+.scala div{border-top:1px solid var(--inchiostro);padding-top:8px}
+.scala b{font-family:var(--mono);font-size:8pt;color:var(--rosso);display:block;margin-bottom:4px;letter-spacing:.08em}
+.scala p{font-size:9.4pt;line-height:1.45}
+.scala span{font-family:var(--mono);font-size:7.2pt;color:var(--grafite);letter-spacing:.06em;text-transform:uppercase}

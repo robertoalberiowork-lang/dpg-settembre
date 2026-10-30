@@ -7,6 +7,10 @@ collegate dal menu del sito. Lo stile è quello del sito (`../assets/`), così l
 - `index.html`: l'indice, una riga per società (stato, settore DPG, priorità, data di lettura).
 - `sovam.html`: scheda S-01, SOVAM (Châtillon-sur-Thouet, Francia), mezzi speciali aeroportuali.
 - `sovam-fr.html`: la stessa scheda in francese, da portare o mandare a SOVAM. Stessi fatti e stesse fonti; se si aggiorna una, si aggiorna l'altra.
+- `sovam-invio/`: il pacchetto da consegnare al cliente, in francese. `email.md` è la bozza dell'email (con traduzione e note
+  prima dell'invio); `01-pistes-sovam.html` e `02-due-pi-greco-en-bref.html` sono i due allegati, `stampa.css` lo stile A4,
+  `pdf.js` genera i PDF (`node pdf.js` dalla cartella). Negli allegati entrano solo fatti già pubblicati sul sito DPG:
+  niente stato prospect, niente priorità, niente note di approccio, niente dati finanziari del cliente.
 
 ## Schema fisso di una scheda
 
